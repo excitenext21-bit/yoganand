@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { 
-  Heart, 
   Sparkles, 
   Check,
+  ChevronRight,
   ArrowUpRight
 } from 'lucide-react';
 

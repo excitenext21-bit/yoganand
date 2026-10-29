@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { 
-  ArrowRight, 
+  ChevronRight, 
   MousePointer2, 
   Play, 
   Pause, 
