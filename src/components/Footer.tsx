@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ShieldCheck, Globe, Phone, Mail } from 'lucide-react';
+import { ShieldCheck, Globe, Phone, Mail, Send, CheckCircle2 } from 'lucide-react';
 
 interface FooterProps {
   onOpenDonate: (portalType: 'indian' | 'foreign') => void;
@@ -8,122 +8,63 @@ interface FooterProps {
 }
 
 export const Footer: React.FC<FooterProps> = ({ onOpenDonate }) => {
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [subscribed, setSubscribed] = useState(false);
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail.trim()) return;
+    setSubscribed(true);
+    setNewsletterEmail('');
+  };
+
   return (
-    <footer className="relative bg-[#03131c] text-slate-300 overflow-hidden">
-      {/* 1. Silhouette Landscape Header Art (Caregivers helping elderly in silhouette on misty hill) */}
-      <div className="relative w-full overflow-hidden select-none">
-        {/* SVG Wind Turbulence Filter for Tree Foliage Rustle */}
-        <svg className="absolute w-0 h-0 pointer-events-none" aria-hidden="true">
-          <filter id="windFoliageFilter" x="-10%" y="-10%" width="120%" height="120%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.02 0.035" numOctaves="2" result="noise">
-              <animate attributeName="baseFrequency" dur="7s" values="0.02 0.035; 0.028 0.045; 0.02 0.035" repeatCount="indefinite" />
-            </feTurbulence>
-            <feDisplacementMap in="SourceGraphic" in2="noise" scale="6" xChannelSelector="R" yChannelSelector="G" />
-          </filter>
-        </svg>
+    <footer className="relative bg-[#002878] text-blue-100 border-t border-blue-900/60 overflow-hidden">
+      <div className="site-container py-12 sm:py-14 space-y-10 relative z-10">
 
-        {/* Soft atmospheric fade from the section above into the misty watercolor sky */}
-        <div className="absolute inset-x-0 top-0 h-14 sm:h-20 bg-gradient-to-b from-[#f4f6fb] via-[#f4f6fb]/60 to-transparent z-10 pointer-events-none" />
+        {/* Subscribe Newsletter Section */}
+        <div className="pb-9 border-b border-white/15 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+          <div className="space-y-1.5 max-w-xl">
+            <h3
+              style={{ color: '#ffffff' }}
+              className="text-lg sm:text-xl font-bold !text-white tracking-tight m-0"
+            >
+              Subscribe to Our Seva Newsletter
+            </h3>
+            <p className="text-xs sm:text-sm text-blue-200/90 leading-relaxed m-0">
+              Receive monthly stories of Vrindavan&rsquo;s Matas, ashram updates, and sacred seva impact reports directly in your inbox.
+            </p>
+          </div>
 
-        {/* Poetic Poster Tagline in the Misty Sky Area (Left/Center-Left White Sky Space) */}
-        <div className="  absolute inset-x-0 top-4 sm:top-7 md:top-10 lg:top-12 z-20 pointer-events-none">
-          <div className="site-container">
-            <div className="max-w-[270px] sm:max-w-md md:max-w-lg lg:max-w-xl text-left">
-              {/* Subtle Poster Accent Line & Leaf Motif */}
-              <div className="flex items-center gap-2.5 mb-1.5 sm:mb-2 opacity-80">
-                <span className="h-[1px] w-7 sm:w-10 bg-[#163c46]/60" />
-                <svg
-                  viewBox="0 0 24 24"
-                  className="w-3.5 h-3.5 text-[#163c46] fill-current opacity-85"
-                  aria-hidden="true"
-                >
-                  <path d="M17 3C10 3 4 8 4 14c0 4 3 7 7 7 1.5 0 3-0.5 4-1.5L20 18l-1.5-5C18.5 8 18 5 17 3z" />
-                </svg>
-                <span className="text-[9px] sm:text-[10px] uppercase tracking-[0.28em] font-semibold text-[#163c46]">
-                  Roots of Grace
-                </span>
+          <div className="w-full lg:w-auto lg:min-w-[400px]">
+            {subscribed ? (
+              <div className="flex items-center gap-2.5 py-3 px-4 rounded-xl bg-white/10 border border-white/20 text-white text-xs sm:text-sm font-medium">
+                <CheckCircle2 className="w-4 h-4 text-amber-300 shrink-0" />
+                <span>Thank you for subscribing to our Seva Newsletter!</span>
               </div>
-
-              {/* Regenerated Poster Tagline */}
-              <p
-                style={{
-                  fontFamily: "'Fraunces', Georgia, serif",
-                  color: '#0d2b34',
-                  textShadow: '0 1px 12px rgba(255, 255, 255, 0.85)',
-                }}
-                className="text-sm sm:text-lg md:text-xl lg:text-[23px] font-normal italic leading-[1.38] tracking-[-0.01em]"
-              >
-                &ldquo;Old age is like an ancient tree shedding its leaves with time &mdash;{' '}
-                <span className="not-italic font-semibold text-[#071f27] block sm:inline">
-                  yet deep within, its roots and spirit remain forever strong.&rdquo;
-                </span>
-              </p>
-            </div>
+            ) : (
+              <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2.5">
+                <input
+                  type="email"
+                  required
+                  value={newsletterEmail}
+                  onChange={(e) => setNewsletterEmail(e.target.value)}
+                  placeholder="Enter your email address..."
+                  className="flex-1 py-2.5 px-4 rounded-xl bg-white/10 border border-white/25 text-white placeholder:text-blue-200/70 text-xs sm:text-sm focus:outline-none focus:border-amber-300 transition-colors"
+                />
+                <button
+                  type="submit"
+                  className="py-2.5 px-5 rounded-xl bg-[#e65100] hover:bg-[#cf4500] text-white text-xs sm:text-sm font-bold flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-sm shrink-0"
+                >
+                  <span>Subscribe</span>
+                  <Send className="w-3.5 h-3.5" />
+                </button>
+              </form>
+            )}
           </div>
         </div>
-
-        {/* Base Static Background Image */}
-        <img
-          src="/images/footer-silhouette-seva.jpg"
-          alt="Volunteers supporting elderly destitute mothers in Vrindavan"
-          className="w-full h-52 sm:h-72 md:h-96 lg:h-[430px] object-cover object-[center_top] pointer-events-none"
-        />
-
-        {/* Animated Tree Foliage Layer (Wind Breeze & Rustling Leaves Effect) */}
-        <div 
-          className="absolute inset-0 pointer-events-none overflow-hidden"
-          style={{
-            maskImage: 'radial-gradient(ellipse 26% 24% at 84% 32%, black 45%, transparent 95%)',
-            WebkitMaskImage: 'radial-gradient(ellipse 26% 24% at 84% 32%, black 45%, transparent 95%)',
-          }}
-        >
-          <img
-            src="/images/footer-silhouette-seva.jpg"
-            alt=""
-            className="w-full h-52 sm:h-72 md:h-96 lg:h-[430px] object-cover object-[center_top] animate-tree-breeze filter-[url(#windFoliageFilter)]"
-          />
-        </div>
-
-        {/* Floating Silhouette Leaves moving with the air from the tree branches */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden z-10">
-          {[
-            { id: 1, top: '18%', right: '19%', dur: '6.5s', delay: '0s', scale: 0.8 },
-            { id: 2, top: '24%', right: '23%', dur: '8.5s', delay: '1.4s', scale: 0.6 },
-            { id: 3, top: '28%', right: '17%', dur: '7.2s', delay: '2.8s', scale: 0.9 },
-            { id: 4, top: '21%', right: '27%', dur: '9.2s', delay: '4.1s', scale: 0.7 },
-            { id: 5, top: '32%', right: '21%', dur: '7.8s', delay: '1.9s', scale: 0.55 },
-            { id: 6, top: '16%', right: '25%', dur: '8.8s', delay: '5.2s', scale: 0.75 },
-            { id: 7, top: '27%', right: '15%', dur: '6.8s', delay: '3.6s', scale: 0.65 },
-          ].map((leaf) => (
-            <div
-              key={leaf.id}
-              className="absolute animate-leaf-drift"
-              style={{
-                top: leaf.top,
-                right: leaf.right,
-                animationDuration: leaf.dur,
-                animationDelay: leaf.delay,
-              }}
-            >
-              <svg 
-                viewBox="0 0 24 24" 
-                className="w-3.5 h-3.5 text-[#051c24] fill-current drop-shadow-xs"
-                style={{ transform: `scale(${leaf.scale})` }}
-              >
-                <path d="M17 3C10 3 4 8 4 14c0 4 3 7 7 7 1.5 0 3-0.5 4-1.5L20 18l-1.5-5C18.5 8 18 5 17 3z" />
-              </svg>
-            </div>
-          ))}
-        </div>
-
-        {/* Soft mist vignette and smooth gradient blend into the deep dark footer base */}
-        <div className="absolute inset-x-0 bottom-0 h-36 sm:h-48 bg-gradient-to-t from-[#03131c] via-[#03131c]/85 to-transparent pointer-events-none" />
-      </div>
-
-      {/* Footer Content Area pushed up ~10% */}
-      <div className="site-container relative -mt-8 sm:-mt-12 lg:-mt-16 pt-0 pb-12 space-y-10 z-20">
         
-        {/* Top 4-Column Responsive Grid (12 Columns) with elegant vertical dividers */}
+        {/* Top 4-Column Responsive Grid (12 Columns) with subtle vertical dividers */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
           
           {/* Brand Info & Mission */}
@@ -136,49 +77,47 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDonate }) => {
               />
             </div>
 
-            <p className="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-sm">
+            <p className="text-xs sm:text-sm text-blue-100/85 leading-relaxed max-w-sm">
               Founded in 2015 to serve the aged, abandoned, and destitute elderly women of Vrindavan and Radhakund. Inspired by Paramhansa Yogananda to see and serve the Divine Mother in every living being.
             </p>
           </div>
 
           {/* Column 2: Our Work (Sevas) */}
-          <div className="lg:col-span-3 space-y-3 lg:border-l lg:border-slate-800/80 lg:pl-6">
+          <div className="lg:col-span-3 space-y-3 lg:border-l lg:border-white/15 lg:pl-6">
             <h4 
               style={{ color: '#ffffff' }}
               className="text-xs font-bold !text-white uppercase tracking-wider"
             >
               Our Work (Sevas)
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-400 transition-colors whitespace-nowrap block cursor-default">Matri Seva Ashram</Link></li>
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-400 transition-colors whitespace-nowrap block cursor-default">Matri Seva Community</Link></li>
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-400 transition-colors whitespace-nowrap block cursor-default">Aarogyavardhan Healthcare</Link></li>
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-400 transition-colors font-bold text-amber-300 whitespace-nowrap block cursor-default">Pashu Seva (Cow & Animal)</Link></li>
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-400 transition-colors whitespace-nowrap block cursor-default">Meal Heals (Nutrition)</Link></li>
-              <li><Link to="/#programs" className="hover:text-amber-400 transition-colors whitespace-nowrap block">Seva Dashboard</Link></li>
+            <ul className="space-y-2 text-xs sm:text-sm text-blue-100/85">
+              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-300 transition-colors whitespace-nowrap block cursor-default">Matri Seva Ashram</Link></li>
+              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-300 transition-colors whitespace-nowrap block cursor-default">Matri Seva Community</Link></li>
+              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-300 transition-colors whitespace-nowrap block cursor-default">Aarogyavardhan Healthcare</Link></li>
+              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-300 transition-colors whitespace-nowrap block cursor-default">Meal Heals (Nutrition)</Link></li>
+              <li><Link to="/#programs" className="hover:text-amber-300 transition-colors whitespace-nowrap block">Seva Dashboard</Link></li>
             </ul>
           </div>
 
           {/* Column 3: Heart of Seva & Stories */}
-          <div className="lg:col-span-3 space-y-3 lg:border-l lg:border-slate-800/80 lg:pl-6">
+          <div className="lg:col-span-3 space-y-3 lg:border-l lg:border-white/15 lg:pl-6">
             <h4 
               style={{ color: '#ffffff' }}
               className="text-xs font-bold !text-white uppercase tracking-wider"
             >
               Heart Of Seva
             </h4>
-            <ul className="space-y-2 text-xs sm:text-sm text-slate-400">
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-400 transition-colors whitespace-nowrap block cursor-default">Circle of Love</Link></li>
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-400 transition-colors whitespace-nowrap block cursor-default">In-Person Seva & Pilgrimage</Link></li>
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-400 transition-colors font-bold text-amber-300 whitespace-nowrap block cursor-default">Healing Prayer Circle</Link></li>
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-400 transition-colors whitespace-nowrap block cursor-default">Documentary Gallery</Link></li>
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-400 transition-colors whitespace-nowrap block cursor-default">News & Press Updates</Link></li>
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-400 transition-colors whitespace-nowrap block cursor-default">Contact & Centers</Link></li>
+            <ul className="space-y-2 text-xs sm:text-sm text-blue-100/85">
+              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-300 transition-colors whitespace-nowrap block cursor-default">Circle of Love</Link></li>
+              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-300 transition-colors whitespace-nowrap block cursor-default">In-Person Seva &amp; Pilgrimage</Link></li>
+              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-300 transition-colors font-bold text-amber-300 whitespace-nowrap block cursor-default">Healing Prayer Circle</Link></li>
+              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-300 transition-colors whitespace-nowrap block cursor-default">News &amp; Blogs</Link></li>
+              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-300 transition-colors whitespace-nowrap block cursor-default">Contact &amp; Centers</Link></li>
             </ul>
           </div>
 
           {/* Column 4: Dedicated Portals & Contact */}
-          <div className="lg:col-span-3 space-y-3 lg:border-l lg:border-slate-800/80 lg:pl-6">
+          <div className="lg:col-span-3 space-y-3 lg:border-l lg:border-white/15 lg:pl-6">
             <h4 
               style={{ color: '#ffffff' }}
               className="text-xs font-bold !text-white uppercase tracking-wider"
@@ -203,17 +142,17 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDonate }) => {
               </button>
             </div>
 
-            <div className="pt-2 text-xs text-slate-400 space-y-1.5">
+            <div className="pt-2 text-xs text-blue-100/85 space-y-1.5">
               <div className="flex items-start gap-1.5">
-                <Phone className="w-3.5 h-3.5 text-amber-400 shrink-0 mt-0.5" />
+                <Phone className="w-3.5 h-3.5 text-amber-300 shrink-0 mt-0.5" />
                 <div className="flex flex-col space-y-0.5">
                   <a href="tel:+918433147393" className="hover:text-amber-300 transition-colors whitespace-nowrap">+91 8433147393</a>
                   <a href="tel:+918650911000" className="hover:text-amber-300 transition-colors whitespace-nowrap">+91 86509 11000</a>
                 </div>
               </div>
               <p className="flex items-center gap-1.5 whitespace-nowrap">
-                <Mail className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-                <a href="mailto:communication@yoganandatrust.org" className="hover:text-blue-300 transition-colors whitespace-nowrap">communication@yoganandatrust.org</a>
+                <Mail className="w-3.5 h-3.5 text-amber-300 shrink-0" />
+                <a href="mailto:communication@yoganandatrust.org" className="hover:text-amber-300 transition-colors whitespace-nowrap">communication@yoganandatrust.org</a>
               </p>
             </div>
           </div>
@@ -221,23 +160,23 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDonate }) => {
         </div>
 
         {/* Bottom Legal & Compliance Strip */}
-        <div className="pt-6 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="pt-6 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-blue-200/80">
           <p>© {new Date().getFullYear()} Paramhansa Yogananda Public Charitable Trust. All rights reserved.</p>
           
           <div className="flex flex-wrap items-center gap-4 text-xs">
-            <Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-slate-300 cursor-default">Privacy Policy</Link>
+            <Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-white cursor-default">Privacy Policy</Link>
             <span>•</span>
-            <Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-slate-300 cursor-default">Terms & Conditions</Link>
+            <Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-white cursor-default">Terms &amp; Conditions</Link>
             <span>•</span>
-            <Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-slate-300 cursor-default">80G Refund Policy</Link>
+            <Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-white cursor-default">80G Refund Policy</Link>
             <span>•</span>
-            <span className="text-amber-400">
+            <span className="text-amber-300">
               Crafted by{' '}
               <a
                 href="https://excitetemplate.com/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-amber-300 underline underline-offset-2 transition-colors font-semibold"
+                className="hover:text-amber-200 underline underline-offset-2 transition-colors font-semibold"
               >
                 Excite Template
               </a>

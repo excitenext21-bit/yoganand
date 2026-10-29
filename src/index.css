@@ -73,20 +73,19 @@ body {
   text-transform: none !important;
 }
 
-/* Distressed / Stamp Typography Effect for DESTITUTE, LIFE, HEALTHCARE, DIGNIFIED on White Hero */
+/* Simple Clean Orange Typography for DESTITUTE, LIFE, HEALTHCARE, DIGNIFIED matching SACRED */
 .font-destitute-stamp {
-  font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif !important;
+  font-family: var(--font-sans) !important;
   font-weight: 700 !important;
   letter-spacing: 0.22em !important;
   color: #e65100 !important;
   display: inline-block;
-  text-shadow: none !important;
 }
 
-/* Hero section subtext on clean white background - high contrast & readable */
+/* Hero section subtext on hero background - ensure bright white & readable */
 .hero-subtext {
-  color: #1e293b !important;
-  text-shadow: none !important;
+  color: #ffffff !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 2px 6px rgba(0, 0, 0, 0.7) !important;
 }
 
 @media (max-width: 640px) {

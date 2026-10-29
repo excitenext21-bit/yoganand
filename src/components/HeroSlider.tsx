@@ -52,7 +52,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
   return (
     <section 
       id="home" 
-      className="relative w-full mt-[64px] sm:mt-[72px] h-[calc(100dvh-64px)] sm:h-[calc(100dvh-72px)] min-h-[560px] flex items-center overflow-hidden bg-slate-100"
+      className="relative w-full h-[100dvh] min-h-[620px] flex items-center overflow-hidden bg-slate-100"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -96,7 +96,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent lg:from-black/40 lg:via-black/10 lg:to-transparent"></div>
 
         {/* Content Container: Left-Aligned Layout */}
-        <div className="site-container relative z-10 h-full flex items-center justify-start py-8 sm:py-10 px-4 sm:px-6 lg:px-8">
+        <div className="site-container relative z-10 h-full flex items-center justify-start pt-20 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-xl flex flex-col items-start text-left space-y-2.5 sm:space-y-3.5">
             
             {/* Typographic Cluster: 2-line layout (DESPERATE & / DESTITUTE) */}
@@ -104,10 +104,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
               <h1 className="hero-heading text-3xl sm:text-5xl lg:text-6xl font-bold text-white uppercase tracking-[0.22em] leading-none m-0 p-0 text-left drop-shadow-md">
                 DESPERATE <span style={{ color: '#FACC15' }} className="tracking-normal font-sans font-bold">&amp;</span>
               </h1>
-              <div 
-                className="hero-heading text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-[0.22em] leading-none m-0 p-0 text-left text-white font-destitute-stamp drop-shadow-md"
-                style={{ filter: "url(#grunge-stamp-filter)" }}
-              >
+              <div className="hero-heading text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-[0.22em] leading-none m-0 p-0 text-left text-[#e65100] font-destitute-stamp drop-shadow-md">
                 DESTITUTE
               </div>
             </div>
@@ -157,7 +154,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/10 to-transparent lg:from-black/40 lg:via-transparent lg:to-transparent"></div>
 
         {/* Content Container: 3-column architecture */}
-        <div className="site-container relative z-10 h-full flex items-center py-8 sm:py-10 px-4">
+        <div className="site-container relative z-10 h-full flex items-center pt-20 sm:pt-24 pb-8 px-4">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center w-full">
             
             {/* Column 1 (Left 5 cols): "GRATEFUL FOR THE CHANGE IN HER LIFE" */}
@@ -171,10 +168,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
                 <div className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-amber-300 font-semibold py-1">
                   FOR THE CHANGE IN HER
                 </div>
-                <div 
-                  className="hero-heading text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-[0.18em] leading-none m-0 text-white font-destitute-stamp drop-shadow-md"
-                  style={{ filter: "url(#grunge-stamp-filter)" }}
-                >
+                <div className="hero-heading text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-[0.18em] leading-none m-0 text-[#e65100] font-destitute-stamp drop-shadow-md">
                   LIFE
                 </div>
               </div>
@@ -301,7 +295,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent lg:from-black/40 lg:via-black/10 lg:to-transparent"></div>
 
         {/* Content Container: Left-Aligned Layout with unobstructed view of the doctor & Mata */}
-        <div className="site-container relative z-10 h-full flex items-center justify-start py-8 sm:py-10 px-4 sm:px-6 lg:px-8">
+        <div className="site-container relative z-10 h-full flex items-center justify-start pt-20 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-xl flex flex-col items-start text-left space-y-2.5 sm:space-y-3.5">
             
             {/* Typographic Cluster */}
@@ -312,10 +306,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
               <div className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.28em] text-amber-300 py-0.5 text-left">
                 WITH SACRED CARE & COMPASSION
               </div>
-              <div 
-                className="hero-heading text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-[0.18em] leading-none m-0 p-0 text-left text-white font-destitute-stamp drop-shadow-md"
-                style={{ filter: "url(#grunge-stamp-filter)" }}
-              >
+              <div className="hero-heading text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-[0.22em] leading-none m-0 p-0 text-left text-[#e65100] font-destitute-stamp drop-shadow-md">
                 HEALTHCARE
               </div>
             </div>
@@ -385,7 +376,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent lg:from-black/40 lg:via-black/10 lg:to-transparent"></div>
 
         {/* Content Container: Left-Aligned Layout */}
-        <div className="site-container relative z-10 h-full flex items-center justify-start py-8 sm:py-10 px-4 sm:px-6 lg:px-8">
+        <div className="site-container relative z-10 h-full flex items-center justify-start pt-20 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-xl flex flex-col items-start text-left space-y-2.5 sm:space-y-3.5">
             
             {/* Typographic Cluster: 2-line layout (SACRED & / DIGNIFIED) */}
@@ -393,10 +384,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
               <h1 className="hero-heading text-3xl sm:text-5xl lg:text-6xl font-bold text-white uppercase tracking-[0.22em] leading-none m-0 p-0 text-left drop-shadow-md">
                 SACRED <span style={{ color: '#FACC15' }} className="tracking-normal font-sans font-bold">&amp;</span>
               </h1>
-              <div 
-                className="hero-heading text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-[0.22em] leading-none m-0 p-0 text-left text-white font-destitute-stamp drop-shadow-md"
-                style={{ filter: "url(#grunge-stamp-filter)" }}
-              >
+              <div className="hero-heading text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-[0.22em] leading-none m-0 p-0 text-left text-[#e65100] font-destitute-stamp drop-shadow-md">
                 DIGNIFIED
               </div>
             </div>
@@ -482,8 +470,8 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
         </div>
       </button>
 
-      {/* Rotating Circular Hero Pledge Badge (Transparent with White Text) */}
-      <div className={`absolute top-5 right-4 sm:top-6 sm:right-6 lg:top-7 lg:right-10 z-20 pointer-events-auto select-none ${currentSlide === 1 ? 'hidden' : 'block'}`}>
+      {/* Rotating Circular Hero Pledge Badge (Transparent with White Text) - Lowered below header */}
+      <div className={`absolute top-20 right-4 sm:top-24 sm:right-6 lg:top-24 lg:right-10 z-20 pointer-events-auto select-none ${currentSlide === 1 ? 'hidden' : 'block'}`}>
         <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full bg-transparent p-1 flex items-center justify-center transition-transform hover:scale-105 duration-300">
           
           {/* Outer Dashed Ring */}

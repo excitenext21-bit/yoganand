@@ -75,29 +75,29 @@ export const Header: React.FC<HeaderProps> = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinkClass = 'py-1 transition-colors text-slate-700 hover:text-[#003896]';
+  const navLinkClass = 'py-1 transition-colors text-slate-900 hover:text-[#003896] font-semibold';
 
-  const dropdownTriggerClass = 'flex items-center gap-1 py-1 text-slate-700 hover:text-[#003896] transition-colors cursor-pointer bg-transparent border-0 font-medium';
+  const dropdownTriggerClass = 'flex items-center gap-1 py-1 text-slate-900 hover:text-[#003896] transition-colors cursor-pointer bg-transparent border-0 font-semibold';
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-b border-slate-200/80 bg-white ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 backdrop-blur-md ${
         scrolled 
-          ? 'shadow-md' 
-          : 'shadow-xs'
+          ? 'bg-white/75 border-b border-slate-200/70 shadow-sm' 
+          : 'bg-white/30 border-b border-white/30'
       }`}
     >
       {/* Main Navigation Bar */}
       <div className="px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 transition-all">
         <div className="site-container flex items-center justify-between gap-4">
           
-          {/* Brand Logo: Official logo lockup on white header */}
+          {/* Brand Logo: Official transparent logo lockup */}
           <Link 
             to="/"
             className="flex items-center shrink-0 cursor-pointer group select-none"
           >
             <img
-              src="/images/mainlogo.jpg"
+              src="/images/mainlogo-transparent.png"
               alt="Paramhansa Yogananda Public Charitable Trust"
               className="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
@@ -399,14 +399,6 @@ export const Header: React.FC<HeaderProps> = () => {
               )}
             </div>
 
-            {/* Dedicated Pashu Seva direct link */}
-            <Link 
-              to="/pashu-seva"
-              className="py-1 transition-colors text-[#003896] hover:text-[#002878] font-bold"
-            >
-              Pashu Seva
-            </Link>
-
             {/* Heart of Seva Dropdown - Split Mega-Nav matching About Us & Our Work */}
             <div 
               className="relative py-2" 
@@ -581,29 +573,15 @@ export const Header: React.FC<HeaderProps> = () => {
             </div>
 
             <Link 
-              to="/gallery"
-              className={navLinkClass}
-            >
-              Gallery
-            </Link>
-
-            <Link 
               to="/news"
               className={navLinkClass}
             >
-              News
-            </Link>
-
-            <Link 
-              to="/blog"
-              className={navLinkClass}
-            >
-              Blog
+              News &amp; Blogs
             </Link>
 
             <Link 
               to="/contact"
-              className="flex items-center gap-1.5 py-1 transition-colors font-medium text-slate-700 hover:text-[#003896]"
+              className="flex items-center gap-1.5 py-1 transition-colors font-semibold text-slate-900 hover:text-[#003896]"
             >
               <MapPin className="w-3.5 h-3.5 text-[#003896]" />
               <span>Contact</span>
@@ -654,13 +632,6 @@ export const Header: React.FC<HeaderProps> = () => {
               ↳ Need &amp; Urgency
             </Link>
             <Link 
-              to="/pashu-seva" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="block w-full text-left py-2 px-3 rounded-lg font-bold hover:bg-blue-50 text-[#003896]"
-            >
-              Pashu Seva (Cow Care & Rescue)
-            </Link>
-            <Link 
               to="/heart-of-seva" 
               onClick={() => setMobileMenuOpen(false)}
               className="block w-full text-left py-2 px-3 rounded-lg font-medium hover:bg-blue-50 text-slate-800"
@@ -698,25 +669,11 @@ export const Header: React.FC<HeaderProps> = () => {
               </Link>
             </div>
             <Link 
-              to="/gallery" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="block w-full text-left py-2 px-3 rounded-lg hover:bg-blue-50 text-slate-800"
-            >
-              Documentary Gallery
-            </Link>
-            <Link 
               to="/news" 
               onClick={() => setMobileMenuOpen(false)}
               className="block w-full text-left py-2 px-3 rounded-lg hover:bg-blue-50 text-slate-800"
             >
-              News & Articles
-            </Link>
-            <Link 
-              to="/blog" 
-              onClick={() => setMobileMenuOpen(false)}
-              className="block w-full text-left py-2 px-3 rounded-lg hover:bg-blue-50 text-slate-800"
-            >
-              Blog
+              News &amp; Blogs
             </Link>
             <Link 
               to="/contact" 
