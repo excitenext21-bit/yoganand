@@ -38,6 +38,9 @@ export const HomePage: React.FC<HomePageProps> = ({
         <AboutSection onOpenDonate={(type) => onOpenDonate(type)} />
       </section>
 
+      {/* Unified Section: How We Make A Difference & Cumulative Seva Impact */}
+      <HowWeMakeDifference onOpenDonate={(type, prog) => onOpenDonate(type, prog)} />
+
       {/* Our Work Portfolio */}
       <section id="programs">
         <ProgramsPortfolio
@@ -45,9 +48,6 @@ export const HomePage: React.FC<HomePageProps> = ({
           onSelectProgramDonate={(programTitle) => onOpenDonate('indian', programTitle)}
         />
       </section>
-
-      {/* Unified Section: How We Make A Difference & Cumulative Seva Impact */}
-      <HowWeMakeDifference onOpenDonate={(type, prog) => onOpenDonate(type, prog)} />
 
       {/* Heart of Seva & Devotional Programs */}
       <section id="heart-of-seva">

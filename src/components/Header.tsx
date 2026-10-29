@@ -84,7 +84,7 @@ export const Header: React.FC<HeaderProps> = () => {
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-0 ${
         scrolled 
           ? 'bg-white shadow-md' 
-          : 'bg-transparent'
+          : 'bg-white/50'
       }`}
     >
       {/* Main Navigation Bar */}
@@ -139,7 +139,7 @@ export const Header: React.FC<HeaderProps> = () => {
                 <div 
                   onMouseEnter={handleAboutEnter}
                   onMouseLeave={handleAboutLeave}
-                  className="absolute top-full left-0 mt-2 w-[540px] max-w-[calc(100vw-32px)] rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border backdrop-blur-xl overflow-hidden p-3.5 transition-all duration-300 z-50 animate-in fade-in slide-in-from-top-2 before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-4 bg-white/95 border-slate-200/90 text-slate-900"
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[540px] max-w-[calc(100vw-32px)] rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border backdrop-blur-xl overflow-hidden p-3.5 transition-all duration-300 z-50 animate-in fade-in slide-in-from-top-2 before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-4 bg-white/95 border-slate-200/90 text-slate-900"
                 >
                   <div className="grid grid-cols-12 gap-3.5 items-stretch">
                     
@@ -215,7 +215,7 @@ export const Header: React.FC<HeaderProps> = () => {
                 <div 
                   onMouseEnter={handleWorkEnter}
                   onMouseLeave={handleWorkLeave}
-                  className="absolute top-full left-0 mt-2 w-[680px] max-w-[calc(100vw-32px)] rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border backdrop-blur-xl overflow-hidden p-3.5 transition-all duration-300 z-50 animate-in fade-in slide-in-from-top-2 before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-4 bg-white/95 border-slate-200/90 text-slate-900"
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[660px] max-w-[calc(100vw-32px)] rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border backdrop-blur-xl overflow-hidden p-3.5 transition-all duration-300 z-50 animate-in fade-in slide-in-from-top-2 before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-4 bg-white/95 border-slate-200/90 text-slate-900"
                 >
                   <div className="grid grid-cols-12 gap-3.5 items-stretch">
                     
@@ -417,7 +417,7 @@ export const Header: React.FC<HeaderProps> = () => {
                 <div 
                   onMouseEnter={handleHeartEnter}
                   onMouseLeave={handleHeartLeave}
-                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[680px] max-w-[calc(100vw-32px)] rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border backdrop-blur-xl overflow-hidden p-3.5 transition-all duration-300 z-50 animate-in fade-in slide-in-from-top-2 before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-4 bg-white/95 border-slate-200/90 text-slate-900"
+                  className="absolute top-full right-[-140px] mt-2 w-[660px] max-w-[calc(100vw-32px)] rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border backdrop-blur-xl overflow-hidden p-3.5 transition-all duration-300 z-50 animate-in fade-in slide-in-from-top-2 before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-4 bg-white/95 border-slate-200/90 text-slate-900"
                 >
                   <div className="grid grid-cols-12 gap-3.5 items-stretch">
                     
