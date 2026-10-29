@@ -143,11 +143,7 @@ export const Header: React.FC<HeaderProps> = () => {
                 <div 
                   onMouseEnter={handleAboutEnter}
                   onMouseLeave={handleAboutLeave}
-                  className={`absolute top-full left-0 mt-2 w-[540px] max-w-[calc(100vw-32px)] rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border backdrop-blur-xl overflow-hidden p-3.5 transition-all duration-300 z-50 animate-in fade-in slide-in-from-top-2 before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-4 ${
-                    scrolled
-                      ? 'bg-white/95 border-slate-200/90 text-slate-900'
-                      : 'bg-slate-950/95 border-white/20 text-white'
-                  }`}
+                  className="absolute top-full left-0 mt-2 w-[540px] max-w-[calc(100vw-32px)] rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border backdrop-blur-xl overflow-hidden p-3.5 transition-all duration-300 z-50 animate-in fade-in slide-in-from-top-2 before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-4 bg-white/95 border-slate-200/90 text-slate-900"
                 >
                   <div className="grid grid-cols-12 gap-3.5 items-stretch">
                     
@@ -183,29 +179,19 @@ export const Header: React.FC<HeaderProps> = () => {
                       <Link
                         to="/need-and-urgency"
                         onClick={() => setAboutDropdownOpen(false)}
-                        className={`p-3.5 rounded-xl transition-all duration-200 flex items-start gap-3 group/item border ${
-                          scrolled 
-                            ? 'bg-amber-50/90 border-amber-200/90 hover:bg-amber-100/80 shadow-xs' 
-                            : 'bg-white/10 border-white/20 hover:bg-white/15 shadow-xs'
-                        }`}
+                        className="p-3.5 rounded-xl transition-all duration-200 flex items-start gap-3 group/item border bg-amber-50/90 border-amber-200/90 hover:bg-amber-100/80 shadow-xs"
                       >
-                        <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-200 group-hover/item:scale-110 shadow-xs ${
-                          scrolled ? 'bg-amber-100 text-[#d97706]' : 'bg-amber-400/20 text-amber-300'
-                        }`}>
+                        <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0 transition-transform duration-200 group-hover/item:scale-110 shadow-xs bg-amber-100 text-[#d97706]">
                           <AlertCircle className="w-4 h-4 stroke-[1]" />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center justify-between gap-1">
-                            <h5 className={`text-[13.5px] font-bold font-sans m-0 transition-colors ${
-                              scrolled ? 'text-slate-900 group-hover/item:text-[#d97706]' : 'text-white group-hover/item:text-amber-300'
-                            }`}>
+                            <h5 className="text-[13.5px] font-bold font-sans m-0 transition-colors text-slate-900 group-hover/item:text-[#d97706]">
                               Need &amp; Urgency
                             </h5>
                             <ChevronRight className="w-3.5 h-3.5 shrink-0 opacity-0 group-hover/item:opacity-100 group-hover/item:translate-x-1 transition-all" />
                           </div>
-                          <p className={`text-[11.5px] leading-snug font-sans m-0 pt-1 break-words line-clamp-2 max-w-full ${
-                            scrolled ? 'text-[#444444]' : 'text-white/80'
-                          }`}>
+                          <p className="text-[11.5px] leading-snug font-sans m-0 pt-1 break-words line-clamp-2 max-w-full text-[#444444]">
                             Addressing abandonment, hunger &amp; urgent medical care for elderly Matas.
                           </p>
                         </div>
@@ -236,11 +222,7 @@ export const Header: React.FC<HeaderProps> = () => {
                 <div 
                   onMouseEnter={handleWorkEnter}
                   onMouseLeave={handleWorkLeave}
-                  className={`absolute top-full left-0 mt-2 w-[680px] max-w-[calc(100vw-32px)] rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border backdrop-blur-xl overflow-hidden p-3.5 transition-all duration-300 z-50 animate-in fade-in slide-in-from-top-2 before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-4 ${
-                    scrolled
-                      ? 'bg-white/95 border-slate-200/90 text-slate-900'
-                      : 'bg-slate-950/95 border-white/20 text-white'
-                  }`}
+                  className="absolute top-full left-0 mt-2 w-[680px] max-w-[calc(100vw-32px)] rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border backdrop-blur-xl overflow-hidden p-3.5 transition-all duration-300 z-50 animate-in fade-in slide-in-from-top-2 before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-4 bg-white/95 border-slate-200/90 text-slate-900"
                 >
                   <div className="grid grid-cols-12 gap-3.5 items-stretch">
                     
@@ -300,22 +282,18 @@ export const Header: React.FC<HeaderProps> = () => {
                         onMouseEnter={() => setWorkHoverItem('ashram')}
                         className={`p-2 rounded-xl transition-all duration-150 flex items-center gap-2.5 group/item border ${
                           workHoverItem === 'ashram'
-                            ? (scrolled ? 'bg-blue-50/90 border-blue-200/90 shadow-2xs' : 'bg-white/15 border-white/25 shadow-2xs')
-                            : (scrolled ? 'bg-transparent border-transparent hover:bg-slate-50' : 'bg-transparent border-transparent hover:bg-white/10')
+                            ? 'bg-blue-50/90 border-blue-200/90 shadow-2xs'
+                            : 'bg-transparent border-transparent hover:bg-slate-50'
                         }`}
                       >
-                        <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
-                          scrolled ? 'bg-blue-100 text-[#002878]' : 'bg-white/15 text-amber-300'
-                        }`}>
+                        <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 bg-blue-100 text-[#002878]">
                           <Home className="w-3.5 h-3.5" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className={`text-[12.5px] font-bold font-sans m-0 leading-tight ${
-                            scrolled ? 'text-slate-900 group-hover/item:text-[#002878]' : 'text-white group-hover/item:text-amber-300'
-                          }`}>
+                          <p className="text-[12.5px] font-bold font-sans m-0 leading-tight text-slate-900 group-hover/item:text-[#002878]">
                             Matri Seva Ashram (Shelter)
                           </p>
-                          <p className={`text-[11px] leading-snug font-sans m-0 pt-0.5 ${scrolled ? 'text-slate-500' : 'text-white/70'}`}>
+                          <p className="text-[11px] leading-snug font-sans m-0 pt-0.5 text-slate-500">
                             Safe residential living for destitute Matas.
                           </p>
                         </div>
@@ -329,22 +307,18 @@ export const Header: React.FC<HeaderProps> = () => {
                         onMouseEnter={() => setWorkHoverItem('community')}
                         className={`p-2 rounded-xl transition-all duration-150 flex items-center gap-2.5 group/item border ${
                           workHoverItem === 'community'
-                            ? (scrolled ? 'bg-blue-50/90 border-blue-200/90 shadow-2xs' : 'bg-white/15 border-white/25 shadow-2xs')
-                            : (scrolled ? 'bg-transparent border-transparent hover:bg-slate-50' : 'bg-transparent border-transparent hover:bg-white/10')
+                            ? 'bg-blue-50/90 border-blue-200/90 shadow-2xs'
+                            : 'bg-transparent border-transparent hover:bg-slate-50'
                         }`}
                       >
-                        <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
-                          scrolled ? 'bg-emerald-100 text-emerald-700' : 'bg-white/15 text-emerald-300'
-                        }`}>
+                        <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 bg-emerald-100 text-emerald-700">
                           <ShoppingBag className="w-3.5 h-3.5" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className={`text-[12.5px] font-bold font-sans m-0 leading-tight ${
-                            scrolled ? 'text-slate-900 group-hover/item:text-[#002878]' : 'text-white group-hover/item:text-amber-300'
-                          }`}>
+                          <p className="text-[12.5px] font-bold font-sans m-0 leading-tight text-slate-900 group-hover/item:text-[#002878]">
                             Matri Seva Community (Rations)
                           </p>
-                          <p className={`text-[11px] leading-snug font-sans m-0 pt-0.5 ${scrolled ? 'text-slate-500' : 'text-white/70'}`}>
+                          <p className="text-[11px] leading-snug font-sans m-0 pt-0.5 text-slate-500">
                             Monthly dry rations and stipends to 1,200+ Matas.
                           </p>
                         </div>
@@ -358,22 +332,18 @@ export const Header: React.FC<HeaderProps> = () => {
                         onMouseEnter={() => setWorkHoverItem('health')}
                         className={`p-2 rounded-xl transition-all duration-150 flex items-center gap-2.5 group/item border ${
                           workHoverItem === 'health'
-                            ? (scrolled ? 'bg-blue-50/90 border-blue-200/90 shadow-2xs' : 'bg-white/15 border-white/25 shadow-2xs')
-                            : (scrolled ? 'bg-transparent border-transparent hover:bg-slate-50' : 'bg-transparent border-transparent hover:bg-white/10')
+                            ? 'bg-blue-50/90 border-blue-200/90 shadow-2xs'
+                            : 'bg-transparent border-transparent hover:bg-slate-50'
                         }`}
                       >
-                        <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
-                          scrolled ? 'bg-rose-100 text-rose-700' : 'bg-white/15 text-rose-300'
-                        }`}>
+                        <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 bg-rose-100 text-rose-700">
                           <HeartPulse className="w-3.5 h-3.5" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className={`text-[12.5px] font-bold font-sans m-0 leading-tight ${
-                            scrolled ? 'text-slate-900 group-hover/item:text-[#002878]' : 'text-white group-hover/item:text-amber-300'
-                          }`}>
+                          <p className="text-[12.5px] font-bold font-sans m-0 leading-tight text-slate-900 group-hover/item:text-[#002878]">
                             Aarogyavardhan Healthcare
                           </p>
-                          <p className={`text-[11px] leading-snug font-sans m-0 pt-0.5 ${scrolled ? 'text-slate-500' : 'text-white/70'}`}>
+                          <p className="text-[11px] leading-snug font-sans m-0 pt-0.5 text-slate-500">
                             Free chronic medicines, OPD &amp; cataract surgeries.
                           </p>
                         </div>
@@ -387,22 +357,18 @@ export const Header: React.FC<HeaderProps> = () => {
                         onMouseEnter={() => setWorkHoverItem('pashu')}
                         className={`p-2 rounded-xl transition-all duration-150 flex items-center gap-2.5 group/item border ${
                           workHoverItem === 'pashu'
-                            ? (scrolled ? 'bg-amber-50/90 border-amber-200/90 shadow-2xs' : 'bg-white/15 border-white/25 shadow-2xs')
-                            : (scrolled ? 'bg-transparent border-transparent hover:bg-slate-50' : 'bg-transparent border-transparent hover:bg-white/10')
+                            ? 'bg-amber-50/90 border-amber-200/90 shadow-2xs'
+                            : 'bg-transparent border-transparent hover:bg-slate-50'
                         }`}
                       >
-                        <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
-                          scrolled ? 'bg-amber-100 text-amber-700' : 'bg-amber-400/20 text-amber-300'
-                        }`}>
+                        <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 bg-amber-100 text-amber-700">
                           <Heart className="w-3.5 h-3.5 fill-current" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className={`text-[12.5px] font-bold font-sans m-0 leading-tight ${
-                            scrolled ? 'text-slate-900 group-hover/item:text-amber-700' : 'text-white group-hover/item:text-amber-300'
-                          }`}>
+                          <p className="text-[12.5px] font-bold font-sans m-0 leading-tight text-slate-900 group-hover/item:text-amber-700">
                             Pashu Seva (Cow &amp; Animal Care)
                           </p>
-                          <p className={`text-[11px] leading-snug font-sans m-0 pt-0.5 ${scrolled ? 'text-slate-500' : 'text-white/70'}`}>
+                          <p className="text-[11px] leading-snug font-sans m-0 pt-0.5 text-slate-500">
                             Loving sanctuary for blind &amp; abandoned cows.
                           </p>
                         </div>
@@ -416,22 +382,18 @@ export const Header: React.FC<HeaderProps> = () => {
                         onMouseEnter={() => setWorkHoverItem('meals')}
                         className={`p-2 rounded-xl transition-all duration-150 flex items-center gap-2.5 group/item border ${
                           workHoverItem === 'meals'
-                            ? (scrolled ? 'bg-blue-50/90 border-blue-200/90 shadow-2xs' : 'bg-white/15 border-white/25 shadow-2xs')
-                            : (scrolled ? 'bg-transparent border-transparent hover:bg-slate-50' : 'bg-transparent border-transparent hover:bg-white/10')
+                            ? 'bg-blue-50/90 border-blue-200/90 shadow-2xs'
+                            : 'bg-transparent border-transparent hover:bg-slate-50'
                         }`}
                       >
-                        <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
-                          scrolled ? 'bg-orange-100 text-orange-700' : 'bg-white/15 text-orange-300'
-                        }`}>
+                        <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 bg-orange-100 text-orange-700">
                           <UtensilsCrossed className="w-3.5 h-3.5" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className={`text-[12.5px] font-bold font-sans m-0 leading-tight ${
-                            scrolled ? 'text-slate-900 group-hover/item:text-[#002878]' : 'text-white group-hover/item:text-amber-300'
-                          }`}>
+                          <p className="text-[12.5px] font-bold font-sans m-0 leading-tight text-slate-900 group-hover/item:text-[#002878]">
                             Meal Heals (Annapurna Nutrition)
                           </p>
-                          <p className={`text-[11px] leading-snug font-sans m-0 pt-0.5 ${scrolled ? 'text-slate-500' : 'text-white/70'}`}>
+                          <p className="text-[11px] leading-snug font-sans m-0 pt-0.5 text-slate-500">
                             3,200+ plates of hot pure sattvic food daily.
                           </p>
                         </div>
@@ -474,11 +436,7 @@ export const Header: React.FC<HeaderProps> = () => {
                 <div 
                   onMouseEnter={handleHeartEnter}
                   onMouseLeave={handleHeartLeave}
-                  className={`absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[680px] max-w-[calc(100vw-32px)] rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border backdrop-blur-xl overflow-hidden p-3.5 transition-all duration-300 z-50 animate-in fade-in slide-in-from-top-2 before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-4 ${
-                    scrolled
-                      ? 'bg-white/95 border-slate-200/90 text-slate-900'
-                      : 'bg-slate-950/95 border-white/20 text-white'
-                  }`}
+                  className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-[680px] max-w-[calc(100vw-32px)] rounded-2xl shadow-[0_25px_60px_-15px_rgba(0,0,0,0.3)] border backdrop-blur-xl overflow-hidden p-3.5 transition-all duration-300 z-50 animate-in fade-in slide-in-from-top-2 before:content-[''] before:absolute before:-top-4 before:left-0 before:right-0 before:h-4 bg-white/95 border-slate-200/90 text-slate-900"
                 >
                   <div className="grid grid-cols-12 gap-3.5 items-stretch">
                     
@@ -534,22 +492,18 @@ export const Header: React.FC<HeaderProps> = () => {
                         onMouseEnter={() => setHeartHoverItem('circle')}
                         className={`p-2 rounded-xl transition-all duration-150 flex items-center gap-2.5 group/item border ${
                           heartHoverItem === 'circle'
-                            ? (scrolled ? 'bg-blue-50/90 border-blue-200/90 shadow-2xs' : 'bg-white/15 border-white/25 shadow-2xs')
-                            : (scrolled ? 'bg-transparent border-transparent hover:bg-slate-50' : 'bg-transparent border-transparent hover:bg-white/10')
+                            ? 'bg-blue-50/90 border-blue-200/90 shadow-2xs'
+                            : 'bg-transparent border-transparent hover:bg-slate-50'
                         }`}
                       >
-                        <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
-                          scrolled ? 'bg-blue-100 text-[#002878]' : 'bg-white/15 text-amber-300'
-                        }`}>
+                        <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 bg-blue-100 text-[#002878]">
                           <PhoneCall className="w-3.5 h-3.5" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className={`text-[12.5px] font-bold font-sans m-0 leading-tight ${
-                            scrolled ? 'text-slate-900 group-hover/item:text-[#002878]' : 'text-white group-hover/item:text-amber-300'
-                          }`}>
+                          <p className="text-[12.5px] font-bold font-sans m-0 leading-tight text-slate-900 group-hover/item:text-[#002878]">
                             Circle of Love &amp; Fellowship
                           </p>
-                          <p className={`text-[11px] leading-snug font-sans m-0 pt-0.5 ${scrolled ? 'text-slate-500' : 'text-white/70'}`}>
+                          <p className="text-[11px] leading-snug font-sans m-0 pt-0.5 text-slate-500">
                             Eradicating loneliness with weekly companion calls.
                           </p>
                         </div>
@@ -563,22 +517,18 @@ export const Header: React.FC<HeaderProps> = () => {
                         onMouseEnter={() => setHeartHoverItem('pilgrimage')}
                         className={`p-2 rounded-xl transition-all duration-150 flex items-center gap-2.5 group/item border ${
                           heartHoverItem === 'pilgrimage'
-                            ? (scrolled ? 'bg-amber-50/90 border-amber-200/90 shadow-2xs' : 'bg-white/15 border-white/25 shadow-2xs')
-                            : (scrolled ? 'bg-transparent border-transparent hover:bg-slate-50' : 'bg-transparent border-transparent hover:bg-white/10')
+                            ? 'bg-amber-50/90 border-amber-200/90 shadow-2xs'
+                            : 'bg-transparent border-transparent hover:bg-slate-50'
                         }`}
                       >
-                        <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
-                          scrolled ? 'bg-amber-100 text-amber-700' : 'bg-amber-400/20 text-amber-300'
-                        }`}>
+                        <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 bg-amber-100 text-amber-700">
                           <Calendar className="w-3.5 h-3.5" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className={`text-[12.5px] font-bold font-sans m-0 leading-tight ${
-                            scrolled ? 'text-slate-900 group-hover/item:text-amber-700' : 'text-white group-hover/item:text-amber-300'
-                          }`}>
+                          <p className="text-[12.5px] font-bold font-sans m-0 leading-tight text-slate-900 group-hover/item:text-amber-700">
                             In-Person Seva &amp; Volunteering
                           </p>
-                          <p className={`text-[11px] leading-snug font-sans m-0 pt-0.5 ${scrolled ? 'text-slate-500' : 'text-white/70'}`}>
+                          <p className="text-[11px] leading-snug font-sans m-0 pt-0.5 text-slate-500">
                             Serve meals &amp; distribute supplies in Vrindavan.
                           </p>
                         </div>
@@ -592,22 +542,18 @@ export const Header: React.FC<HeaderProps> = () => {
                         onMouseEnter={() => setHeartHoverItem('prayer')}
                         className={`p-2 rounded-xl transition-all duration-150 flex items-center gap-2.5 group/item border ${
                           heartHoverItem === 'prayer'
-                            ? (scrolled ? 'bg-purple-50/90 border-purple-200/90 shadow-2xs' : 'bg-white/15 border-white/25 shadow-2xs')
-                            : (scrolled ? 'bg-transparent border-transparent hover:bg-slate-50' : 'bg-transparent border-transparent hover:bg-white/10')
+                            ? 'bg-purple-50/90 border-purple-200/90 shadow-2xs'
+                            : 'bg-transparent border-transparent hover:bg-slate-50'
                         }`}
                       >
-                        <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
-                          scrolled ? 'bg-purple-100 text-purple-700' : 'bg-purple-400/20 text-purple-300'
-                        }`}>
+                        <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 bg-purple-100 text-purple-700">
                           <Sparkles className="w-3.5 h-3.5" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className={`text-[12.5px] font-bold font-sans m-0 leading-tight ${
-                            scrolled ? 'text-slate-900 group-hover/item:text-purple-700' : 'text-white group-hover/item:text-purple-300'
-                          }`}>
+                          <p className="text-[12.5px] font-bold font-sans m-0 leading-tight text-slate-900 group-hover/item:text-purple-700">
                             Healing Prayer Circle (Free)
                           </p>
-                          <p className={`text-[11px] leading-snug font-sans m-0 pt-0.5 ${scrolled ? 'text-slate-500' : 'text-white/70'}`}>
+                          <p className="text-[11px] leading-snug font-sans m-0 pt-0.5 text-slate-500">
                             Submit intentions for daily evening Aarti &amp; Kirtan.
                           </p>
                         </div>
@@ -621,22 +567,18 @@ export const Header: React.FC<HeaderProps> = () => {
                         onMouseEnter={() => setHeartHoverItem('calculator')}
                         className={`p-2 rounded-xl transition-all duration-150 flex items-center gap-2.5 group/item border ${
                           heartHoverItem === 'calculator'
-                            ? (scrolled ? 'bg-emerald-50/90 border-emerald-200/90 shadow-2xs' : 'bg-white/15 border-white/25 shadow-2xs')
-                            : (scrolled ? 'bg-transparent border-transparent hover:bg-slate-50' : 'bg-transparent border-transparent hover:bg-white/10')
+                            ? 'bg-emerald-50/90 border-emerald-200/90 shadow-2xs'
+                            : 'bg-transparent border-transparent hover:bg-slate-50'
                         }`}
                       >
-                        <div className={`w-7 h-7 rounded-lg flex items-center justify-center shrink-0 ${
-                          scrolled ? 'bg-emerald-100 text-emerald-700' : 'bg-emerald-400/20 text-emerald-300'
-                        }`}>
+                        <div className="w-7 h-7 rounded-lg flex items-center justify-center shrink-0 bg-emerald-100 text-emerald-700">
                           <Calculator className="w-3.5 h-3.5" />
                         </div>
                         <div className="flex-1 min-w-0">
-                          <p className={`text-[12.5px] font-bold font-sans m-0 leading-tight ${
-                            scrolled ? 'text-slate-900 group-hover/item:text-emerald-700' : 'text-white group-hover/item:text-emerald-300'
-                          }`}>
+                          <p className="text-[12.5px] font-bold font-sans m-0 leading-tight text-slate-900 group-hover/item:text-emerald-700">
                             Sacred Impact Calculator
                           </p>
-                          <p className={`text-[11px] leading-snug font-sans m-0 pt-0.5 ${scrolled ? 'text-slate-500' : 'text-white/70'}`}>
+                          <p className="text-[11px] leading-snug font-sans m-0 pt-0.5 text-slate-500">
                             Calculate direct meals, medical care &amp; shelter impact.
                           </p>
                         </div>
@@ -704,54 +646,40 @@ export const Header: React.FC<HeaderProps> = () => {
         {/* Mobile Dropdown Menu */}
         {mobileMenuOpen && (
           <div 
-            className={`xl:hidden mt-2.5 pt-3 border-t rounded-xl p-3.5 shadow-2xl space-y-1 text-[15px] font-medium ${
-              scrolled
-                ? 'bg-white border-slate-200 text-slate-800'
-                : 'bg-slate-950/95 backdrop-blur-xl border-white/20 text-white'
-            }`}
+            className="xl:hidden mt-2.5 pt-3 border-t rounded-xl p-3.5 shadow-2xl space-y-1 text-[15px] font-medium bg-white border-slate-200 text-slate-800"
           >
             <Link 
               to="/" 
               onClick={() => setMobileMenuOpen(false)}
-              className={`block w-full text-left py-2 px-3 rounded-lg ${
-                scrolled ? 'hover:bg-blue-50 text-slate-800' : 'hover:bg-white/10 text-white'
-              }`}
+              className="block w-full text-left py-2 px-3 rounded-lg hover:bg-blue-50 text-slate-800"
             >
               Home
             </Link>
             <Link 
               to="/about" 
               onClick={() => setMobileMenuOpen(false)}
-              className={`block w-full text-left py-2 px-3 rounded-lg ${
-                scrolled ? 'hover:bg-blue-50 text-slate-800' : 'hover:bg-white/10 text-white'
-              }`}
+              className="block w-full text-left py-2 px-3 rounded-lg hover:bg-blue-50 text-slate-800"
             >
               About Us
             </Link>
             <Link 
               to="/need-and-urgency" 
               onClick={() => setMobileMenuOpen(false)}
-              className={`block w-full text-left py-1.5 pl-6 pr-3 rounded-lg text-sm ${
-                scrolled ? 'hover:bg-blue-50 text-[#444444]' : 'hover:bg-white/10 text-white/80'
-              }`}
+              className="block w-full text-left py-1.5 pl-6 pr-3 rounded-lg text-sm hover:bg-blue-50 text-[#444444]"
             >
               ↳ Need &amp; Urgency
             </Link>
             <Link 
               to="/pashu-seva" 
               onClick={() => setMobileMenuOpen(false)}
-              className={`block w-full text-left py-2 px-3 rounded-lg font-bold ${
-                scrolled ? 'hover:bg-blue-50 text-[#003896]' : 'hover:bg-white/10 text-amber-300'
-              }`}
+              className="block w-full text-left py-2 px-3 rounded-lg font-bold hover:bg-blue-50 text-[#003896]"
             >
               Pashu Seva (Cow Care & Rescue)
             </Link>
             <Link 
               to="/heart-of-seva" 
               onClick={() => setMobileMenuOpen(false)}
-              className={`block w-full text-left py-2 px-3 rounded-lg font-medium ${
-                scrolled ? 'hover:bg-blue-50 text-slate-800' : 'hover:bg-white/10 text-white'
-              }`}
+              className="block w-full text-left py-2 px-3 rounded-lg font-medium hover:bg-blue-50 text-slate-800"
             >
               Heart of Seva
             </Link>
@@ -759,36 +687,28 @@ export const Header: React.FC<HeaderProps> = () => {
               <Link 
                 to="/heart-of-seva#circle" 
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block w-full text-left py-1 pl-4 pr-3 rounded-lg text-xs ${
-                  scrolled ? 'hover:bg-blue-50 text-[#444444]' : 'hover:bg-white/10 text-white/80'
-                }`}
+                className="block w-full text-left py-1 pl-4 pr-3 rounded-lg text-xs hover:bg-blue-50 text-[#444444]"
               >
                 ↳ Circle of Love &amp; Fellowship
               </Link>
               <Link 
                 to="/heart-of-seva#pilgrimage" 
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block w-full text-left py-1 pl-4 pr-3 rounded-lg text-xs ${
-                  scrolled ? 'hover:bg-blue-50 text-[#444444]' : 'hover:bg-white/10 text-white/80'
-                }`}
+                className="block w-full text-left py-1 pl-4 pr-3 rounded-lg text-xs hover:bg-blue-50 text-[#444444]"
               >
                 ↳ In-Person Seva &amp; Volunteering
               </Link>
               <Link 
                 to="/heart-of-seva#prayer" 
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block w-full text-left py-1 pl-4 pr-3 rounded-lg text-xs ${
-                  scrolled ? 'hover:bg-blue-50 text-[#444444]' : 'hover:bg-white/10 text-white/80'
-                }`}
+                className="block w-full text-left py-1 pl-4 pr-3 rounded-lg text-xs hover:bg-blue-50 text-[#444444]"
               >
                 ↳ Healing Prayer Circle (Free)
               </Link>
               <Link 
                 to="/#heart-of-seva" 
                 onClick={() => setMobileMenuOpen(false)}
-                className={`block w-full text-left py-1 pl-4 pr-3 rounded-lg text-xs font-semibold ${
-                  scrolled ? 'hover:bg-emerald-50 text-emerald-700' : 'hover:bg-white/10 text-emerald-300'
-                }`}
+                className="block w-full text-left py-1 pl-4 pr-3 rounded-lg text-xs font-semibold hover:bg-emerald-50 text-emerald-700"
               >
                 ↳ Sacred Impact Calculator
               </Link>
@@ -796,36 +716,28 @@ export const Header: React.FC<HeaderProps> = () => {
             <Link 
               to="/gallery" 
               onClick={() => setMobileMenuOpen(false)}
-              className={`block w-full text-left py-2 px-3 rounded-lg ${
-                scrolled ? 'hover:bg-blue-50 text-slate-800' : 'hover:bg-white/10 text-white'
-              }`}
+              className="block w-full text-left py-2 px-3 rounded-lg hover:bg-blue-50 text-slate-800"
             >
               Documentary Gallery
             </Link>
             <Link 
               to="/news" 
               onClick={() => setMobileMenuOpen(false)}
-              className={`block w-full text-left py-2 px-3 rounded-lg ${
-                scrolled ? 'hover:bg-blue-50 text-slate-800' : 'hover:bg-white/10 text-white'
-              }`}
+              className="block w-full text-left py-2 px-3 rounded-lg hover:bg-blue-50 text-slate-800"
             >
               News & Articles
             </Link>
             <Link 
               to="/blog" 
               onClick={() => setMobileMenuOpen(false)}
-              className={`block w-full text-left py-2 px-3 rounded-lg ${
-                scrolled ? 'hover:bg-blue-50 text-slate-800' : 'hover:bg-white/10 text-white'
-              }`}
+              className="block w-full text-left py-2 px-3 rounded-lg hover:bg-blue-50 text-slate-800"
             >
               Blog
             </Link>
             <Link 
               to="/contact" 
               onClick={() => setMobileMenuOpen(false)}
-              className={`block w-full text-left py-2 px-3 rounded-lg ${
-                scrolled ? 'hover:bg-blue-50 text-slate-800' : 'hover:bg-white/10 text-white'
-              }`}
+              className="block w-full text-left py-2 px-3 rounded-lg hover:bg-blue-50 text-slate-800"
             >
               Contact & Multi-Office Locator
             </Link>

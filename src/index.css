@@ -58,13 +58,13 @@ body {
 
 /* Typography Defaults: Inter Tight font for all headings with 24px and readable styling
    Scoped with :not(.hero-heading) to allow hero slides full artistic typographic control */
-:where(h1, h2, h3, h4, h5, h6):not(.hero-heading):not(.text-white):not([class*="text-white"]), 
+:where(h1, h2, h3, h4, h5, h6):not(.hero-heading):not(.text-white):not([class*="text-white"]),
 .heading-inter:not(.text-white) {
   font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
   color: #464646;
 }
 
-:where(h1, h2):not(.hero-heading), 
+:where(h1, h2):not(.hero-heading),
 .main-heading {
   font-size: 24px !important;
   line-height: 1.35 !important;
@@ -73,29 +73,25 @@ body {
   text-transform: none !important;
 }
 
-/* Distressed / Chalk Stamp Typography Effect for DESTITUTE and LIFE */
+/* Distressed / Stamp Typography Effect for DESTITUTE, LIFE, HEALTHCARE, DIGNIFIED on White Hero */
 .font-destitute-stamp {
   font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, sans-serif !important;
   font-weight: 700 !important;
   letter-spacing: 0.22em !important;
-  color: #ffffff !important;
+  color: #e65100 !important;
   display: inline-block;
-  text-shadow: 
-    0 0 2px rgba(255, 255, 255, 0.95),
-    1px 0 1px rgba(255, 255, 255, 0.6),
-    -1px 0 1px rgba(255, 255, 255, 0.6),
-    0 2px 4px rgba(0, 0, 0, 0.8);
-  filter: contrast(115%);
+  text-shadow: none !important;
 }
 
-/* Hero section subtext on dark background - ensure bright white & readable */
+/* Hero section subtext on clean white background - high contrast & readable */
 .hero-subtext {
-  color: #ffffff !important;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9), 0 2px 6px rgba(0, 0, 0, 0.7) !important;
+  color: #1e293b !important;
+  text-shadow: none !important;
 }
 
 @media (max-width: 640px) {
-  :where(h1, h2):not(.hero-heading), 
+
+  :where(h1, h2):not(.hero-heading),
   .main-heading {
     font-size: 22px !important;
     line-height: 1.35 !important;
@@ -268,13 +264,16 @@ body {
 ::-webkit-scrollbar {
   width: 7px;
 }
+
 ::-webkit-scrollbar-track {
   background: #f1f5f9;
 }
+
 ::-webkit-scrollbar-thumb {
   background: #cbd5e1;
   border-radius: 4px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--brand-blue-primary);
 }
@@ -285,12 +284,15 @@ body {
     transform: translateY(-100%);
     opacity: 0;
   }
+
   30% {
     opacity: 1;
   }
+
   75% {
     opacity: 1;
   }
+
   100% {
     transform: translateY(30px);
     opacity: 0;
@@ -306,6 +308,7 @@ body {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
@@ -321,16 +324,20 @@ body {
     opacity: 0;
     transform: translateY(-50px) scale(0.85);
   }
+
   50% {
     opacity: 1;
     transform: translateY(10px) scale(1.05);
   }
+
   70% {
     transform: translateY(-5px) scale(0.97);
   }
+
   85% {
     transform: translateY(2px) scale(1.01);
   }
+
   100% {
     opacity: 1;
     transform: translateY(0) scale(1);
@@ -346,19 +353,43 @@ body {
   0% {
     transform: translateY(0%);
   }
+
   100% {
     transform: translateY(-33.333333%);
   }
 }
 
-.animate-marquee-col-1 { animation: marqueeUp 28s linear infinite; }
-.animate-marquee-col-2 { animation: marqueeUp 22s linear infinite; }
-.animate-marquee-col-3 { animation: marqueeUp 34s linear infinite; }
-.animate-marquee-col-4 { animation: marqueeUp 25s linear infinite; }
-.animate-marquee-col-5 { animation: marqueeUp 31s linear infinite; }
-.animate-marquee-col-6 { animation: marqueeUp 21s linear infinite; }
-.animate-marquee-col-7 { animation: marqueeUp 33s linear infinite; }
-.animate-marquee-col-8 { animation: marqueeUp 27s linear infinite; }
+.animate-marquee-col-1 {
+  animation: marqueeUp 28s linear infinite;
+}
+
+.animate-marquee-col-2 {
+  animation: marqueeUp 22s linear infinite;
+}
+
+.animate-marquee-col-3 {
+  animation: marqueeUp 34s linear infinite;
+}
+
+.animate-marquee-col-4 {
+  animation: marqueeUp 25s linear infinite;
+}
+
+.animate-marquee-col-5 {
+  animation: marqueeUp 31s linear infinite;
+}
+
+.animate-marquee-col-6 {
+  animation: marqueeUp 21s linear infinite;
+}
+
+.animate-marquee-col-7 {
+  animation: marqueeUp 33s linear infinite;
+}
+
+.animate-marquee-col-8 {
+  animation: marqueeUp 27s linear infinite;
+}
 
 .hover-pause-marquee:hover * {
   animation-play-state: paused !important;
@@ -414,15 +445,20 @@ svg.lucide *,
    Simulates natural breeze rustling the tree foliage and blowing leaves across
    ========================================================================== */
 @keyframes treeCanopyBreeze {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: rotate(0deg) skewX(0deg) scale(1);
   }
+
   25% {
     transform: rotate(-1.2deg) skewX(-0.8deg) scale(1.008);
   }
+
   50% {
     transform: rotate(0.6deg) skewX(0.4deg) scale(0.996);
   }
+
   75% {
     transform: rotate(1.4deg) skewX(1deg) scale(1.004);
   }
@@ -439,17 +475,21 @@ svg.lucide *,
     transform: translate(0, 0) rotate(0deg) scale(0.5);
     opacity: 0;
   }
+
   15% {
     opacity: 0.85;
   }
+
   45% {
     transform: translate(-120px, 16px) rotate(140deg) scale(0.95);
     opacity: 0.75;
   }
+
   75% {
     transform: translate(-260px, 34px) rotate(260deg) scale(0.8);
     opacity: 0.6;
   }
+
   100% {
     transform: translate(-380px, 52px) rotate(380deg) scale(0.45);
     opacity: 0;
