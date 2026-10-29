@@ -73,12 +73,25 @@ body {
   text-transform: none !important;
 }
 
+/* Extra Bold & High-Contrast Shadow for Hero Headings (SACRED & DIGNIFIED, DESPERATE & DESTITUTE, GRATEFUL FOR THE CHANGE IN HER LIFE, HEALED WITH SACRED CARE & COMPASSION HEALTHCARE) */
+.hero-heading {
+  font-family: var(--font-sans) !important;
+  font-weight: 900 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.98), 0 4px 14px rgba(0, 0, 0, 0.9), 0 8px 28px rgba(0, 0, 0, 0.8), 0 0 18px rgba(0, 0, 0, 0.75) !important;
+}
+
+.hero-eyebrow-shadow {
+  font-weight: 800 !important;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.98), 0 3px 10px rgba(0, 0, 0, 0.9), 0 6px 18px rgba(0, 0, 0, 0.8) !important;
+}
+
 /* Simple Clean Orange Typography for DESTITUTE, LIFE, HEALTHCARE, DIGNIFIED matching SACRED */
 .font-destitute-stamp {
   font-family: var(--font-sans) !important;
-  font-weight: 700 !important;
+  font-weight: 900 !important;
   letter-spacing: 0.22em !important;
   color: #e65100 !important;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.98), 0 4px 14px rgba(0, 0, 0, 0.9), 0 8px 28px rgba(0, 0, 0, 0.8), 0 0 18px rgba(0, 0, 0, 0.75) !important;
   display: inline-block;
 }
 

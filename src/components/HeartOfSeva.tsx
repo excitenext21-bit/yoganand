@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
 import { 
   Heart, 
-  Send, 
   Sparkles, 
-  PhoneCall, 
-  MapPin,
-  Flame, 
   Check,
-  ChevronDown,
   ArrowUpRight
 } from 'lucide-react';
 
@@ -139,27 +134,10 @@ const IMPACT_TIERS: ImpactTier[] = [
 
 export const HeartOfSeva: React.FC<HeartOfSevaProps> = ({ onOpenDonate }) => {
   const [sliderValue, setSliderValue] = useState<number>(3000);
-  const [prayerName, setPrayerName] = useState('');
-  const [prayerIntention, setPrayerIntention] = useState('');
-  const [prayerSent, setPrayerSent] = useState(false);
-  const [showPrayerForm, setShowPrayerForm] = useState(false);
 
   // Find corresponding tier based on slider value
   const currentTier = 
     [...IMPACT_TIERS].reverse().find(t => sliderValue >= t.threshold) || IMPACT_TIERS[0];
-
-  const handlePrayerSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (prayerName && prayerIntention) {
-      setPrayerSent(true);
-      setTimeout(() => {
-        setPrayerSent(false);
-        setPrayerName('');
-        setPrayerIntention('');
-        setShowPrayerForm(false);
-      }, 4000);
-    }
-  };
 
   return (
     <section id="heart-of-seva" className="py-12 sm:py-16 lg:py-20 bg-gradient-to-b from-white via-slate-50/60 to-white border-b border-slate-200">
@@ -167,7 +145,7 @@ export const HeartOfSeva: React.FC<HeartOfSevaProps> = ({ onOpenDonate }) => {
       <div className="w-full max-w-[1360px] 2xl:max-w-[1440px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Bento Hero Calculator Section matching reference image - Center Aligned & Fit to Screen */}
-        <div className="w-full bg-[#eef3ea] p-3 sm:p-5 lg:p-7 rounded-[32px] sm:rounded-[44px] mb-12 sm:mb-16 shadow-xs">
+        <div className="w-full bg-[#eef3ea] p-3 sm:p-5 lg:p-7 rounded-[32px] sm:rounded-[44px] shadow-xs">
           
           <div className="w-full bg-white rounded-[24px] sm:rounded-[36px] shadow-xl border border-slate-200/70 p-5 sm:p-8 lg:p-12">
             
@@ -392,125 +370,6 @@ export const HeartOfSeva: React.FC<HeartOfSevaProps> = ({ onOpenDonate }) => {
 
           </div>
 
-        </div>
-
-        {/* 3 Pillars of Sacred Seva: Clean, Open Minimalist Grid - Expanded Width */}
-        {/* 3 Pillars of Sacred Seva: Clean, Open Minimalist Grid - Center Aligned & Icon in Front of Heading */}
-        <div className="w-full max-w-6xl mx-auto pt-10 border-t border-slate-200">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12">
-            
-            {/* Pillar 1: Companion Seva */}
-            <div className="space-y-2 text-center flex flex-col items-center">
-              <div className="flex items-center justify-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-slate-100 text-[#18181b] flex items-center justify-center shrink-0">
-                  <PhoneCall className="w-4 h-4 stroke-[1]" />
-                </div>
-                <h3 className="text-base font-semibold text-[#18181b] font-heading m-0">
-                  Circle of Love
-                </h3>
-              </div>
-              <p className="text-[11px] font-medium text-slate-700 uppercase tracking-wider m-0">
-                Eradicating Loneliness
-              </p>
-              <p className="text-[#444444] text-xs sm:text-[13px] leading-relaxed font-sans m-0 max-w-xs">
-                Over 750 destitute Matas are paired with compassionate volunteers worldwide for regular calls, birthday celebrations, and lifelong companionship.
-              </p>
-            </div>
-
-            {/* Pillar 2: In-Person Pilgrimage */}
-            <div className="space-y-2 text-center flex flex-col items-center">
-              <div className="flex items-center justify-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-slate-100 text-[#18181b] flex items-center justify-center shrink-0">
-                  <MapPin className="w-4 h-4 stroke-[1]" />
-                </div>
-                <h3 className="text-base font-semibold text-[#18181b] font-heading m-0">
-                  In-Person Pilgrimage
-                </h3>
-              </div>
-              <p className="text-[11px] font-medium text-slate-700 uppercase tracking-wider m-0">
-                Serve with Your Own Hands
-              </p>
-              <p className="text-[#444444] text-xs sm:text-[13px] leading-relaxed font-sans m-0 max-w-xs">
-                Devotees travel to Vrindavan to personally serve warm meals, pack dry rations, and sit in devotion with the Matas at our sacred ashram.
-              </p>
-            </div>
-
-            {/* Pillar 3: Healing Prayer Circle */}
-            <div className="space-y-2 text-center flex flex-col items-center">
-              <div className="flex items-center justify-center gap-2">
-                <div className="w-8 h-8 rounded-lg bg-slate-100 text-[#18181b] flex items-center justify-center shrink-0">
-                  <Flame className="w-4 h-4 stroke-[1]" />
-                </div>
-                <h3 className="text-base font-semibold text-[#18181b] font-heading m-0">
-                  Sacred Prayer Circle
-                </h3>
-              </div>
-              <p className="text-[11px] font-medium text-slate-700 uppercase tracking-wider m-0">
-                Daily Kirtan &amp; Blessings
-              </p>
-              <p className="text-[#444444] text-xs sm:text-[13px] leading-relaxed font-sans m-0 max-w-xs">
-                Every evening, the Matas chant sacred prayers in Vrindavan. You may submit prayer intentions for your family's health, peace, or remembrance.
-              </p>
-
-              {/* Minimalist Expandable Trigger */}
-              <div className="pt-1 flex flex-col items-center w-full max-w-xs">
-                {!showPrayerForm && !prayerSent && (
-                  <button
-                    type="button"
-                    onClick={() => setShowPrayerForm(true)}
-                    className="text-xs font-semibold text-slate-900 hover:text-amber-700 inline-flex items-center justify-center gap-1 transition-colors cursor-pointer bg-transparent border-none p-0"
-                  >
-                    <span>Submit a Prayer (Free)</span>
-                    <ChevronDown className="w-3.5 h-3.5" />
-                  </button>
-                )}
-
-                {prayerSent && (
-                  <div className="p-2 rounded-lg bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs font-medium w-full text-center">
-                    ✓ Prayer received. Included in evening Kirtan.
-                  </div>
-                )}
-
-                {showPrayerForm && !prayerSent && (
-                  <form onSubmit={handlePrayerSubmit} className="space-y-2 pt-2 w-full text-left">
-                    <input
-                      type="text"
-                      required
-                      placeholder="Your Name / Beneficiary Name"
-                      value={prayerName}
-                      onChange={(e) => setPrayerName(e.target.value)}
-                      className="w-full px-3 py-1.5 text-xs rounded-lg border border-slate-300 focus:outline-none focus:border-[#18181b] bg-slate-50"
-                    />
-                    <input
-                      type="text"
-                      required
-                      placeholder="Prayer Intention (Health, Peace...)"
-                      value={prayerIntention}
-                      onChange={(e) => setPrayerIntention(e.target.value)}
-                      className="w-full px-3 py-1.5 text-xs rounded-lg border border-slate-300 focus:outline-none focus:border-[#18181b] bg-slate-50"
-                    />
-                    <div className="flex items-center justify-center gap-2">
-                      <button
-                        type="submit"
-                        className="py-1.5 px-3 bg-[#e65100] hover:bg-[#cf4500] text-white rounded-lg text-xs font-medium transition-colors flex items-center justify-center gap-1.5 cursor-pointer"
-                      >
-                        <Send className="w-3 h-3" />
-                        <span>Send to Prayer Hall</span>
-                      </button>
-                      <button
-                        type="button"
-                        onClick={() => setShowPrayerForm(false)}
-                        className="text-xs text-slate-500 hover:text-slate-800 bg-transparent border-none cursor-pointer"
-                      >
-                        Cancel
-                      </button>
-                    </div>
-                  </form>
-                )}
-              </div>
-            </div>
-
-          </div>
         </div>
 
       </div>

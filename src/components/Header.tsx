@@ -81,12 +81,22 @@ export const Header: React.FC<HeaderProps> = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-0 ${
-        scrolled 
-          ? 'bg-white shadow-md' 
-          : 'bg-white/50'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-0 bg-transparent"
     >
+      {/* Feathered Blur & Translucent Gradient Layer: Merges smoothly into the hero banner with zero sharp edge */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 -bottom-7 -z-10 transition-all duration-300"
+        style={{
+          background: scrolled
+            ? 'linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.82) 65%, rgba(255,255,255,0.35) 86%, rgba(255,255,255,0) 100%)'
+            : 'linear-gradient(to bottom, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.50) 58%, rgba(255,255,255,0.18) 84%, rgba(255,255,255,0) 100%)',
+          backdropFilter: 'blur(12px)',
+          WebkitBackdropFilter: 'blur(12px)',
+          maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 55%, rgba(0,0,0,0.35) 82%, rgba(0,0,0,0) 100%)',
+          WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 55%, rgba(0,0,0,0.35) 82%, rgba(0,0,0,0) 100%)',
+        }}
+      />
       {/* Main Navigation Bar */}
       <div className="px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 transition-all">
         <div className="site-container flex items-center justify-between gap-4">

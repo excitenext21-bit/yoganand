@@ -1,14 +1,44 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { UserMinus, HeartPulse, HandCoins } from 'lucide-react';
-import { CleanVideoPlayer } from './CleanVideoPlayer';
+import { UserMinus, HeartPulse, HandCoins, ChevronLeft, ChevronRight } from 'lucide-react';
 
 interface AboutSectionProps {
   onOpenDonate?: (portalType: 'indian' | 'foreign') => void;
 }
 
+const MATRI_SEVA_SLIDER_IMAGES = [
+  {
+    src: '/images/matri-seva.jpg',
+    alt: 'Daily hot nutritious meal seva for Matas in Vrindavan courtyard',
+    caption: 'Daily Sattvic Meal Seva in Vrindavan'
+  },
+  {
+    src: '/images/hero-seva.jpg',
+    alt: 'Devotional Mata welcoming visitors at Matri Seva Ashram',
+    caption: 'Dignity, Shelter & Spiritual Fellowship'
+  },
+  {
+    src: '/images/aarogyavardhan.jpg',
+    alt: 'Free medical consultation and healthcare for elderly Matas',
+    caption: 'Aarogyavardhan Free Healthcare & Eye Care'
+  },
+  {
+    src: '/images/circle-of-love.jpg',
+    alt: 'Matas in joyful fellowship at the ashram',
+    caption: 'Sacred Companionship & Lifelong Care'
+  }
+];
+
 export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenDonate }) => {
   const yellowSectionRef = useRef<HTMLDivElement>(null);
   const [isYellowOpen, setIsYellowOpen] = useState(false);
+  const [activeImageIdx, setActiveImageIdx] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setActiveImageIdx((prev) => (prev + 1) % MATRI_SEVA_SLIDER_IMAGES.length);
+    }, 4500);
+    return () => clearInterval(timer);
+  }, []);
 
   useEffect(() => {
     const el = yellowSectionRef.current;
@@ -37,7 +67,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenDonate }) => {
   return (
     <section id="about" className="bg-white text-slate-800 relative w-full pt-0 pb-0">
       
-      {/* Top Overview: Text on Left, Video on Right - Fit to Screen */}
+      {/* Top Overview: Text on Left, Slider Image on Right - Fit to Screen */}
       <div className="w-full min-h-[560px] lg:min-h-[calc(100vh-80px)] grid grid-cols-1 lg:grid-cols-12 items-stretch gap-0 mb-0">
         
         {/* Left Column: Pure Modern Editorial Narrative */}
@@ -91,14 +121,52 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenDonate }) => {
 
         </div>
 
-        {/* Right Column: Starts flush from upper section & right side with zero radius and zero padding, touching bottom */}
-        <div className="lg:col-span-6 w-full flex flex-col justify-stretch p-0 m-0 overflow-hidden h-full min-h-[350px] lg:min-h-full">
-          <CleanVideoPlayer 
-            videoId="98JraIjdDoU" 
-            posterImage="/images/documentary-poster.jpg"
-            title="Paramhansa Yogananda Public Charitable Trust - Vrindavan Seva"
-            className="rounded-none w-full h-full min-h-[350px] lg:min-h-full shadow-none ring-0"
-          />
+        {/* Right Column: Slider Image showcase flush on the right side of Founded on the sacred principle of divine Matri Seva */}
+        <div className="lg:col-span-6 relative w-full flex flex-col justify-stretch p-0 m-0 overflow-hidden h-full min-h-[360px] sm:min-h-[420px] lg:min-h-full bg-slate-100 group">
+          {MATRI_SEVA_SLIDER_IMAGES.map((item, idx) => (
+            <div
+              key={item.src}
+              className={`absolute inset-0 w-full h-full transition-opacity duration-700 ${
+                idx === activeImageIdx ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'
+              }`}
+            >
+              <img
+                src={item.src}
+                alt={item.alt}
+                className="w-full h-full object-cover object-[center_top] brightness-[1.06] contrast-[1.02] transition-transform duration-700 group-hover:scale-[1.02]"
+              />
+              <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/55 via-black/20 to-transparent pointer-events-none" />
+              <div className="absolute bottom-4 left-5 right-24 z-20 text-white text-xs sm:text-sm font-medium tracking-wide drop-shadow-md font-sans">
+                {item.caption}
+              </div>
+            </div>
+          ))}
+
+          {/* Prev / Next Controls */}
+          <div className="absolute bottom-4 right-5 z-20 flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() =>
+                setActiveImageIdx((prev) =>
+                  prev === 0 ? MATRI_SEVA_SLIDER_IMAGES.length - 1 : prev - 1
+                )
+              }
+              className="w-8 h-8 rounded-full bg-white/85 hover:bg-white text-slate-900 flex items-center justify-center shadow-md transition-all cursor-pointer"
+              aria-label="Previous image"
+            >
+              <ChevronLeft className="w-4 h-4" />
+            </button>
+            <button
+              type="button"
+              onClick={() =>
+                setActiveImageIdx((prev) => (prev + 1) % MATRI_SEVA_SLIDER_IMAGES.length)
+              }
+              className="w-8 h-8 rounded-full bg-white/85 hover:bg-white text-slate-900 flex items-center justify-center shadow-md transition-all cursor-pointer"
+              aria-label="Next image"
+            >
+              <ChevronRight className="w-4 h-4" />
+            </button>
+          </div>
         </div>
 
       </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Heart, ArrowRight, ShieldCheck, ChevronRight, ChevronLeft, Stethoscope, Eye } from 'lucide-react';
+import { CleanVideoPlayer } from './CleanVideoPlayer';
 
 interface HeroSliderProps {
   onOpenDonate: (portalType: 'indian' | 'foreign', programName?: string) => void;
@@ -56,17 +57,6 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
-      {/* SVG Distress Stamp Filter Definition for authentic textured typography */}
-      <svg className="absolute w-0 h-0 overflow-hidden pointer-events-none" aria-hidden="true">
-        <defs>
-          <filter id="grunge-stamp-filter" x="-10%" y="-10%" width="120%" height="120%">
-            <feTurbulence type="fractalNoise" baseFrequency="0.22" numOctaves="3" result="noise" />
-            <feColorMatrix type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 16 -6" result="contrastGrain" />
-            <feComposite in="SourceGraphic" in2="contrastGrain" operator="in" />
-          </filter>
-        </defs>
-      </svg>
-      
       {/* =========================================================================
           SLIDE 1: "DESPERATE AND DESTITUTE"
           Left-aligned layout with 1px divider line and Indian Widow Matas text
@@ -92,28 +82,28 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
           />
         </div>
 
-        {/* Light Localized Left Gradient: Keeps image bright & white while protecting left text */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent lg:from-black/40 lg:via-black/10 lg:to-transparent"></div>
+        {/* Localized Left Gradient: Protects left text with strong visibility while keeping right bright */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent lg:from-black/60 lg:via-black/20 lg:to-transparent"></div>
 
         {/* Content Container: Left-Aligned Layout */}
         <div className="site-container relative z-10 h-full flex items-center justify-start pt-20 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-xl flex flex-col items-start text-left space-y-2.5 sm:space-y-3.5">
             
-            {/* Typographic Cluster: 2-line layout (DESPERATE & / DESTITUTE) */}
-            <div className="space-y-1.5 sm:space-y-2.5 w-full text-left">
-              <h1 className="hero-heading text-3xl sm:text-5xl lg:text-6xl font-bold text-white uppercase tracking-[0.22em] leading-none m-0 p-0 text-left drop-shadow-md">
-                DESPERATE <span style={{ color: '#FACC15' }} className="tracking-normal font-sans font-bold">&amp;</span>
+            {/* Typographic Cluster: 2-line layout (DESPERATE & / DESTITUTE) - 15% smaller & extra bold with high-contrast shadow */}
+            <div className="space-y-1.5 sm:space-y-2 w-full text-left">
+              <h1 className="hero-heading text-[25px] sm:text-[40px] lg:text-[51px] font-black text-white uppercase tracking-[0.22em] leading-none m-0 p-0 text-left">
+                DESPERATE <span style={{ color: '#FACC15' }} className="tracking-normal font-sans font-black">&amp;</span>
               </h1>
-              <div className="hero-heading text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-[0.22em] leading-none m-0 p-0 text-left text-[#e65100] font-destitute-stamp drop-shadow-md">
+              <div className="hero-heading text-[25px] sm:text-[40px] lg:text-[51px] font-black uppercase tracking-[0.22em] leading-none m-0 p-0 text-left text-[#e65100] font-destitute-stamp">
                 DESTITUTE
               </div>
             </div>
 
             {/* 1px subtle divider line below heading text as requested */}
-            <div className="w-full max-w-sm sm:max-w-md h-[1px] bg-white/40 my-1.5 sm:my-2"></div>
+            <div className="w-full max-w-sm sm:max-w-md h-[1px] bg-white/50 my-1.5 sm:my-2"></div>
 
             {/* Subtitle & Mission Compassion Text */}
-            <p className="hero-subtext text-xs sm:text-[13.5px] md:text-sm !text-white text-white font-sans leading-relaxed max-w-lg text-left drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)] m-0">
+            <p className="hero-subtext text-xs sm:text-[13.5px] md:text-sm !text-white text-white font-sans leading-relaxed max-w-lg text-left drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)] m-0">
               Often shunned as cursed, Indian Widow Matas regain their sacred dignity through our daily meals, medical care, and lifelong spiritual support.
             </p>
 
@@ -150,8 +140,8 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
           style={{ backgroundImage: "url('/images/hero-slide2.jpg')" }}
         ></div>
 
-        {/* Light Localized Left Gradient: Leaves the smiling Mata & right side completely bright */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/10 to-transparent lg:from-black/40 lg:via-transparent lg:to-transparent"></div>
+        {/* Localized Left Gradient: Leaves the smiling Mata & right side completely bright while protecting left text */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/25 to-transparent lg:from-black/60 lg:via-black/15 lg:to-transparent"></div>
 
         {/* Content Container: 3-column architecture */}
         <div className="site-container relative z-10 h-full flex items-center pt-20 sm:pt-24 pb-8 px-4">
@@ -160,23 +150,23 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             {/* Column 1 (Left 5 cols): "GRATEFUL FOR THE CHANGE IN HER LIFE" */}
             <div className="lg:col-span-5 text-white space-y-3 max-w-lg">
 
-              {/* Big Impact Headline */}
+              {/* Big Impact Headline - 15% smaller & extra bold with high-contrast shadow */}
               <div className="space-y-0.5">
-                <h1 className="hero-heading text-3xl sm:text-4xl lg:text-5xl font-bold text-white uppercase tracking-[0.18em] leading-none m-0 drop-shadow-md">
+                <h1 className="hero-heading text-[25px] sm:text-[31px] lg:text-[41px] font-black text-white uppercase tracking-[0.18em] leading-none m-0">
                   GRATEFUL
                 </h1>
-                <div className="text-[11px] sm:text-xs uppercase tracking-[0.25em] text-amber-300 font-semibold py-1">
+                <div className="hero-eyebrow-shadow text-[9.5px] sm:text-[10.5px] uppercase tracking-[0.25em] text-amber-300 font-extrabold py-1">
                   FOR THE CHANGE IN HER
                 </div>
-                <div className="hero-heading text-3xl sm:text-4xl lg:text-5xl font-bold uppercase tracking-[0.18em] leading-none m-0 text-[#e65100] font-destitute-stamp drop-shadow-md">
+                <div className="hero-heading text-[25px] sm:text-[31px] lg:text-[41px] font-black uppercase tracking-[0.18em] leading-none m-0 text-[#e65100] font-destitute-stamp">
                   LIFE
                 </div>
               </div>
 
               {/* 1px subtle divider line below heading */}
-              <div className="w-full max-w-md h-[1px] bg-white/40 my-1.5 sm:my-2"></div>
+              <div className="w-full max-w-md h-[1px] bg-white/50 my-1.5 sm:my-2"></div>
 
-              <p className="hero-subtext text-xs sm:text-[13.5px] md:text-sm !text-white text-white font-sans leading-relaxed max-w-md text-left drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)] m-0">
+              <p className="hero-subtext text-xs sm:text-[13.5px] md:text-sm !text-white text-white font-sans leading-relaxed max-w-md text-left drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)] m-0">
                 Matas who once faced starvation and acute loneliness in Vrindavan now wake up to hot meals, clean rooms, medical care, and joyful devotional fellowship.
               </p>
 
@@ -275,8 +265,8 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
       </div>
 
       {/* =========================================================================
-          SLIDE 3: "HEALED WITH HEALTHCARE & SACRED COMPASSION" (NEW MEDICAL BANNER)
-          Layout: Left Medical Text | Center/Right Caring Doctor & Mata | Right Feature Card
+          SLIDE 3: "HEALED WITH HEALTHCARE & SACRED COMPASSION" (MEDICAL BANNER)
+          Layout: Left Medical Text | Center/Right Caring Doctor & Mata
           ========================================================================= */}
       <div 
         className={`absolute inset-0 w-full h-full transition-all duration-700 ${
@@ -291,31 +281,31 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
           style={{ backgroundImage: "url('/images/aarogyavardhan.jpg')" }}
         ></div>
 
-        {/* Light Localized Left Gradient: Keeps doctor & Mata bright & white while protecting left text */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent lg:from-black/40 lg:via-black/10 lg:to-transparent"></div>
+        {/* Localized Left Gradient: Keeps doctor & Mata bright while giving strong contrast behind left text */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent lg:from-black/60 lg:via-black/20 lg:to-transparent"></div>
 
         {/* Content Container: Left-Aligned Layout with unobstructed view of the doctor & Mata */}
         <div className="site-container relative z-10 h-full flex items-center justify-start pt-20 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-xl flex flex-col items-start text-left space-y-2.5 sm:space-y-3.5">
             
-            {/* Typographic Cluster */}
+            {/* Typographic Cluster - 15% smaller & extra bold with high-contrast shadow */}
             <div className="space-y-0.5 sm:space-y-1 w-full text-left">
-              <h1 className="hero-heading text-3xl sm:text-5xl lg:text-6xl font-bold text-white uppercase tracking-[0.22em] leading-none m-0 p-0 text-left drop-shadow-md">
+              <h1 className="hero-heading text-[25px] sm:text-[40px] lg:text-[51px] font-black text-white uppercase tracking-[0.22em] leading-none m-0 p-0 text-left">
                 HEALED
               </h1>
-              <div className="text-[11px] sm:text-xs font-semibold uppercase tracking-[0.28em] text-amber-300 py-0.5 text-left">
-                WITH SACRED CARE & COMPASSION
+              <div className="hero-eyebrow-shadow text-[9.5px] sm:text-[10.5px] font-extrabold uppercase tracking-[0.28em] text-amber-300 py-0.5 text-left">
+                WITH SACRED CARE &amp; COMPASSION
               </div>
-              <div className="hero-heading text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-[0.22em] leading-none m-0 p-0 text-left text-[#e65100] font-destitute-stamp drop-shadow-md">
-                HEALTHCARE
+              <div className="hero-heading text-[22px] sm:text-[32px] lg:text-[40px] font-black uppercase tracking-[0.14em] leading-none m-0 p-0 text-left text-[#e65100] font-destitute-stamp">
+                Aarogyavardhan
               </div>
             </div>
 
             {/* 1px subtle divider line below heading */}
-            <div className="w-full max-w-sm sm:max-w-md h-[1px] bg-white/40 my-1.5 sm:my-2"></div>
+            <div className="w-full max-w-sm sm:max-w-md h-[1px] bg-white/50 my-1.5 sm:my-2"></div>
 
             {/* Subtitle & Mission Compassion Text */}
-            <p className="hero-subtext text-xs sm:text-[13.5px] md:text-sm !text-white text-white font-sans leading-relaxed max-w-lg text-left drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)] m-0">
+            <p className="hero-subtext text-xs sm:text-[13.5px] md:text-sm !text-white text-white font-sans leading-relaxed max-w-lg text-left drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)] m-0">
               Free cataract surgeries &amp; doorstep medicines restoring vision and relieving chronic pain for 1,500+ Matas in Vrindavan.
             </p>
 
@@ -356,8 +346,8 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
       </div>
 
       {/* =========================================================================
-          SLIDE 4: "SACRED & DIGNIFIED" (DAILY MATRI SEVA & MEALS BANNER)
-          Image Background: Volunteer serving hot nutritious meals to smiling Mata
+          SLIDE 4: "SACRED & DIGNIFIED" (MATRI SEVA DOCUMENTARY VIDEO BANNER)
+          Features the "Founded on the sacred principle of divine Matri Seva" video (98JraIjdDoU)
           ========================================================================= */}
       <div 
         className={`absolute inset-0 w-full h-full transition-all duration-700 ${
@@ -366,67 +356,95 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             : 'opacity-0 z-0 pointer-events-none invisible'
         }`}
       >
-        {/* Background Image: Compassionate meal seva in Vrindavan courtyard (Top-Aligned & Brightened) */}
-        <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-[position:65%_top] sm:bg-[position:60%_top] lg:bg-[position:center_top] bg-no-repeat scale-100 transition-transform duration-10000 brightness-[1.16] contrast-[1.02]"
-          style={{ backgroundImage: "url('/images/matri-seva.jpg')" }}
-        ></div>
+        {/* Background Documentary Video from "Founded on the sacred principle of divine Matri Seva" */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden bg-slate-900">
+          {currentSlide === 3 ? (
+            <iframe
+              src="https://www.youtube.com/embed/98JraIjdDoU?autoplay=1&mute=1&loop=1&playlist=98JraIjdDoU&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1"
+              title="Founded on the sacred principle of divine Matri Seva - Vrindavan Seva Documentary"
+              allow="autoplay; encrypted-media"
+              className="absolute top-1/2 left-1/2 w-[135%] h-[135%] -translate-x-1/2 -translate-y-1/2 object-cover pointer-events-none brightness-[1.12] contrast-[1.03]"
+            />
+          ) : (
+            <div
+              className="absolute inset-0 w-full h-full bg-cover bg-[position:center_top] bg-no-repeat brightness-[1.12]"
+              style={{ backgroundImage: "url('/images/documentary-poster.jpg')" }}
+            />
+          )}
+        </div>
 
-        {/* Light Localized Left Gradient: Keeps courtyard & Matas bright while protecting left text */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent lg:from-black/40 lg:via-black/10 lg:to-transparent"></div>
+        {/* Localized Left Gradient: Protects left text with strong visibility while keeping right video bright */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent lg:from-black/60 lg:via-black/20 lg:to-transparent pointer-events-none"></div>
 
-        {/* Content Container: Left-Aligned Layout */}
-        <div className="site-container relative z-10 h-full flex items-center justify-start pt-20 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8">
-          <div className="w-full max-w-xl flex flex-col items-start text-left space-y-2.5 sm:space-y-3.5">
+        {/* Content Container: Left Text + Right Interactive Documentary Video Player Card */}
+        <div className="site-container relative z-10 h-full flex items-center justify-between pt-20 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
             
-            {/* Typographic Cluster: 2-line layout (SACRED & / DIGNIFIED) */}
-            <div className="space-y-1.5 sm:space-y-2.5 w-full text-left">
-              <h1 className="hero-heading text-3xl sm:text-5xl lg:text-6xl font-bold text-white uppercase tracking-[0.22em] leading-none m-0 p-0 text-left drop-shadow-md">
-                SACRED <span style={{ color: '#FACC15' }} className="tracking-normal font-sans font-bold">&amp;</span>
-              </h1>
-              <div className="hero-heading text-3xl sm:text-5xl lg:text-6xl font-bold uppercase tracking-[0.22em] leading-none m-0 p-0 text-left text-[#e65100] font-destitute-stamp drop-shadow-md">
-                DIGNIFIED
+            {/* Left Column (7 cols): SACRED & DIGNIFIED */}
+            <div className="lg:col-span-7 flex flex-col items-start text-left space-y-2.5 sm:space-y-3.5 max-w-xl">
+              
+              {/* Typographic Cluster: 2-line layout (SACRED & / DIGNIFIED) - 15% smaller & extra bold with high-contrast shadow */}
+              <div className="space-y-1.5 sm:space-y-2 w-full text-left">
+                <h1 className="hero-heading text-[25px] sm:text-[40px] lg:text-[51px] font-black text-white uppercase tracking-[0.22em] leading-none m-0 p-0 text-left">
+                  SACRED <span style={{ color: '#FACC15' }} className="tracking-normal font-sans font-black">&amp;</span>
+                </h1>
+                <div className="hero-heading text-[25px] sm:text-[40px] lg:text-[51px] font-black uppercase tracking-[0.22em] leading-none m-0 p-0 text-left text-[#e65100] font-destitute-stamp">
+                  DIGNIFIED
+                </div>
               </div>
+
+              {/* 1px subtle divider line below heading */}
+              <div className="w-full max-w-sm sm:max-w-md h-[1px] bg-white/50 my-1.5 sm:my-2"></div>
+
+              {/* Subtitle & Mission Compassion Text */}
+              <p className="hero-subtext text-xs sm:text-[13.5px] md:text-sm !text-white text-white font-sans leading-relaxed max-w-lg text-left drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)] m-0">
+                Serving hot nutritious meals, daily cow milk, and compassionate healthcare to over 1,500 destitute widow Matas across Vrindavan every single day.
+              </p>
+
+              {/* Action Suite */}
+              <div className="pt-5 sm:pt-6 flex flex-col sm:flex-row items-center justify-start gap-2.5 w-full sm:w-auto">
+                <button
+                  onClick={() => onOpenDonate('indian', 'Vrindavan Matri Seva & Daily Sustenance')}
+                  className="w-full sm:w-auto btn-donate py-2.5 px-6 text-xs sm:text-sm font-bold shadow-xl cursor-pointer flex items-center justify-center gap-2"
+                >
+                  <Heart className="w-3.5 h-3.5 fill-white" />
+                  <span>Sponsor Matri Seva (80G)</span>
+                </button>
+
+                <button
+                  onClick={onExplorePrograms}
+                  className="w-full sm:w-auto py-2.5 px-4 text-xs font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/25 rounded-xl backdrop-blur-md transition-all cursor-pointer flex items-center justify-center gap-1.5"
+                >
+                  <span>View Our Sevas</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-amber-300" />
+                </button>
+              </div>
+
+              {/* Compliance / Impact Badges */}
+              <div className="pt-1.5 border-t border-white/15 flex flex-wrap items-center justify-start gap-2.5 text-[10px] sm:text-[11px] text-slate-200">
+                <span className="flex items-center gap-1 text-amber-300 font-semibold">
+                  <ShieldCheck className="w-3.5 h-3.5" /> 100% Direct Seva
+                </span>
+                <span className="text-white/30">•</span>
+                <span className="flex items-center gap-1 text-amber-200 font-semibold">
+                  1,500+ Matas Daily
+                </span>
+                <span className="text-white/30">•</span>
+                <span className="text-slate-200 font-medium">80G &amp; FCRA Verified</span>
+              </div>
+
             </div>
 
-            {/* 1px subtle divider line below heading */}
-            <div className="w-full max-w-sm sm:max-w-md h-[1px] bg-white/40 my-1.5 sm:my-2"></div>
-
-            {/* Subtitle & Mission Compassion Text */}
-            <p className="hero-subtext text-xs sm:text-[13.5px] md:text-sm !text-white text-white font-sans leading-relaxed max-w-lg text-left drop-shadow-[0_1px_2px_rgba(0,0,0,0.85)] m-0">
-              Serving hot nutritious meals, daily cow milk, and compassionate healthcare to over 1,500 destitute widow Matas across Vrindavan every single day.
-            </p>
-
-            {/* Action Suite */}
-            <div className="pt-5 sm:pt-6 flex flex-col sm:flex-row items-center justify-start gap-2.5 w-full sm:w-auto">
-              <button
-                onClick={() => onOpenDonate('indian', 'Vrindavan Matri Seva & Daily Sustenance')}
-                className="w-full sm:w-auto btn-donate py-2.5 px-6 text-xs sm:text-sm font-bold shadow-xl cursor-pointer flex items-center justify-center gap-2"
-              >
-                <Heart className="w-3.5 h-3.5 fill-white" />
-                <span>Sponsor Matri Seva (80G)</span>
-              </button>
-
-              <button
-                onClick={onExplorePrograms}
-                className="w-full sm:w-auto py-2.5 px-4 text-xs font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/25 rounded-xl backdrop-blur-md transition-all cursor-pointer flex items-center justify-center gap-1.5"
-              >
-                <span>View Our Sevas</span>
-                <ArrowRight className="w-3.5 h-3.5 text-amber-300" />
-              </button>
-            </div>
-
-            {/* Compliance / Impact Badges */}
-            <div className="pt-1.5 border-t border-white/15 flex flex-wrap items-center justify-start gap-2.5 text-[10px] sm:text-[11px] text-slate-200">
-              <span className="flex items-center gap-1 text-amber-300 font-semibold">
-                <ShieldCheck className="w-3.5 h-3.5" /> 100% Direct Seva
-              </span>
-              <span className="text-white/30">•</span>
-              <span className="flex items-center gap-1 text-amber-200 font-semibold">
-                1,500+ Matas Daily
-              </span>
-              <span className="text-white/30">•</span>
-              <span className="text-slate-200 font-medium">80G & FCRA Verified</span>
+            {/* Right Column (5 cols): Interactive Documentary Video Player with Sound & Controls */}
+            <div className="hidden lg:flex lg:col-span-5 justify-end">
+              <div className="w-full max-w-[420px] rounded-2xl overflow-hidden border-2 border-white/80 shadow-2xl">
+                <CleanVideoPlayer
+                  videoId="98JraIjdDoU"
+                  posterImage="/images/documentary-poster.jpg"
+                  title="Founded on the sacred principle of divine Matri Seva"
+                  className="w-full aspect-video rounded-none"
+                />
+              </div>
             </div>
 
           </div>
@@ -471,7 +489,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
       </button>
 
       {/* Rotating Circular Hero Pledge Badge (Transparent with White Text) - Lowered below header */}
-      <div className={`absolute top-20 right-4 sm:top-24 sm:right-6 lg:top-24 lg:right-10 z-20 pointer-events-auto select-none ${currentSlide === 1 ? 'hidden' : 'block'}`}>
+      <div className={`absolute top-20 right-4 sm:top-24 sm:right-6 lg:top-24 lg:right-10 z-20 pointer-events-auto select-none ${currentSlide === 1 || currentSlide === 3 ? 'hidden' : 'block'}`}>
         <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full bg-transparent p-1 flex items-center justify-center transition-transform hover:scale-105 duration-300">
           
           {/* Outer Dashed Ring */}
