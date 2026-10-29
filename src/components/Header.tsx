@@ -81,10 +81,10 @@ export const Header: React.FC<HeaderProps> = () => {
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 backdrop-blur-md ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-0 ${
         scrolled 
-          ? 'bg-white/75 border-b border-slate-200/70 shadow-sm' 
-          : 'bg-white/30 border-b border-white/30'
+          ? 'bg-white shadow-md' 
+          : 'bg-transparent'
       }`}
     >
       {/* Main Navigation Bar */}
