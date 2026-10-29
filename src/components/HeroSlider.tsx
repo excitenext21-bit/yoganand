@@ -52,7 +52,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
   return (
     <section 
       id="home" 
-      className="relative w-full h-[100dvh] min-h-[620px] flex items-center overflow-hidden bg-slate-950"
+      className="relative w-full h-[100dvh] min-h-[620px] flex items-center overflow-hidden bg-slate-100"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -78,8 +78,8 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             : 'opacity-0 z-0 pointer-events-none invisible'
         }`}
       >
-        {/* Background Video: Yoganand video */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden bg-black">
+        {/* Background Video: Yoganand video (Brightened) */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden bg-slate-100">
           <video
             ref={videoRef1}
             src="/videos/yoganand.mp4"
@@ -88,13 +88,12 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             muted
             playsInline
             onEnded={handleVideo1Ended}
-            className="w-full h-full object-cover scale-100"
+            className="w-full h-full object-cover scale-100 brightness-[1.22] contrast-[1.03]"
           />
         </div>
 
-        {/* Cinematic Gradient: Deep on left to protect text, soft on right to show the Mata */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/60 to-black/25 lg:from-black/90 lg:via-black/50 lg:to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/75"></div>
+        {/* Light Localized Left Gradient: Keeps image bright & white while protecting left text */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent lg:from-black/40 lg:via-black/10 lg:to-transparent"></div>
 
         {/* Content Container: Left-Aligned Layout */}
         <div className="site-container relative z-10 h-full flex items-center justify-start pt-20 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8">
@@ -148,15 +147,14 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             : 'opacity-0 z-0 pointer-events-none invisible'
         }`}
       >
-        {/* Background Image: Smiling Mata in white saree seated on left-center */}
+        {/* Background Image: Smiling Mata in white saree seated on left-center (Brightened) */}
         <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-center sm:bg-[position:45%_center] bg-no-repeat scale-100 transition-transform duration-10000"
+          className="absolute inset-0 w-full h-full bg-cover bg-center sm:bg-[position:45%_center] bg-no-repeat scale-100 transition-transform duration-10000 brightness-[1.24] contrast-[1.03]"
           style={{ backgroundImage: "url('/images/hero-slide2.jpg')" }}
         ></div>
 
-        {/* Ambient Gradients: protect text legibility on both flanks while leaving Mata bright */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/85 via-black/15 to-black/85 lg:from-black/75 lg:via-transparent lg:to-black/85"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-transparent to-black/60"></div>
+        {/* Light Localized Left Gradient: Leaves the smiling Mata & right side completely bright */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/10 to-transparent lg:from-black/40 lg:via-transparent lg:to-transparent"></div>
 
         {/* Content Container: 3-column architecture */}
         <div className="site-container relative z-10 h-full flex items-center pt-20 sm:pt-24 pb-8 px-4">
@@ -214,17 +212,17 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
               {/* Intentional negative space so the Mata is never covered */}
             </div>
 
-            {/* Column 3 (Right 5 cols): MATA PROFILE Glass Card DOCKED STRICTLY TO RIGHT
+            {/* Column 3 (Right 5 cols): MATA PROFILE Bright White Card DOCKED STRICTLY TO RIGHT
                 Normal case font as requested, zero overlap with the Mata! */}
             <div className="lg:col-span-5 flex justify-end">
-              <div className="w-full max-w-[340px] xl:max-w-[370px] bg-black/80 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-white/20 shadow-2xl text-white space-y-3 font-sans">
+              <div className="w-full max-w-[340px] xl:max-w-[370px] bg-white/95 backdrop-blur-md p-4 sm:p-5 rounded-2xl border border-white shadow-2xl text-slate-800 space-y-3 font-sans">
                 
                 {/* Card Title Strip - Normal Case */}
-                <div className="flex items-center gap-2 pb-2 border-b border-white/15">
-                  <div className="w-4 h-4 rounded-full border border-amber-400 flex items-center justify-center text-amber-400">
-                    <ChevronRight className="w-2.5 h-2.5 stroke-[1]" />
+                <div className="flex items-center gap-2 pb-2 border-b border-slate-200">
+                  <div className="w-4 h-4 rounded-full border border-[#e65100] flex items-center justify-center text-[#e65100]">
+                    <ChevronRight className="w-2.5 h-2.5 stroke-[1.5]" />
                   </div>
-                  <span className="text-xs sm:text-sm font-semibold tracking-wide text-white">
+                  <span className="text-xs sm:text-sm font-bold tracking-wide text-slate-900">
                     Mata Profile
                   </span>
                 </div>
@@ -232,32 +230,32 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
                 {/* Profile Data Points - Normal Case Font */}
                 <div className="space-y-2 text-xs leading-relaxed font-sans">
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-[11px] font-semibold text-amber-300">
+                    <span className="text-[11px] font-bold text-[#e65100]">
                       Name:
                     </span>
-                    <span className="font-medium text-xs sm:text-sm text-white">
+                    <span className="font-semibold text-xs sm:text-sm text-slate-900">
                       Sarojini Sidhanthapu
                     </span>
                   </div>
 
                   <div className="flex items-baseline gap-1.5">
-                    <span className="text-[11px] font-semibold text-amber-300">
+                    <span className="text-[11px] font-bold text-[#e65100]">
                       Age:
                     </span>
-                    <span className="text-xs text-slate-200">
+                    <span className="text-xs text-slate-700 font-medium">
                       56 years old
                     </span>
                   </div>
 
                   <div className="pt-0.5">
-                    <span className="text-[11px] font-semibold text-amber-300 block mb-1">
+                    <span className="text-[11px] font-bold text-[#e65100] block mb-1">
                       How has the Trust changed your life?
                     </span>
-                    <div className="space-y-1.5 text-slate-200 text-xs italic font-normal leading-relaxed bg-white/5 p-2.5 rounded-xl border border-white/10">
+                    <div className="space-y-1.5 text-slate-700 text-xs italic font-normal leading-relaxed bg-amber-50/70 p-2.5 rounded-xl border border-amber-200/80">
                       <p>
                         "Before I came into contact with the Trust, I did not know where my next meal would come from. Life was full of uncertainty and despair."
                       </p>
-                      <p className="text-amber-200 not-italic font-medium">
+                      <p className="text-[#c2410c] not-italic font-semibold">
                         "Now, I am fed twice a day and receive monthly medicines. Now I am not a burden to anyone."
                       </p>
                     </div>
@@ -293,15 +291,14 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             : 'opacity-0 z-0 pointer-events-none invisible'
         }`}
       >
-        {/* Background Image: Doctor gently providing medical care to smiling Mata (positioned on right) */}
+        {/* Background Image: Doctor gently providing medical care to smiling Mata (Brightened) */}
         <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-[position:75%_center] sm:bg-[position:80%_center] lg:bg-[position:85%_center] bg-no-repeat scale-100 transition-transform duration-10000"
+          className="absolute inset-0 w-full h-full bg-cover bg-[position:75%_center] sm:bg-[position:80%_center] lg:bg-[position:85%_center] bg-no-repeat scale-100 transition-transform duration-10000 brightness-[1.25] contrast-[1.03]"
           style={{ backgroundImage: "url('/images/hero-medical.jpg')" }}
         ></div>
 
-        {/* Ambient Gradients: dark gradient on left to guarantee text readability */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/60 to-black/20 lg:from-black/90 lg:via-black/50 lg:to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/75"></div>
+        {/* Light Localized Left Gradient: Keeps doctor & Mata bright & white while protecting left text */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent lg:from-black/40 lg:via-black/10 lg:to-transparent"></div>
 
         {/* Content Container: Left-Aligned Layout with unobstructed view of the doctor & Mata */}
         <div className="site-container relative z-10 h-full flex items-center justify-start pt-20 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8">
@@ -378,15 +375,14 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             : 'opacity-0 z-0 pointer-events-none invisible'
         }`}
       >
-        {/* Background Image: Compassionate meal seva in Vrindavan courtyard */}
+        {/* Background Image: Compassionate meal seva in Vrindavan courtyard (Brightened) */}
         <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-[position:65%_center] sm:bg-[position:60%_center] lg:bg-center bg-no-repeat scale-100 transition-transform duration-10000"
+          className="absolute inset-0 w-full h-full bg-cover bg-[position:65%_center] sm:bg-[position:60%_center] lg:bg-center bg-no-repeat scale-100 transition-transform duration-10000 brightness-[1.16] contrast-[1.02]"
           style={{ backgroundImage: "url('/images/matri-seva.jpg')" }}
         ></div>
 
-        {/* Cinematic Gradient: Deep on left to protect text, soft on right to show the Seva */}
-        <div className="absolute inset-0 bg-gradient-to-r from-black/92 via-black/60 to-black/25 lg:from-black/90 lg:via-black/50 lg:to-transparent"></div>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-transparent to-black/75"></div>
+        {/* Light Localized Left Gradient: Keeps courtyard & Matas bright while protecting left text */}
+        <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent lg:from-black/40 lg:via-black/10 lg:to-transparent"></div>
 
         {/* Content Container: Left-Aligned Layout */}
         <div className="site-container relative z-10 h-full flex items-center justify-start pt-20 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8">
@@ -456,7 +452,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
       {/* Prev / Next Arrows */}
       <button
         onClick={() => setCurrentSlide((prev) => (prev === 0 ? TOTAL_SLIDES - 1 : prev - 1))}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-black/75 text-white border border-white/20 flex items-center justify-center backdrop-blur-xs transition-colors cursor-pointer"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/25 hover:bg-white/40 text-white border border-white/40 flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer shadow-md"
         aria-label="Previous Slide"
       >
         <ChevronLeft className="w-5 h-5" />
@@ -464,7 +460,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
 
       <button
         onClick={() => setCurrentSlide((prev) => (prev + 1) % TOTAL_SLIDES)}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-black/40 hover:bg-black/75 text-white border border-white/20 flex items-center justify-center backdrop-blur-xs transition-colors cursor-pointer"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/25 hover:bg-white/40 text-white border border-white/40 flex items-center justify-center backdrop-blur-md transition-colors cursor-pointer shadow-md"
         aria-label="Next Slide"
       >
         <ChevronRight className="w-5 h-5" />

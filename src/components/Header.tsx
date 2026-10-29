@@ -88,7 +88,7 @@ export const Header: React.FC<HeaderProps> = () => {
       className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-0 ${
         scrolled 
           ? 'bg-white shadow-md' 
-          : 'bg-gradient-to-b from-black/60 via-black/25 to-transparent'
+          : 'bg-gradient-to-b from-black/35 via-black/10 to-transparent'
       }`}
     >
       {/* Main Navigation Bar */}
