@@ -97,19 +97,23 @@ export const Header: React.FC<HeaderProps> = ({ heroSlide = 0 }) => {
 
   return (
     <header 
-      className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-0 bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-0 ${
+        scrolled 
+          ? 'bg-white shadow-md' 
+          : 'bg-transparent'
+      }`}
     >
-      {/* Main Navigation Bar (Clean Transparent background, zero blur) */}
+      {/* Main Navigation Bar */}
       <div className="px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 transition-all">
         <div className="site-container flex items-center justify-between gap-4">
           
-          {/* Brand Logo: Adapts between white lockup on dark background & transparent dark logo on light background */}
+          {/* Brand Logo: White text logo only */}
           <Link 
             to="/"
             className="flex items-center shrink-0 cursor-pointer group select-none"
           >
             <img
-              src={isLightText ? "/images/mainlogo-white.svg" : "/images/mainlogo-transparent.png"}
+              src="/images/mainlogo-white.svg"
               alt="Paramhansa Yogananda Public Charitable Trust"
               className="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
