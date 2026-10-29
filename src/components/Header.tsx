@@ -9,7 +9,7 @@ interface HeaderProps {
   heroSlide?: number;
 }
 
-export const Header: React.FC<HeaderProps> = ({ heroSlide = 0 }) => {
+export const Header: React.FC<HeaderProps> = () => {
   const { pathname } = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
