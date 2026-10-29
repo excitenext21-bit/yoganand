@@ -291,10 +291,10 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             : 'opacity-0 z-0 pointer-events-none invisible'
         }`}
       >
-        {/* Background Image: Doctor gently providing medical care to smiling Mata (Brightened) */}
+        {/* Background Image: Bright sunlit Aarogyavardhan clinic with caring doctor & smiling Mata */}
         <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-[position:75%_center] sm:bg-[position:80%_center] lg:bg-[position:85%_center] bg-no-repeat scale-100 transition-transform duration-10000 brightness-[1.25] contrast-[1.03]"
-          style={{ backgroundImage: "url('/images/hero-medical.jpg')" }}
+          className="absolute inset-0 w-full h-full bg-cover bg-center sm:bg-[position:65%_center] lg:bg-center bg-no-repeat scale-100 transition-transform duration-10000 brightness-[1.12] contrast-[1.02]"
+          style={{ backgroundImage: "url('/images/aarogyavardhan.jpg')" }}
         ></div>
 
         {/* Light Localized Left Gradient: Keeps doctor & Mata bright & white while protecting left text */}
