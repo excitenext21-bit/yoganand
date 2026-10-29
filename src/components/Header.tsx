@@ -144,25 +144,22 @@ export const Header: React.FC<HeaderProps> = () => {
                   <div className="grid grid-cols-12 gap-3.5 items-stretch">
                     
                     {/* Left Side: Dynamic Preview Image */}
-                    <div className="col-span-5 relative rounded-xl overflow-hidden min-h-[160px] h-full flex flex-col justify-end p-3.5 group/img select-none bg-slate-900">
+                    <div className="col-span-5 relative rounded-xl overflow-hidden min-h-[160px] h-full flex flex-col justify-end p-3.5 group/img select-none bg-slate-100">
                       <img 
                         src="/images/hero-cinematic.jpg" 
                         alt="The Need & Urgency in Vrindavan"
                         className="absolute inset-0 w-full h-full object-cover transition-all duration-500 transform group-hover/img:scale-105"
                       />
-                      
-                      {/* Cinematic Gradient Vignette */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent pointer-events-none" />
 
                       {/* Floating Micro-Badge */}
                       <div className="relative z-10 space-y-1">
                         <span className="inline-block px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-amber-400 text-slate-950 shadow-xs">
                           Critical Need
                         </span>
-                        <p className="text-white text-xs font-semibold leading-snug drop-shadow-sm font-sans m-0">
+                        <p className="text-white text-xs font-semibold leading-snug drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)] font-sans m-0">
                           Eliminating Begging &amp; Abandonment
                         </p>
-                        <p className="text-white/75 text-[10px] leading-tight font-sans m-0">
+                        <p className="text-white text-[10px] leading-tight drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)] font-sans m-0">
                           Holy Vrindavan &amp; Radhakund
                         </p>
                       </div>
@@ -223,7 +220,7 @@ export const Header: React.FC<HeaderProps> = () => {
                   <div className="grid grid-cols-12 gap-3.5 items-stretch">
                     
                     {/* Left Side: Dynamic Preview Image matching hovered Seva */}
-                    <div className="col-span-5 relative rounded-xl overflow-hidden min-h-[260px] h-full flex flex-col justify-end p-3.5 group/img select-none bg-slate-900">
+                    <div className="col-span-5 relative rounded-xl overflow-hidden min-h-[260px] h-full flex flex-col justify-end p-3.5 group/img select-none bg-slate-100">
                       <img 
                         src={
                           workHoverItem === 'ashram' ? '/images/hero-seva.jpg' :
@@ -235,7 +232,6 @@ export const Header: React.FC<HeaderProps> = () => {
                         alt="Our Work Seva in Vrindavan"
                         className="absolute inset-0 w-full h-full object-cover transition-all duration-500 transform group-hover/img:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent pointer-events-none" />
                       
                       <div className="relative z-10 space-y-1">
                         <span className="inline-block px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-amber-400 text-slate-950 shadow-xs">
@@ -247,7 +243,7 @@ export const Header: React.FC<HeaderProps> = () => {
                             'Daily Annapurna'
                           }
                         </span>
-                        <p className="text-white text-xs font-semibold leading-snug drop-shadow-sm font-sans m-0">
+                        <p className="text-white text-xs font-semibold leading-snug drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)] font-sans m-0">
                           {
                             workHoverItem === 'ashram' ? '280+ Destitute Matas in Ashram Haven' :
                             workHoverItem === 'community' ? '1,200+ Matas Supported in Rented Rooms' :
@@ -256,7 +252,7 @@ export const Header: React.FC<HeaderProps> = () => {
                             '3,200+ Fresh Plates Daily in Holy Dham'
                           }
                         </p>
-                        <p className="text-white/75 text-[10px] leading-tight font-sans m-0">
+                        <p className="text-white text-[10px] leading-tight drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)] font-sans m-0">
                           {
                             workHoverItem === 'ashram' ? '24/7 Loving Care, Meals & Kirtan' :
                             workHoverItem === 'community' ? 'Monthly Groceries, Milk & Rent Stipend' :
@@ -434,7 +430,7 @@ export const Header: React.FC<HeaderProps> = () => {
                   <div className="grid grid-cols-12 gap-3.5 items-stretch">
                     
                     {/* Left Side: Dynamic Preview Image matching hovered item */}
-                    <div className="col-span-5 relative rounded-xl overflow-hidden min-h-[250px] h-full flex flex-col justify-end p-3.5 group/img select-none bg-slate-900">
+                    <div className="col-span-5 relative rounded-xl overflow-hidden min-h-[250px] h-full flex flex-col justify-end p-3.5 group/img select-none bg-slate-100">
                       <img 
                         src={
                           heartHoverItem === 'circle' ? '/images/mata-happy-1.jpg' :
@@ -445,7 +441,6 @@ export const Header: React.FC<HeaderProps> = () => {
                         alt="Heart of Seva in Vrindavan"
                         className="absolute inset-0 w-full h-full object-cover transition-all duration-500 transform group-hover/img:scale-105"
                       />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/40 to-transparent pointer-events-none" />
                       
                       <div className="relative z-10 space-y-1">
                         <span className="inline-block px-2 py-0.5 rounded-full text-[9px] font-bold uppercase tracking-wider bg-amber-400 text-slate-950 shadow-xs">
@@ -456,7 +451,7 @@ export const Header: React.FC<HeaderProps> = () => {
                             'Direct Impact'
                           }
                         </span>
-                        <p className="text-white text-xs font-semibold leading-snug drop-shadow-sm font-sans m-0">
+                        <p className="text-white text-xs font-semibold leading-snug drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)] font-sans m-0">
                           {
                             heartHoverItem === 'circle' ? 'Circle of Love & Lifelong Fellowship' :
                             heartHoverItem === 'pilgrimage' ? 'Serve in Person in Holy Vrindavan' :
@@ -464,7 +459,7 @@ export const Header: React.FC<HeaderProps> = () => {
                             'Sacred Impact Calculator'
                           }
                         </p>
-                        <p className="text-white/75 text-[10px] leading-tight font-sans m-0">
+                        <p className="text-white text-[10px] leading-tight drop-shadow-[0_1px_3px_rgba(0,0,0,0.85)] font-sans m-0">
                           {
                             heartHoverItem === 'circle' ? 'Paired with compassionate global volunteers' :
                             heartHoverItem === 'pilgrimage' ? 'Serve warm meals & sit in devotion' :
