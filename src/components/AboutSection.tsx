@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { UserMinus, HeartPulse, HandCoins, Users, ShieldCheck, Calendar } from 'lucide-react';
+import { UserMinus, HeartPulse, HandCoins, ChevronRight } from 'lucide-react';
 
 interface AboutSectionProps {
   onOpenDonate?: (portalType: 'indian' | 'foreign') => void;
@@ -12,14 +12,14 @@ const SLIDING_MATA_IMAGES = [
     caption: 'Restoring Peace & Sacred Dignity'
   },
   {
-    src: '/images/hero-seva.jpg',
-    alt: 'Devotional Mata welcoming visitors at Matri Seva Ashram',
-    caption: 'Matri Seva Ashram — Holy Vrindavan'
-  },
-  {
     src: '/images/matri-seva.jpg',
     alt: 'Daily hot nutritious meal seva for Matas in Vrindavan courtyard',
     caption: 'Daily Hot Sattvic Meals & Nutrition'
+  },
+  {
+    src: '/images/hero-seva.jpg',
+    alt: 'Devotional Mata welcoming visitors at Matri Seva Ashram',
+    caption: 'Matri Seva Ashram — Holy Vrindavan'
   },
   {
     src: '/images/aarogyavardhan.jpg',
@@ -66,224 +66,128 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenDonate }) => {
     }
   }, []);
 
-  // Duplicate list for seamless infinite downward loop (-50% -> 0%)
+  // Duplicate list for seamless infinite right-to-left loop (0% -> -50%)
   const loopImages = [...SLIDING_MATA_IMAGES, ...SLIDING_MATA_IMAGES];
 
   return (
     <section id="about" className="bg-white text-slate-800 relative w-full pt-6 sm:pt-8 lg:pt-10 pb-0">
       
-      {/* Bento Grid About Section matching reference design */}
+      {/* Top Overview: 2-Card Style matching reference image (Left = Right-to-Left Sliding Mata Images, Right = Previous About Contents) */}
       <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mb-8 sm:mb-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-5 items-stretch">
           
           {/* =================================================================
-              LEFT COLUMN (6 cols):
-              Top Box = About Narrative Content
-              Bottom Box = Stats & Visual Showcase Card
+              LEFT CARD (5 cols):
+              Rounded Card with Mata Images Sliding from Right to Left
+              (Pauses on Hover) - Matched to About Us Content bg (#f5f5f2) & calculator shadow
               ================================================================= */}
-          <div className="lg:col-span-6 flex flex-col justify-between gap-4 sm:gap-5">
-            
-            {/* TOP-LEFT CARD: Content Card (Olive-Charcoal Bento Card) */}
-            <div className="rounded-[28px] sm:rounded-[34px] bg-[#4e4c36] text-white p-6 sm:p-8 lg:p-9 flex flex-col justify-between space-y-6 shadow-sm">
-              
-              {/* Top Row: Left Emblem Badge & Right Location/Trust Meta */}
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-11 h-11 rounded-full bg-black flex items-center justify-center shadow-md shrink-0 border border-amber-400/30">
+          <div className="lg:col-span-5 relative rounded-[28px] sm:rounded-[34px] bg-[#f5f5f2] p-3 sm:p-4 overflow-hidden min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] flex items-stretch hover-pause-slide-rtl select-none shadow-xl border border-slate-200/70">
+            <div className="relative w-full h-full rounded-[22px] sm:rounded-[26px] overflow-hidden flex items-stretch">
+              <div className="animate-slide-rtl-about flex items-stretch gap-3.5 h-full w-max">
+                {loopImages.map((img, index) => (
+                  <div
+                    key={`${img.src}-${index}`}
+                    className="relative w-[300px] sm:w-[360px] lg:w-[400px] h-full min-h-[350px] sm:min-h-[410px] lg:min-h-[448px] rounded-[20px] sm:rounded-[24px] overflow-hidden shrink-0 shadow-md border-2 border-white/70 bg-slate-100"
+                  >
                     <img
-                      src="/images/logo-monogram-round.png?v=2"
-                      alt="Trust Emblem"
-                      className="w-7 h-7 object-contain"
+                      src={img.src}
+                      alt={img.alt}
+                      className="w-full h-full object-cover object-[center_top] brightness-[1.06] contrast-[1.02]"
                     />
-                  </div>
-                  <span className="text-[10.5px] sm:text-xs uppercase tracking-[0.2em] font-semibold text-amber-300 font-sans">
-                    OUR SACRED MANDATE
-                  </span>
-                </div>
-
-                <div className="text-right space-y-1.5 max-w-[210px] font-sans">
-                  <p className="text-[11px] sm:text-xs text-white/95 leading-snug m-0 font-normal">
-                    Chaitanya Vihar, Phase 1,<br />
-                    Vrindavan &amp; Radhakund, UP
-                  </p>
-                  <p className="text-[11px] text-amber-200/80 leading-snug m-0 font-medium">
-                    Divine Matri Seva —<br />
-                    Paramhansa Yogananda Trust
-                  </p>
-                </div>
-              </div>
-
-              {/* Bottom Narrative Content */}
-              <div className="space-y-3.5 pt-2">
-                <h2 
-                  style={{ fontSize: '24px', color: '#ffffff' }}
-                  className="!text-[24px] sm:!text-[28px] font-normal tracking-[-0.02em] !text-white leading-snug font-heading m-0"
-                >
-                  Founded on the sacred principle of divine Matri Seva
-                </h2>
-
-                <p className="text-white/90 text-xs sm:text-sm lg:text-[14.5px] leading-relaxed font-sans m-0">
-                  Established in August 2015, the <strong>Paramhansa Yogananda Public Charitable Trust</strong> was born out of a profound spiritual mandate: to serve, nourish, and protect the aged, destitute, and abandoned elderly women of Vrindavan and Radhakund.
-                </p>
-
-                <p className="text-white/75 text-xs sm:text-[13.5px] leading-relaxed font-sans m-0">
-                  Inspired by the eternal teachings of Paramhansa Yogananda (author of <em>Autobiography of a Yogi</em>) and aligned with the selfless Seva principles of Ananda Sangha, our mission is to eliminate begging and suffering among elderly Matas by honoring them as our own Matas.
-                </p>
-              </div>
-
-            </div>
-
-            {/* BOTTOM-LEFT CARD: Warm Cream Outer Box containing White Stats & Photo Card */}
-            <div className="rounded-[28px] sm:rounded-[34px] bg-[#fdf3e7] p-3.5 sm:p-5 flex-1 flex items-stretch">
-              <div className="bg-white rounded-[22px] sm:rounded-[26px] p-4 sm:p-5 w-full grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-5 items-stretch shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-                
-                {/* Left Side of Stats Box: Avatars, Description & Key Stats */}
-                <div className="sm:col-span-6 flex flex-col justify-between space-y-4">
-                  <div className="space-y-2.5">
-                    {/* Overlapping Circular Mata Avatars */}
-                    <div className="flex items-center -space-x-2">
-                      <img
-                        src="/images/aalo-maa.jpg"
-                        alt="Mata Aalo"
-                        className="w-8 h-8 rounded-full object-cover border-2 border-white shadow-xs"
-                      />
-                      <img
-                        src="/images/deepali-maa.jpg"
-                        alt="Mata Deepali"
-                        className="w-8 h-8 rounded-full object-cover border-2 border-white shadow-xs"
-                      />
-                      <img
-                        src="/images/pushpa-daasi-maa.jpg"
-                        alt="Mata Pushpa"
-                        className="w-8 h-8 rounded-full object-cover border-2 border-white shadow-xs"
-                      />
-                    </div>
-
-                    <h3 className="text-base sm:text-[17px] font-semibold text-[#18181b] font-heading m-0">
-                      Sacred Seva Impact
-                    </h3>
-
-                    <p className="text-[11.5px] sm:text-xs text-slate-500 leading-relaxed font-sans m-0">
-                      Every day our ashram provides hot nutritious meals, monthly groceries, free cataract surgeries, and loving shelter with zero cost to the Matas.
-                    </p>
-                  </div>
-
-                  {/* Stats Row at Bottom */}
-                  <div className="grid grid-cols-3 gap-2 pt-3 border-t border-slate-100">
-                    <div>
-                      <div className="flex items-center gap-1 text-[#18181b] font-bold text-sm sm:text-base font-heading">
-                        <span>2015</span>
-                        <Calendar className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                      </div>
-                      <span className="text-[10px] text-slate-400 font-sans block leading-tight">
-                        Aug Founded
-                      </span>
-                    </div>
-
-                    <div>
-                      <div className="flex items-center gap-1 text-[#18181b] font-bold text-sm sm:text-base font-heading">
-                        <span>1,400+</span>
-                        <Users className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                      </div>
-                      <span className="text-[10px] text-slate-400 font-sans block leading-tight">
-                        Daily Matas
-                      </span>
-                    </div>
-
-                    <div>
-                      <div className="flex items-center gap-1 text-[#18181b] font-bold text-sm sm:text-base font-heading">
-                        <span>100%</span>
-                        <ShieldCheck className="w-3.5 h-3.5 text-slate-400 shrink-0" />
-                      </div>
-                      <span className="text-[10px] text-slate-400 font-sans block leading-tight">
-                        Free Seva
-                      </span>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Right Side of Stats Box: Featured Ashram Seva Photo */}
-                <div className="sm:col-span-6 relative rounded-[18px] sm:rounded-[20px] overflow-hidden min-h-[190px] sm:min-h-[220px] bg-slate-100">
-                  <img
-                    src="/images/matri-seva.jpg"
-                    alt="Matri Seva courtyard meal service"
-                    className="w-full h-full object-cover object-center brightness-[1.05]"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/65 via-black/20 to-transparent p-3">
-                    <span className="text-[11px] font-semibold text-white block leading-snug">
-                      Founded August 2015 in Holy Vrindavan
+                    <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/65 via-black/20 to-transparent pointer-events-none" />
+                    <span className="absolute bottom-3.5 left-4 right-4 z-10 text-white text-xs sm:text-sm font-medium tracking-wide drop-shadow-md font-sans">
+                      {img.caption}
                     </span>
                   </div>
-                </div>
-
+                ))}
               </div>
             </div>
-
           </div>
 
           {/* =================================================================
-              RIGHT COLUMN (6 cols):
-              Vertical Downward-Sliding Mata Images (Pauses on Hover)
-              with Decorative Arc Lines & Frosted Glass Floating Pills
+              RIGHT CARD (7 cols):
+              Soft Warm Stone Card with Previous About Us Contents, Stats,
+              White Pill Button & Yellow-Lime Starburst Circle
               ================================================================= */}
-          <div className="lg:col-span-6 relative rounded-[28px] sm:rounded-[34px] overflow-hidden h-[540px] sm:h-[620px] lg:h-[660px] bg-[#e5e4dc] hover-pause-slide-down group shadow-sm select-none">
+          <div className="lg:col-span-7 rounded-[28px] sm:rounded-[34px] bg-[#f5f5f2] p-6 sm:p-9 lg:p-12 flex flex-col justify-between space-y-5 sm:space-y-6 shadow-xl border border-slate-200/70">
             
-            {/* Continuous Downward-Sliding Vertical Track (Pauses on Hover) */}
-            <div className="animate-slide-down-about flex flex-col gap-3.5 p-3 sm:p-4">
-              {loopImages.map((img, index) => (
-                <div
-                  key={`${img.src}-${index}`}
-                  className="relative w-full h-[360px] sm:h-[420px] rounded-[22px] sm:rounded-[26px] overflow-hidden shrink-0 shadow-md border border-white/40"
-                >
-                  <img
-                    src={img.src}
-                    alt={img.alt}
-                    className="w-full h-full object-cover object-[center_top] brightness-[1.06] contrast-[1.02] transition-transform duration-700"
-                  />
-                  <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/60 via-black/15 to-transparent pointer-events-none" />
-                  <span className="absolute bottom-3.5 left-4 z-10 text-white text-xs font-medium tracking-wide drop-shadow-md font-sans">
-                    {img.caption}
+            <div className="space-y-4 sm:space-y-5">
+              {/* Header: 24px Normal Case, Strict Typography Standard */}
+              <div className="space-y-2 text-left">
+                <div className="flex items-center gap-3">
+                  <span className="text-[11px] sm:text-xs uppercase tracking-[0.22em] font-semibold text-slate-800 font-sans">
+                    OUR SACRED MANDATE
                   </span>
+                  <div className="w-10 h-[1.5px] bg-slate-300"></div>
                 </div>
-              ))}
+                <h2 
+                  style={{ fontSize: '24px' }}
+                  className="!text-[24px] sm:!text-[26px] font-normal tracking-[-0.02em] text-[#18181b] leading-snug font-heading m-0"
+                >
+                  Founded on the sacred principle of divine Matri Seva
+                </h2>
+              </div>
+
+              <p className="text-slate-700 text-sm sm:text-[15px] lg:text-[15.5px] leading-relaxed font-sans m-0">
+                Established in August 2015, the <strong>Paramhansa Yogananda Public Charitable Trust</strong> was born out of a profound spiritual mandate: to serve, nourish, and protect the aged, destitute, and abandoned elderly women of Vrindavan and Radhakund.
+              </p>
+
+              <p className="text-[#444444] text-xs sm:text-sm lg:text-[14.5px] leading-relaxed font-sans m-0">
+                Inspired by the eternal teachings of Paramhansa Yogananda (author of <em>Autobiography of a Yogi</em>) and aligned with the selfless Seva principles of Ananda Sangha, our mission is to eliminate begging and suffering among elderly Matas by honoring them as our own Matas.
+              </p>
+
+              {/* Inline Sleek Data Points - Exactly as previous one */}
+              <div className="grid grid-cols-3 gap-3 sm:gap-5 pt-4 border-t border-slate-200/90 items-center">
+                <div className="space-y-0.5">
+                  <span className="text-xl sm:text-2xl lg:text-[26px] font-normal tracking-tight text-[#18181b] font-heading block whitespace-nowrap">
+                    August 2015
+                  </span>
+                  <p className="text-[11px] sm:text-xs text-slate-500 font-sans m-0 whitespace-nowrap">Founded in Holy Vrindavan</p>
+                </div>
+                <div className="space-y-0.5 border-l border-slate-200 pl-3 sm:pl-5">
+                  <span className="text-xl sm:text-2xl lg:text-[26px] font-normal tracking-tight text-[#18181b] font-heading block whitespace-nowrap">
+                    1,400+
+                  </span>
+                  <p className="text-[11px] sm:text-xs text-slate-500 font-sans m-0 whitespace-nowrap">Matas in Daily Care</p>
+                </div>
+                <div className="space-y-0.5 border-l border-slate-200 pl-3 sm:pl-5">
+                  <span className="text-xl sm:text-2xl lg:text-[26px] font-normal tracking-tight text-[#18181b] font-heading block whitespace-nowrap">
+                    100%
+                  </span>
+                  <p className="text-[11px] sm:text-xs text-slate-500 font-sans m-0 whitespace-nowrap">Free Dignified Seva</p>
+                </div>
+              </div>
             </div>
 
-            {/* Decorative Thin Curved Architectural Lines Overlay (Matching Reference Image) */}
-            <svg
-              viewBox="0 0 500 700"
-              fill="none"
-              className="pointer-events-none absolute inset-0 w-full h-full z-10 opacity-45"
-              preserveAspectRatio="none"
-            >
-              <path
-                d="M 90 0 Q 210 220 0 430"
-                stroke="#ffffff"
-                strokeWidth="1.2"
-              />
-              <path
-                d="M 460 0 Q 510 380 280 700"
-                stroke="#ffffff"
-                strokeWidth="1.2"
-              />
-            </svg>
+            {/* Bottom Row matching reference image: Left White Pill Button + Right Yellow-Lime Starburst Circle */}
+            <div className="flex items-center justify-between pt-2">
+              <button
+                type="button"
+                onClick={() => onOpenDonate?.('indian')}
+                className="bg-white hover:bg-slate-50 text-[#18181b] rounded-full pl-5 pr-2 py-2 shadow-xs border border-slate-200/70 inline-flex items-center gap-4 transition-all cursor-pointer group"
+              >
+                <span className="text-xs sm:text-sm font-medium font-sans">
+                  Support Matri Seva
+                </span>
+                <span className="w-9 h-9 rounded-full bg-black text-white flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <ChevronRight className="w-4 h-4" />
+                </span>
+              </button>
 
-            {/* Top Floating Frosted Pill Badge (Matches Reference "$9,465,240" Badge) */}
-            <div className="pointer-events-none absolute top-14 sm:top-16 left-8 sm:left-12 z-20 flex items-center gap-2.5 bg-white/75 backdrop-blur-md border border-white/60 rounded-full pl-2 pr-4 py-1.5 shadow-lg">
-              <div className="w-6 h-6 rounded-full bg-[#facc15] flex items-center justify-center shrink-0">
-                <span className="w-2 h-2 rounded-full bg-slate-900" />
-              </div>
-              <span className="text-xs sm:text-sm font-semibold text-slate-900 tracking-tight font-sans">
-                1,400+ Matas in Care
-              </span>
-            </div>
-
-            {/* Bottom-Right Floating Frosted Card Badge (Matches Reference Bottom-Right Badge) */}
-            <div className="pointer-events-none absolute bottom-5 right-5 z-20 flex items-start gap-2.5 bg-[#e8dccb]/85 backdrop-blur-md border border-white/50 rounded-2xl p-3 sm:p-3.5 shadow-lg max-w-[240px]">
-              <div className="w-6 h-6 rounded-full bg-white flex items-center justify-center shrink-0 mt-0.5 shadow-2xs">
-                <span className="w-2 h-2 rounded-full bg-slate-900" />
-              </div>
-              <div className="text-[11px] sm:text-xs text-slate-900 font-medium leading-snug font-sans">
-                Hover to pause • Sacred Matri Seva in Vrindavan &amp; Radhakund
+              {/* Yellow-Lime Circle with 6-Spoke Asterisk Emblem matching reference image */}
+              <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#ebff57] flex items-center justify-center shrink-0 shadow-2xs">
+                <svg
+                  viewBox="0 0 24 24"
+                  className="w-5 h-5 sm:w-6 sm:h-6 text-[#18181b]"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="1.6"
+                  strokeLinecap="round"
+                >
+                  <line x1="12" y1="4" x2="12" y2="20" />
+                  <line x1="5.1" y1="8" x2="18.9" y2="16" />
+                  <line x1="18.9" y1="8" x2="5.1" y2="16" />
+                </svg>
               </div>
             </div>
 

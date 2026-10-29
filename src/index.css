@@ -407,23 +407,23 @@ body {
   animation-play-state: paused !important;
 }
 
-/* Smooth Vertical Downward Sliding Animation for About Us Right Image Showcase */
-@keyframes slideDownAbout {
+/* Smooth Horizontal Right-to-Left Sliding Animation for About Us Left Mata Image Card */
+@keyframes slideRightToLeftAbout {
   0% {
-    transform: translate3d(0, -50%, 0);
+    transform: translate3d(0%, 0, 0);
   }
   100% {
-    transform: translate3d(0, 0%, 0);
+    transform: translate3d(-50%, 0, 0);
   }
 }
 
-.animate-slide-down-about {
-  animation: slideDownAbout 28s linear infinite;
+.animate-slide-rtl-about {
+  animation: slideRightToLeftAbout 26s linear infinite;
   will-change: transform;
 }
 
-.hover-pause-slide-down:hover .animate-slide-down-about,
-.animate-slide-down-about:hover {
+.hover-pause-slide-rtl:hover .animate-slide-rtl-about,
+.animate-slide-rtl-about:hover {
   animation-play-state: paused !important;
 }
 

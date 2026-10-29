@@ -355,14 +355,14 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             : 'opacity-0 z-0 pointer-events-none invisible'
         }`}
       >
-        {/* Background Documentary Video: Full width without cutting left/right sides */}
-        <div className="absolute inset-0 w-full h-full overflow-hidden bg-slate-900">
+        {/* Background Documentary Video: Full screen cover, scaled to eliminate all YouTube UI/elements */}
+        <div className="absolute inset-0 w-full h-full overflow-hidden bg-slate-900 pointer-events-none">
           {currentSlide === 3 ? (
             <iframe
-              src="https://www.youtube.com/embed/98JraIjdDoU?autoplay=1&mute=1&loop=1&playlist=98JraIjdDoU&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1"
+              src="https://www.youtube-nocookie.com/embed/98JraIjdDoU?autoplay=1&mute=1&controls=0&disablekb=1&fs=0&loop=1&playlist=98JraIjdDoU&modestbranding=1&rel=0&showinfo=0&iv_load_policy=3&playsinline=1&enablejsapi=1"
               title="Founded on the sacred principle of divine Matri Seva - Vrindavan Seva Documentary"
               allow="autoplay; encrypted-media"
-              className="absolute inset-0 w-full h-full border-0 pointer-events-none brightness-[1.12] contrast-[1.03]"
+              className="absolute top-1/2 left-1/2 w-[130vw] min-w-[130vh] h-[130vh] min-h-[130vw] -translate-x-1/2 -translate-y-1/2 border-0 pointer-events-none brightness-[1.12] contrast-[1.03]"
             />
           ) : (
             <div
