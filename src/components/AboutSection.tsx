@@ -79,23 +79,23 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenDonate }) => {
           {/* =================================================================
               LEFT CARD (5 cols):
               Rounded Card with Mata Images Sliding from Right to Left
-              (Pauses on Hover) - Matched to About Us Content bg (#f5f5f2) & calculator shadow
+              (Pauses on Hover) - Sleek border and matching bg without heavy box
               ================================================================= */}
-          <div className="lg:col-span-5 relative rounded-[28px] sm:rounded-[34px] bg-[#f5f5f2] p-3 sm:p-4 overflow-hidden min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] flex items-stretch hover-pause-slide-rtl select-none shadow-xl border border-slate-200/70">
-            <div className="relative w-full h-full rounded-[22px] sm:rounded-[26px] overflow-hidden flex items-stretch">
-              <div className="animate-slide-rtl-about flex items-stretch gap-3.5 h-full w-max">
+          <div className="lg:col-span-5 relative rounded-[28px] sm:rounded-[34px] bg-[#f5f5f2] p-2 sm:p-2.5 overflow-hidden min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] flex items-stretch hover-pause-slide-rtl select-none border border-slate-200/60">
+            <div className="relative w-full h-full rounded-[24px] sm:rounded-[28px] overflow-hidden flex items-stretch">
+              <div className="animate-slide-rtl-about flex items-stretch gap-2.5 h-full w-max">
                 {loopImages.map((img, index) => (
                   <div
                     key={`${img.src}-${index}`}
-                    className="relative w-[300px] sm:w-[360px] lg:w-[400px] h-full min-h-[350px] sm:min-h-[410px] lg:min-h-[448px] rounded-[20px] sm:rounded-[24px] overflow-hidden shrink-0 shadow-md border-2 border-white/70 bg-slate-100"
+                    className="relative w-[280px] sm:w-[340px] lg:w-[380px] h-full min-h-[350px] sm:min-h-[410px] lg:min-h-[448px] rounded-[20px] sm:rounded-[24px] overflow-hidden shrink-0 shadow-xs border border-white/60 bg-slate-100"
                   >
                     <img
                       src={img.src}
                       alt={img.alt}
                       className="w-full h-full object-cover object-[center_top] brightness-[1.06] contrast-[1.02]"
                     />
-                    <div className="absolute inset-x-0 bottom-0 h-24 bg-gradient-to-t from-black/65 via-black/20 to-transparent pointer-events-none" />
-                    <span className="absolute bottom-3.5 left-4 right-4 z-10 text-white text-xs sm:text-sm font-medium tracking-wide drop-shadow-md font-sans">
+                    <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-black/60 via-black/15 to-transparent pointer-events-none" />
+                    <span className="absolute bottom-3 left-3.5 right-3.5 z-10 text-white text-xs sm:text-sm font-medium tracking-wide drop-shadow-md font-sans">
                       {img.caption}
                     </span>
                   </div>
@@ -107,9 +107,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenDonate }) => {
           {/* =================================================================
               RIGHT CARD (7 cols):
               Soft Warm Stone Card with Previous About Us Contents, Stats,
-              White Pill Button & Yellow-Lime Starburst Circle
+              White Pill Button & Yellow-Lime Starburst Circle (No Drop Shadow)
               ================================================================= */}
-          <div className="lg:col-span-7 rounded-[28px] sm:rounded-[34px] bg-[#f5f5f2] p-6 sm:p-9 lg:p-12 flex flex-col justify-between space-y-5 sm:space-y-6 shadow-xl border border-slate-200/70">
+          <div className="lg:col-span-7 rounded-[28px] sm:rounded-[34px] bg-[#f5f5f2] p-6 sm:p-9 lg:p-12 flex flex-col justify-between space-y-5 sm:space-y-6 border border-slate-200/60">
             
             <div className="space-y-4 sm:space-y-5">
               {/* Header: 24px Normal Case, Strict Typography Standard */}
