@@ -76,12 +76,8 @@ export const Header: React.FC<HeaderProps> = ({ heroSlide = 0 }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Slide 0: Yoganand video (dark cinematic tone) -> White text
-  // Slide 1: Smiling Mata (bright sunlit background) -> Dark slate text
-  // Slide 2: Aarogyavardhan clinic (bright clinic photo) -> Dark slate text
-  // Slide 3: Full documentary video (dark video) -> White text
-  const isDarkSlide = heroSlide === 0 || heroSlide === 3;
-  const isLightText = !scrolled && isDarkSlide;
+  // When not scrolled, navigation text and logo are white for all hero slides
+  const isLightText = !scrolled;
 
   const navLinkClass = `py-1 transition-colors font-semibold ${
     isLightText 
@@ -107,7 +103,7 @@ export const Header: React.FC<HeaderProps> = ({ heroSlide = 0 }) => {
       <div className="px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 transition-all">
         <div className="site-container flex items-center justify-between gap-4">
           
-          {/* Brand Logo: footer logo (/images/footer-logo.png) on dark background & original logo on light background / scrolled */}
+          {/* Brand Logo: footer logo (/images/footer-logo.png) for all hero slides & original logo on scroll */}
           <Link 
             to="/"
             className="flex items-center shrink-0 cursor-pointer group select-none"
