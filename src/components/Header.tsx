@@ -107,13 +107,13 @@ export const Header: React.FC<HeaderProps> = ({ heroSlide = 0 }) => {
       <div className="px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 transition-all">
         <div className="site-container flex items-center justify-between gap-4">
           
-          {/* Brand Logo: White text logo only */}
+          {/* Brand Logo: footer logo (/images/footer-logo.png) on dark background & original logo on light background / scrolled */}
           <Link 
             to="/"
             className="flex items-center shrink-0 cursor-pointer group select-none"
           >
             <img
-              src="/images/mainlogo-white.svg"
+              src={isLightText ? "/images/footer-logo.png" : "/images/mainlogo-original.png"}
               alt="Paramhansa Yogananda Public Charitable Trust"
               className="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
