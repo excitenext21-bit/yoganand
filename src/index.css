@@ -407,6 +407,26 @@ body {
   animation-play-state: paused !important;
 }
 
+/* Smooth Vertical Downward Sliding Animation for About Us Right Image Showcase */
+@keyframes slideDownAbout {
+  0% {
+    transform: translate3d(0, -50%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0%, 0);
+  }
+}
+
+.animate-slide-down-about {
+  animation: slideDownAbout 28s linear infinite;
+  will-change: transform;
+}
+
+.hover-pause-slide-down:hover .animate-slide-down-about,
+.animate-slide-down-about:hover {
+  animation-play-state: paused !important;
+}
+
 /* ==========================================================================
    Universal Sleek 1px Line Icon System
    Ensures all Lucide & SVG icons throughout the site are sleek, minimalist,

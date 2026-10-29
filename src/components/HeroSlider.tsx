@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Heart, ArrowRight, ShieldCheck, ChevronRight, ChevronLeft, Stethoscope, Eye } from 'lucide-react';
-import { CleanVideoPlayer } from './CleanVideoPlayer';
 
 interface HeroSliderProps {
   onOpenDonate: (portalType: 'indian' | 'foreign', programName?: string) => void;
@@ -356,14 +355,14 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             : 'opacity-0 z-0 pointer-events-none invisible'
         }`}
       >
-        {/* Background Documentary Video from "Founded on the sacred principle of divine Matri Seva" */}
+        {/* Background Documentary Video: Full width without cutting left/right sides */}
         <div className="absolute inset-0 w-full h-full overflow-hidden bg-slate-900">
           {currentSlide === 3 ? (
             <iframe
               src="https://www.youtube.com/embed/98JraIjdDoU?autoplay=1&mute=1&loop=1&playlist=98JraIjdDoU&controls=0&showinfo=0&rel=0&modestbranding=1&iv_load_policy=3&playsinline=1"
               title="Founded on the sacred principle of divine Matri Seva - Vrindavan Seva Documentary"
               allow="autoplay; encrypted-media"
-              className="absolute top-1/2 left-1/2 w-[135%] h-[135%] -translate-x-1/2 -translate-y-1/2 object-cover pointer-events-none brightness-[1.12] contrast-[1.03]"
+              className="absolute inset-0 w-full h-full border-0 pointer-events-none brightness-[1.12] contrast-[1.03]"
             />
           ) : (
             <div
@@ -376,75 +375,58 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
         {/* Localized Left Gradient: Protects left text with strong visibility while keeping right video bright */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/65 via-black/30 to-transparent lg:from-black/60 lg:via-black/20 lg:to-transparent pointer-events-none"></div>
 
-        {/* Content Container: Left Text + Right Interactive Documentary Video Player Card */}
-        <div className="site-container relative z-10 h-full flex items-center justify-between pt-20 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center w-full">
+        {/* Content Container: Left-Aligned Layout */}
+        <div className="site-container relative z-10 h-full flex items-center justify-start pt-20 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8">
+          <div className="w-full max-w-xl flex flex-col items-start text-left space-y-2.5 sm:space-y-3.5">
             
-            {/* Left Column (7 cols): SACRED & DIGNIFIED */}
-            <div className="lg:col-span-7 flex flex-col items-start text-left space-y-2.5 sm:space-y-3.5 max-w-xl">
-              
-              {/* Typographic Cluster: 2-line layout (SACRED & / DIGNIFIED) - 15% smaller & extra bold with high-contrast shadow */}
-              <div className="space-y-1.5 sm:space-y-2 w-full text-left">
-                <h1 className="hero-heading text-[25px] sm:text-[40px] lg:text-[51px] font-black text-white uppercase tracking-[0.22em] leading-none m-0 p-0 text-left">
-                  SACRED <span style={{ color: '#FACC15' }} className="tracking-normal font-sans font-black">&amp;</span>
-                </h1>
-                <div className="hero-heading text-[25px] sm:text-[40px] lg:text-[51px] font-black uppercase tracking-[0.22em] leading-none m-0 p-0 text-left text-[#e65100] font-destitute-stamp">
-                  DIGNIFIED
-                </div>
+            {/* Typographic Cluster: 2-line layout (SACRED & / DIGNIFIED) - 15% smaller & extra bold with high-contrast shadow */}
+            <div className="space-y-1.5 sm:space-y-2 w-full text-left">
+              <h1 className="hero-heading text-[25px] sm:text-[40px] lg:text-[51px] font-black text-white uppercase tracking-[0.22em] leading-none m-0 p-0 text-left">
+                SACRED <span style={{ color: '#FACC15' }} className="tracking-normal font-sans font-black">&amp;</span>
+              </h1>
+              <div className="hero-heading text-[25px] sm:text-[40px] lg:text-[51px] font-black uppercase tracking-[0.22em] leading-none m-0 p-0 text-left text-[#e65100] font-destitute-stamp">
+                DIGNIFIED
               </div>
-
-              {/* 1px subtle divider line below heading */}
-              <div className="w-full max-w-sm sm:max-w-md h-[1px] bg-white/50 my-1.5 sm:my-2"></div>
-
-              {/* Subtitle & Mission Compassion Text */}
-              <p className="hero-subtext text-xs sm:text-[13.5px] md:text-sm !text-white text-white font-sans leading-relaxed max-w-lg text-left drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)] m-0">
-                Serving hot nutritious meals, daily cow milk, and compassionate healthcare to over 1,500 destitute widow Matas across Vrindavan every single day.
-              </p>
-
-              {/* Action Suite */}
-              <div className="pt-5 sm:pt-6 flex flex-col sm:flex-row items-center justify-start gap-2.5 w-full sm:w-auto">
-                <button
-                  onClick={() => onOpenDonate('indian', 'Vrindavan Matri Seva & Daily Sustenance')}
-                  className="w-full sm:w-auto btn-donate py-2.5 px-6 text-xs sm:text-sm font-bold shadow-xl cursor-pointer flex items-center justify-center gap-2"
-                >
-                  <Heart className="w-3.5 h-3.5 fill-white" />
-                  <span>Sponsor Matri Seva (80G)</span>
-                </button>
-
-                <button
-                  onClick={onExplorePrograms}
-                  className="w-full sm:w-auto py-2.5 px-4 text-xs font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/25 rounded-xl backdrop-blur-md transition-all cursor-pointer flex items-center justify-center gap-1.5"
-                >
-                  <span>View Our Sevas</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-amber-300" />
-                </button>
-              </div>
-
-              {/* Compliance / Impact Badges */}
-              <div className="pt-1.5 border-t border-white/15 flex flex-wrap items-center justify-start gap-2.5 text-[10px] sm:text-[11px] text-slate-200">
-                <span className="flex items-center gap-1 text-amber-300 font-semibold">
-                  <ShieldCheck className="w-3.5 h-3.5" /> 100% Direct Seva
-                </span>
-                <span className="text-white/30">•</span>
-                <span className="flex items-center gap-1 text-amber-200 font-semibold">
-                  1,500+ Matas Daily
-                </span>
-                <span className="text-white/30">•</span>
-                <span className="text-slate-200 font-medium">80G &amp; FCRA Verified</span>
-              </div>
-
             </div>
 
-            {/* Right Column (5 cols): Interactive Documentary Video Player with Sound & Controls */}
-            <div className="hidden lg:flex lg:col-span-5 justify-end">
-              <div className="w-full max-w-[420px] rounded-2xl overflow-hidden border-2 border-white/80 shadow-2xl">
-                <CleanVideoPlayer
-                  videoId="98JraIjdDoU"
-                  posterImage="/images/documentary-poster.jpg"
-                  title="Founded on the sacred principle of divine Matri Seva"
-                  className="w-full aspect-video rounded-none"
-                />
-              </div>
+            {/* 1px subtle divider line below heading */}
+            <div className="w-full max-w-sm sm:max-w-md h-[1px] bg-white/50 my-1.5 sm:my-2"></div>
+
+            {/* Subtitle & Mission Compassion Text */}
+            <p className="hero-subtext text-xs sm:text-[13.5px] md:text-sm !text-white text-white font-sans leading-relaxed max-w-lg text-left drop-shadow-[0_2px_4px_rgba(0,0,0,0.95)] m-0">
+              Serving hot nutritious meals, daily cow milk, and compassionate healthcare to over 1,500 destitute widow Matas across Vrindavan every single day.
+            </p>
+
+            {/* Action Suite */}
+            <div className="pt-5 sm:pt-6 flex flex-col sm:flex-row items-center justify-start gap-2.5 w-full sm:w-auto">
+              <button
+                onClick={() => onOpenDonate('indian', 'Vrindavan Matri Seva & Daily Sustenance')}
+                className="w-full sm:w-auto btn-donate py-2.5 px-6 text-xs sm:text-sm font-bold shadow-xl cursor-pointer flex items-center justify-center gap-2"
+              >
+                <Heart className="w-3.5 h-3.5 fill-white" />
+                <span>Sponsor Matri Seva (80G)</span>
+              </button>
+
+              <button
+                onClick={onExplorePrograms}
+                className="w-full sm:w-auto py-2.5 px-4 text-xs font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/25 rounded-xl backdrop-blur-md transition-all cursor-pointer flex items-center justify-center gap-1.5"
+              >
+                <span>View Our Sevas</span>
+                <ArrowRight className="w-3.5 h-3.5 text-amber-300" />
+              </button>
+            </div>
+
+            {/* Compliance / Impact Badges */}
+            <div className="pt-1.5 border-t border-white/15 flex flex-wrap items-center justify-start gap-2.5 text-[10px] sm:text-[11px] text-slate-200">
+              <span className="flex items-center gap-1 text-amber-300 font-semibold">
+                <ShieldCheck className="w-3.5 h-3.5" /> 100% Direct Seva
+              </span>
+              <span className="text-white/30">•</span>
+              <span className="flex items-center gap-1 text-amber-200 font-semibold">
+                1,500+ Matas Daily
+              </span>
+              <span className="text-white/30">•</span>
+              <span className="text-slate-200 font-medium">80G &amp; FCRA Verified</span>
             </div>
 
           </div>
@@ -489,7 +471,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
       </button>
 
       {/* Rotating Circular Hero Pledge Badge (Transparent with White Text) - Lowered below header */}
-      <div className={`absolute top-20 right-4 sm:top-24 sm:right-6 lg:top-24 lg:right-10 z-20 pointer-events-auto select-none ${currentSlide === 1 || currentSlide === 3 ? 'hidden' : 'block'}`}>
+      <div className={`absolute top-20 right-4 sm:top-24 sm:right-6 lg:top-24 lg:right-10 z-20 pointer-events-auto select-none ${currentSlide === 1 ? 'hidden' : 'block'}`}>
         <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full bg-transparent p-1 flex items-center justify-center transition-transform hover:scale-105 duration-300">
           
           {/* Outer Dashed Ring */}
