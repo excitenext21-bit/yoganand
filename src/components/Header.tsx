@@ -75,33 +75,29 @@ export const Header: React.FC<HeaderProps> = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinkClass = scrolled 
-    ? 'py-1 transition-colors text-slate-700 hover:text-[#003896]' 
-    : 'py-1 transition-colors text-white/90 hover:text-white';
+  const navLinkClass = 'py-1 transition-colors text-slate-700 hover:text-[#003896]';
 
-  const dropdownTriggerClass = scrolled 
-    ? 'flex items-center gap-1 py-1 text-slate-700 hover:text-[#003896] transition-colors cursor-pointer bg-transparent border-0 font-medium' 
-    : 'flex items-center gap-1 py-1 text-white/90 hover:text-white transition-colors cursor-pointer bg-transparent border-0 font-medium';
+  const dropdownTriggerClass = 'flex items-center gap-1 py-1 text-slate-700 hover:text-[#003896] transition-colors cursor-pointer bg-transparent border-0 font-medium';
 
   return (
     <header 
-      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-0 ${
+      className={`fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-b border-slate-200/80 bg-white ${
         scrolled 
-          ? 'bg-white shadow-md' 
-          : 'bg-gradient-to-b from-black/35 via-black/10 to-transparent'
+          ? 'shadow-md' 
+          : 'shadow-xs'
       }`}
     >
       {/* Main Navigation Bar */}
       <div className="px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 transition-all">
         <div className="site-container flex items-center justify-between gap-4">
           
-          {/* Brand Logo: Same official logo lockup as Footer */}
+          {/* Brand Logo: Official logo lockup on white header */}
           <Link 
             to="/"
             className="flex items-center shrink-0 cursor-pointer group select-none"
           >
             <img
-              src={scrolled ? '/images/mainlogo.jpg' : '/images/footer-logo.png'}
+              src="/images/mainlogo.jpg"
               alt="Paramhansa Yogananda Public Charitable Trust"
               className="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
@@ -112,7 +108,7 @@ export const Header: React.FC<HeaderProps> = () => {
             <Link 
               to="/"
               className={`${navLinkClass} relative ${
-                pathname === '/' ? (scrolled ? '!text-[#002878] font-semibold' : '!text-white font-semibold') : ''
+                pathname === '/' ? '!text-[#002878] font-semibold' : ''
               }`}
             >
               <span>Home</span>
@@ -136,7 +132,7 @@ export const Header: React.FC<HeaderProps> = () => {
                 className={dropdownTriggerClass}
               >
                 <span>About Us</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${aboutDropdownOpen ? 'rotate-180' : ''} ${scrolled ? 'text-slate-500' : 'text-white/80'}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 text-slate-500 ${aboutDropdownOpen ? 'rotate-180' : ''}`} />
               </Link>
 
               {aboutDropdownOpen && (
@@ -215,7 +211,7 @@ export const Header: React.FC<HeaderProps> = () => {
                 className={dropdownTriggerClass}
               >
                 <span>Our Work</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${workDropdownOpen ? 'rotate-180' : ''} ${scrolled ? 'text-slate-500' : 'text-white/80'}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 text-slate-500 ${workDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
               
               {workDropdownOpen && (
@@ -410,10 +406,7 @@ export const Header: React.FC<HeaderProps> = () => {
             {/* Dedicated Pashu Seva direct link */}
             <Link 
               to="/pashu-seva"
-              className={scrolled 
-                ? 'py-1 transition-colors text-[#003896] hover:text-[#002878] font-bold' 
-                : 'py-1 transition-colors text-amber-300 hover:text-amber-200 font-bold'
-              }
+              className="py-1 transition-colors text-[#003896] hover:text-[#002878] font-bold"
             >
               Pashu Seva
             </Link>
@@ -429,7 +422,7 @@ export const Header: React.FC<HeaderProps> = () => {
                 className={dropdownTriggerClass}
               >
                 <span>Heart Of Seva</span>
-                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${heartDropdownOpen ? 'rotate-180' : ''} ${scrolled ? 'text-slate-500' : 'text-white/80'}`} />
+                <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 text-slate-500 ${heartDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
 
               {heartDropdownOpen && (
@@ -615,11 +608,9 @@ export const Header: React.FC<HeaderProps> = () => {
 
             <Link 
               to="/contact"
-              className={`flex items-center gap-1.5 py-1 transition-colors font-medium ${
-                scrolled ? 'text-slate-700 hover:text-[#003896]' : 'text-white/90 hover:text-white'
-              }`}
+              className="flex items-center gap-1.5 py-1 transition-colors font-medium text-slate-700 hover:text-[#003896]"
             >
-              <MapPin className={`w-3.5 h-3.5 ${scrolled ? 'text-[#003896]' : 'text-amber-300'}`} />
+              <MapPin className="w-3.5 h-3.5 text-[#003896]" />
               <span>Contact</span>
             </Link>
           </nav>
@@ -628,15 +619,13 @@ export const Header: React.FC<HeaderProps> = () => {
           <div className="xl:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2 focus:outline-none cursor-pointer transition-colors ${
-                scrolled ? 'text-slate-800 hover:text-[#003896]' : 'text-white hover:text-amber-300'
-              }`}
+              className="p-2 focus:outline-none cursor-pointer transition-colors text-slate-800 hover:text-[#003896]"
               aria-label="Toggle navigation"
             >
               {mobileMenuOpen ? (
-                <X className={`w-6 h-6 ${scrolled ? 'text-slate-800' : 'text-white'}`} />
+                <X className="w-6 h-6 text-slate-800" />
               ) : (
-                <Menu className={`w-6 h-6 ${scrolled ? 'text-slate-800' : 'text-white'}`} />
+                <Menu className="w-6 h-6 text-slate-800" />
               )}
             </button>
           </div>
