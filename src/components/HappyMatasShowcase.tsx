@@ -413,14 +413,18 @@ export const HappyMatasShowcase: React.FC<HappyMatasShowcaseProps> = ({
             Learn why vulnerable Matas trust our sacred seva to complete their journeys with health, dignity, and peace.
           </p>
 
-          {/* Orange Pill CTA Button */}
+          {/* Pill CTA Button matching About Us style */}
           <div className="mt-6 sm:mt-7 flex justify-center">
             <button
               onClick={handleScrollToStories}
-              className="btn-donate px-7 py-3 text-sm font-semibold shadow-lg hover:shadow-xl cursor-pointer inline-flex items-center gap-2.5"
+              className="bg-white hover:bg-slate-50 text-[#18181b] rounded-full pl-5 pr-2 py-2 shadow-xs border border-slate-200/70 inline-flex items-center gap-4 transition-all cursor-pointer group select-none"
             >
-              <span>Read Success Stories</span>
-              <ArrowRight className="w-4 h-4" />
+              <span className="text-xs sm:text-sm font-medium font-sans">
+                Read Success Stories
+              </span>
+              <span className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center group-hover:scale-105 transition-transform">
+                <ChevronRight className="w-4 h-4" />
+              </span>
             </button>
           </div>
 

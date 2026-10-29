@@ -118,10 +118,14 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             <div className="pt-5 sm:pt-6 flex items-center justify-start w-full sm:w-auto">
               <button
                 onClick={() => onOpenDonate('indian', 'Matri Seva Community (Rations & Healthcare)')}
-                className="w-full sm:w-auto btn-donate py-2.5 px-6 text-xs sm:text-sm font-bold shadow-xl cursor-pointer flex items-center justify-center gap-2"
+                className="bg-white hover:bg-slate-50 text-[#18181b] rounded-full pl-5 pr-2 py-2 shadow-xs border border-slate-200/70 inline-flex items-center gap-3.5 transition-all cursor-pointer group select-none"
               >
-                <Heart className="w-3.5 h-3.5 fill-white" />
-                <span>Restore Their Dignity (80G)</span>
+                <span className="text-xs sm:text-sm font-medium font-sans">
+                  Restore Their Dignity (80G)
+                </span>
+                <span className="w-9 h-9 rounded-full bg-black text-white flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <ChevronRight className="w-4 h-4" />
+                </span>
               </button>
             </div>
 
@@ -180,15 +184,19 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
               <div className="pt-4 sm:pt-5 flex flex-col sm:flex-row gap-2.5">
                 <button
                   onClick={() => onOpenDonate('indian', 'Matri Seva Ashram (Shelter & Care)')}
-                  className="btn-donate py-2 px-4 text-xs font-bold shadow-md cursor-pointer flex items-center justify-center gap-1.5"
+                  className="bg-white hover:bg-slate-50 text-[#18181b] rounded-full pl-4 pr-1.5 py-1.5 shadow-xs border border-slate-200/70 inline-flex items-center gap-3 transition-all cursor-pointer group select-none"
                 >
-                  <Heart className="w-3.5 h-3.5 fill-white" />
-                  <span>Sponsor Care (80G)</span>
+                  <span className="text-xs font-medium font-sans">
+                    Sponsor Care (80G)
+                  </span>
+                  <span className="w-7 h-7 rounded-full bg-black text-white flex items-center justify-center group-hover:scale-105 transition-transform">
+                    <ChevronRight className="w-3.5 h-3.5" />
+                  </span>
                 </button>
 
                 <button
                   onClick={onExplorePrograms}
-                  className="py-2 px-3.5 text-xs font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/25 rounded-xl backdrop-blur-md transition-all cursor-pointer flex items-center justify-center gap-1"
+                  className="py-2 px-3.5 text-xs font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/25 rounded-full backdrop-blur-md transition-all cursor-pointer flex items-center justify-center gap-1.5"
                 >
                   <span>Our Sevas</span>
                   <ArrowRight className="w-3 h-3 text-amber-300" />
@@ -317,18 +325,22 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             </p>
 
             {/* Action Suite */}
-            <div className="pt-5 sm:pt-6 flex flex-col sm:flex-row items-center justify-start gap-2.5 w-full sm:w-auto">
+            <div className="pt-5 sm:pt-6 flex flex-col sm:flex-row items-center justify-start gap-3 w-full sm:w-auto">
               <button
                 onClick={() => onOpenDonate('indian', 'Aarogyavardhan Healthcare & Free Surgeries')}
-                className="w-full sm:w-auto btn-donate py-2.5 px-5 text-xs font-bold shadow-xl cursor-pointer flex items-center justify-center gap-2"
+                className="w-full sm:w-auto bg-white hover:bg-slate-50 text-[#18181b] rounded-full pl-5 pr-2 py-2 shadow-xs border border-slate-200/70 inline-flex items-center justify-between sm:justify-start gap-3.5 transition-all cursor-pointer group select-none"
               >
-                <Heart className="w-3.5 h-3.5 fill-white" />
-                <span>Sponsor Healthcare (₹1,500)</span>
+                <span className="text-xs sm:text-sm font-medium font-sans">
+                  Sponsor Healthcare (₹1,500)
+                </span>
+                <span className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
+                  <ChevronRight className="w-4 h-4" />
+                </span>
               </button>
 
               <button
                 onClick={onExplorePrograms}
-                className="w-full sm:w-auto py-2 px-4 text-xs font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/25 rounded-xl backdrop-blur-md transition-all cursor-pointer flex items-center justify-center gap-1.5"
+                className="w-full sm:w-auto py-2 px-4 text-xs font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/25 rounded-full backdrop-blur-md transition-all cursor-pointer flex items-center justify-center gap-1.5"
               >
                 <span>Aarogyavardhan Clinic</span>
                 <ArrowRight className="w-3.5 h-3.5 text-amber-300" />
@@ -406,18 +418,22 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             </p>
 
             {/* Action Suite */}
-            <div className="pt-5 sm:pt-6 flex flex-col sm:flex-row items-center justify-start gap-2.5 w-full sm:w-auto">
+            <div className="pt-5 sm:pt-6 flex flex-col sm:flex-row items-center justify-start gap-3 w-full sm:w-auto">
               <button
                 onClick={() => onOpenDonate('indian', 'Vrindavan Matri Seva & Daily Sustenance')}
-                className="w-full sm:w-auto btn-donate py-2.5 px-6 text-xs sm:text-sm font-bold shadow-xl cursor-pointer flex items-center justify-center gap-2"
+                className="w-full sm:w-auto bg-white hover:bg-slate-50 text-[#18181b] rounded-full pl-5 pr-2 py-2 shadow-xs border border-slate-200/70 inline-flex items-center justify-between sm:justify-start gap-3.5 transition-all cursor-pointer group select-none"
               >
-                <Heart className="w-3.5 h-3.5 fill-white" />
-                <span>Sponsor Matri Seva (80G)</span>
+                <span className="text-xs sm:text-sm font-medium font-sans">
+                  Sponsor Matri Seva (80G)
+                </span>
+                <span className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center group-hover:scale-105 transition-transform shrink-0">
+                  <ChevronRight className="w-4 h-4" />
+                </span>
               </button>
 
               <button
                 onClick={onExplorePrograms}
-                className="w-full sm:w-auto py-2.5 px-4 text-xs font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/25 rounded-xl backdrop-blur-md transition-all cursor-pointer flex items-center justify-center gap-1.5"
+                className="w-full sm:w-auto py-2.5 px-4 text-xs font-semibold text-white bg-white/10 hover:bg-white/20 border border-white/25 rounded-full backdrop-blur-md transition-all cursor-pointer flex items-center justify-center gap-1.5"
               >
                 <span>View Our Sevas</span>
                 <ArrowRight className="w-3.5 h-3.5 text-amber-300" />

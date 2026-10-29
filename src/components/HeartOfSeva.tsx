@@ -266,16 +266,20 @@ export const HeartOfSeva: React.FC<HeartOfSevaProps> = ({ onOpenDonate }) => {
                   <button
                     type="button"
                     onClick={() => onOpenDonate('indian', currentTier.title)}
-                    className={`px-7 py-3 rounded-full bg-gradient-to-r ${currentTier.gradient} text-white font-bold text-xs sm:text-sm shadow-md hover:shadow-lg hover:brightness-105 transition-all duration-300 flex items-center gap-2 cursor-pointer`}
+                    className="bg-white hover:bg-slate-50 text-[#18181b] rounded-full pl-5 pr-2 py-2 shadow-xs border border-slate-200/70 inline-flex items-center gap-3.5 transition-all cursor-pointer group select-none"
                   >
-                    <Heart className="w-4 h-4 fill-white" />
-                    <span>Pledge ₹{sliderValue.toLocaleString('en-IN')} Monthly</span>
+                    <span className="text-xs sm:text-sm font-medium font-sans">
+                      Pledge ₹{sliderValue.toLocaleString('en-IN')} Monthly
+                    </span>
+                    <span className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center group-hover:scale-105 transition-transform">
+                      <ChevronRight className="w-4 h-4" />
+                    </span>
                   </button>
 
                   <button
                     type="button"
                     onClick={() => onOpenDonate('indian')}
-                    className="px-6 py-3 rounded-full border border-slate-300 hover:border-slate-400 text-slate-700 font-semibold text-xs sm:text-sm hover:bg-slate-50 transition-all cursor-pointer"
+                    className="px-5 py-2.5 rounded-full border border-slate-300 hover:border-slate-400 text-slate-700 font-medium text-xs sm:text-sm hover:bg-slate-50 transition-all cursor-pointer"
                   >
                     <span>One-Time Seva Gift</span>
                   </button>
