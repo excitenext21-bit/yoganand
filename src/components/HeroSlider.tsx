@@ -52,7 +52,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
   return (
     <section 
       id="home" 
-      className="relative w-full h-[100dvh] min-h-[620px] flex items-center overflow-hidden bg-slate-100"
+      className="relative w-full mt-[64px] sm:mt-[72px] h-[calc(100dvh-64px)] sm:h-[calc(100dvh-72px)] min-h-[560px] flex items-center overflow-hidden bg-slate-100"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -78,7 +78,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             : 'opacity-0 z-0 pointer-events-none invisible'
         }`}
       >
-        {/* Background Video: Yoganand video (Brightened) */}
+        {/* Background Video: Yoganand video (Brightened & Top-Aligned so top is never cut) */}
         <div className="absolute inset-0 w-full h-full overflow-hidden bg-slate-100">
           <video
             ref={videoRef1}
@@ -88,7 +88,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             muted
             playsInline
             onEnded={handleVideo1Ended}
-            className="w-full h-full object-cover scale-100 brightness-[1.22] contrast-[1.03]"
+            className="w-full h-full object-cover object-[center_top] scale-100 brightness-[1.22] contrast-[1.03]"
           />
         </div>
 
@@ -96,7 +96,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent lg:from-black/40 lg:via-black/10 lg:to-transparent"></div>
 
         {/* Content Container: Left-Aligned Layout */}
-        <div className="site-container relative z-10 h-full flex items-center justify-start pt-20 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8">
+        <div className="site-container relative z-10 h-full flex items-center justify-start py-8 sm:py-10 px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-xl flex flex-col items-start text-left space-y-2.5 sm:space-y-3.5">
             
             {/* Typographic Cluster: 2-line layout (DESPERATE & / DESTITUTE) */}
@@ -147,9 +147,9 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             : 'opacity-0 z-0 pointer-events-none invisible'
         }`}
       >
-        {/* Background Image: Smiling Mata in white saree seated on left-center (Brightened) */}
+        {/* Background Image: Smiling Mata in white saree seated on left-center (Top-Aligned & Brightened) */}
         <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-center sm:bg-[position:45%_center] bg-no-repeat scale-100 transition-transform duration-10000 brightness-[1.24] contrast-[1.03]"
+          className="absolute inset-0 w-full h-full bg-cover bg-[position:center_top] sm:bg-[position:45%_top] bg-no-repeat scale-100 transition-transform duration-10000 brightness-[1.24] contrast-[1.03]"
           style={{ backgroundImage: "url('/images/hero-slide2.jpg')" }}
         ></div>
 
@@ -157,7 +157,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/10 to-transparent lg:from-black/40 lg:via-transparent lg:to-transparent"></div>
 
         {/* Content Container: 3-column architecture */}
-        <div className="site-container relative z-10 h-full flex items-center pt-20 sm:pt-24 pb-8 px-4">
+        <div className="site-container relative z-10 h-full flex items-center py-8 sm:py-10 px-4">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center w-full">
             
             {/* Column 1 (Left 5 cols): "GRATEFUL FOR THE CHANGE IN HER LIFE" */}
@@ -291,9 +291,9 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             : 'opacity-0 z-0 pointer-events-none invisible'
         }`}
       >
-        {/* Background Image: Bright sunlit Aarogyavardhan clinic with caring doctor & smiling Mata */}
+        {/* Background Image: Bright sunlit Aarogyavardhan clinic with caring doctor & smiling Mata (Top-Aligned) */}
         <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-center sm:bg-[position:65%_center] lg:bg-center bg-no-repeat scale-100 transition-transform duration-10000 brightness-[1.12] contrast-[1.02]"
+          className="absolute inset-0 w-full h-full bg-cover bg-[position:center_top] sm:bg-[position:65%_top] lg:bg-[position:center_top] bg-no-repeat scale-100 transition-transform duration-10000 brightness-[1.12] contrast-[1.02]"
           style={{ backgroundImage: "url('/images/aarogyavardhan.jpg')" }}
         ></div>
 
@@ -301,7 +301,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent lg:from-black/40 lg:via-black/10 lg:to-transparent"></div>
 
         {/* Content Container: Left-Aligned Layout with unobstructed view of the doctor & Mata */}
-        <div className="site-container relative z-10 h-full flex items-center justify-start pt-20 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8">
+        <div className="site-container relative z-10 h-full flex items-center justify-start py-8 sm:py-10 px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-xl flex flex-col items-start text-left space-y-2.5 sm:space-y-3.5">
             
             {/* Typographic Cluster */}
@@ -375,9 +375,9 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
             : 'opacity-0 z-0 pointer-events-none invisible'
         }`}
       >
-        {/* Background Image: Compassionate meal seva in Vrindavan courtyard (Brightened) */}
+        {/* Background Image: Compassionate meal seva in Vrindavan courtyard (Top-Aligned & Brightened) */}
         <div 
-          className="absolute inset-0 w-full h-full bg-cover bg-[position:65%_center] sm:bg-[position:60%_center] lg:bg-center bg-no-repeat scale-100 transition-transform duration-10000 brightness-[1.16] contrast-[1.02]"
+          className="absolute inset-0 w-full h-full bg-cover bg-[position:65%_top] sm:bg-[position:60%_top] lg:bg-[position:center_top] bg-no-repeat scale-100 transition-transform duration-10000 brightness-[1.16] contrast-[1.02]"
           style={{ backgroundImage: "url('/images/matri-seva.jpg')" }}
         ></div>
 
@@ -385,7 +385,7 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
         <div className="absolute inset-0 bg-gradient-to-r from-black/45 via-black/15 to-transparent lg:from-black/40 lg:via-black/10 lg:to-transparent"></div>
 
         {/* Content Container: Left-Aligned Layout */}
-        <div className="site-container relative z-10 h-full flex items-center justify-start pt-20 sm:pt-24 pb-8 px-4 sm:px-6 lg:px-8">
+        <div className="site-container relative z-10 h-full flex items-center justify-start py-8 sm:py-10 px-4 sm:px-6 lg:px-8">
           <div className="w-full max-w-xl flex flex-col items-start text-left space-y-2.5 sm:space-y-3.5">
             
             {/* Typographic Cluster: 2-line layout (SACRED & / DIGNIFIED) */}
@@ -482,8 +482,8 @@ export const HeroSlider: React.FC<HeroSliderProps> = ({
         </div>
       </button>
 
-      {/* Rotating Circular Hero Pledge Badge (Transparent with White Text) - Lowered below header */}
-      <div className={`absolute top-20 right-4 sm:top-24 sm:right-6 lg:top-24 lg:right-10 z-20 pointer-events-auto select-none ${currentSlide === 1 ? 'hidden' : 'block'}`}>
+      {/* Rotating Circular Hero Pledge Badge (Transparent with White Text) */}
+      <div className={`absolute top-5 right-4 sm:top-6 sm:right-6 lg:top-7 lg:right-10 z-20 pointer-events-auto select-none ${currentSlide === 1 ? 'hidden' : 'block'}`}>
         <div className="relative w-20 h-20 sm:w-24 sm:h-24 lg:w-28 lg:h-28 rounded-full bg-transparent p-1 flex items-center justify-center transition-transform hover:scale-105 duration-300">
           
           {/* Outer Dashed Ring */}
