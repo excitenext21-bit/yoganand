@@ -13,12 +13,14 @@ interface HomePageProps {
   programs: ProgramItem[];
   onOpenDonate: (portalType: 'indian' | 'foreign', programName?: string) => void;
   onNavigateSection: (sectionId: string) => void;
+  onHeroSlideChange?: (slideIndex: number) => void;
 }
 
 export const HomePage: React.FC<HomePageProps> = ({
   programs,
   onOpenDonate,
-  onNavigateSection
+  onNavigateSection,
+  onHeroSlideChange
 }) => {
   return (
     <>
@@ -27,6 +29,7 @@ export const HomePage: React.FC<HomePageProps> = ({
         <HeroSlider
           onOpenDonate={(type, prog) => onOpenDonate(type, prog)}
           onExplorePrograms={() => onNavigateSection('programs')}
+          onSlideChange={onHeroSlideChange}
         />
       </section>
 

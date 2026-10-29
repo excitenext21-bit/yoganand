@@ -4,16 +4,24 @@ import { Heart, ArrowRight, ShieldCheck, ChevronRight, ChevronLeft, Stethoscope,
 interface HeroSliderProps {
   onOpenDonate: (portalType: 'indian' | 'foreign', programName?: string) => void;
   onExplorePrograms: () => void;
+  onSlideChange?: (slideIndex: number) => void;
 }
 
 export const HeroSlider: React.FC<HeroSliderProps> = ({
   onOpenDonate,
-  onExplorePrograms
+  onExplorePrograms,
+  onSlideChange
 }) => {
   const TOTAL_SLIDES = 4;
   const [currentSlide, setCurrentSlide] = useState<number>(0);
   const [isPaused, setIsPaused] = useState(false);
   const videoRef1 = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    if (onSlideChange) {
+      onSlideChange(currentSlide);
+    }
+  }, [currentSlide, onSlideChange]);
 
   // Play/pause video based on active slide
   useEffect(() => {

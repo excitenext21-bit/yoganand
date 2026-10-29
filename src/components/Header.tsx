@@ -6,9 +6,10 @@ interface HeaderProps {
   onOpenDonate: (portalType: 'indian' | 'foreign', programName?: string) => void;
   onNavigateSection?: (sectionId: string) => void;
   activeSection?: string;
+  heroSlide?: number;
 }
 
-export const Header: React.FC<HeaderProps> = () => {
+export const Header: React.FC<HeaderProps> = ({ heroSlide = 0 }) => {
   const { pathname } = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
@@ -75,39 +76,40 @@ export const Header: React.FC<HeaderProps> = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const navLinkClass = 'py-1 transition-colors text-slate-900 hover:text-[#003896] font-semibold';
+  // Slide 0: Yoganand video (dark cinematic tone) -> White text
+  // Slide 1: Smiling Mata (bright sunlit background) -> Dark slate text
+  // Slide 2: Aarogyavardhan clinic (bright clinic photo) -> Dark slate text
+  // Slide 3: Full documentary video (dark video) -> White text
+  const isDarkSlide = heroSlide === 0 || heroSlide === 3;
+  const isLightText = !scrolled && isDarkSlide;
 
-  const dropdownTriggerClass = 'flex items-center gap-1 py-1 text-slate-900 hover:text-[#003896] transition-colors cursor-pointer bg-transparent border-0 font-semibold';
+  const navLinkClass = `py-1 transition-colors font-semibold ${
+    isLightText 
+      ? 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)] hover:text-amber-300' 
+      : 'text-slate-900 hover:text-[#003896]'
+  }`;
+
+  const dropdownTriggerClass = `flex items-center gap-1 py-1 transition-colors cursor-pointer bg-transparent border-0 font-semibold ${
+    isLightText 
+      ? 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)] hover:text-amber-300' 
+      : 'text-slate-900 hover:text-[#003896]'
+  }`;
 
   return (
     <header 
       className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 border-0 bg-transparent"
     >
-      {/* Feathered Blur & Translucent Gradient Layer: Merges smoothly into the hero banner with zero sharp edge */}
-      <div
-        aria-hidden="true"
-        className="pointer-events-none absolute inset-x-0 top-0 -bottom-7 -z-10 transition-all duration-300"
-        style={{
-          background: scrolled
-            ? 'linear-gradient(to bottom, rgba(255,255,255,0.95) 0%, rgba(255,255,255,0.82) 65%, rgba(255,255,255,0.35) 86%, rgba(255,255,255,0) 100%)'
-            : 'linear-gradient(to bottom, rgba(255,255,255,0.75) 0%, rgba(255,255,255,0.50) 58%, rgba(255,255,255,0.18) 84%, rgba(255,255,255,0) 100%)',
-          backdropFilter: 'blur(12px)',
-          WebkitBackdropFilter: 'blur(12px)',
-          maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 55%, rgba(0,0,0,0.35) 82%, rgba(0,0,0,0) 100%)',
-          WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 0%, rgba(0,0,0,0.92) 55%, rgba(0,0,0,0.35) 82%, rgba(0,0,0,0) 100%)',
-        }}
-      />
-      {/* Main Navigation Bar */}
+      {/* Main Navigation Bar (Clean Transparent background, zero blur) */}
       <div className="px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 transition-all">
         <div className="site-container flex items-center justify-between gap-4">
           
-          {/* Brand Logo: Official transparent logo lockup */}
+          {/* Brand Logo: Adapts between white lockup on dark background & transparent dark logo on light background */}
           <Link 
             to="/"
             className="flex items-center shrink-0 cursor-pointer group select-none"
           >
             <img
-              src="/images/mainlogo-transparent.png"
+              src={isLightText ? "/images/mainlogo-white.svg" : "/images/mainlogo-transparent.png"}
               alt="Paramhansa Yogananda Public Charitable Trust"
               className="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
@@ -118,14 +120,13 @@ export const Header: React.FC<HeaderProps> = () => {
             <Link 
               to="/"
               className={`${navLinkClass} relative ${
-                pathname === '/' ? '!text-[#002878] font-semibold' : ''
+                pathname === '/' ? (isLightText ? '!text-amber-300' : '!text-[#002878]') : ''
               }`}
             >
               <span>Home</span>
               {pathname === '/' && (
                 <span
-                  className="absolute bottom-0 left-0 right-0 h-[1px] bg-[#FACC15]"
-                  style={{ height: '1px', backgroundColor: '#FACC15' }}
+                  className="absolute bottom-0 left-0 right-0 h-[1.5px] bg-[#FACC15]"
                 />
               )}
             </Link>
@@ -591,9 +592,13 @@ export const Header: React.FC<HeaderProps> = () => {
 
             <Link 
               to="/contact"
-              className="flex items-center gap-1.5 py-1 transition-colors font-semibold text-slate-900 hover:text-[#003896]"
+              className={`flex items-center gap-1.5 py-1 transition-colors font-semibold ${
+                isLightText 
+                  ? 'text-white drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)] hover:text-amber-300' 
+                  : 'text-slate-900 hover:text-[#003896]'
+              }`}
             >
-              <MapPin className="w-3.5 h-3.5 text-[#003896]" />
+              <MapPin className={`w-3.5 h-3.5 ${isLightText ? 'text-amber-300' : 'text-[#003896]'}`} />
               <span>Contact</span>
             </Link>
           </nav>
@@ -602,13 +607,15 @@ export const Header: React.FC<HeaderProps> = () => {
           <div className="xl:hidden flex items-center">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 focus:outline-none cursor-pointer transition-colors text-slate-800 hover:text-[#003896]"
+              className={`p-2 focus:outline-none cursor-pointer transition-colors ${
+                isLightText ? 'text-white' : 'text-slate-800 hover:text-[#003896]'
+              }`}
               aria-label="Toggle navigation"
             >
               {mobileMenuOpen ? (
-                <X className="w-6 h-6 text-slate-800" />
+                <X className={`w-6 h-6 ${isLightText ? 'text-white' : 'text-slate-800'}`} />
               ) : (
-                <Menu className="w-6 h-6 text-slate-800" />
+                <Menu className={`w-6 h-6 ${isLightText ? 'text-white' : 'text-slate-800'}`} />
               )}
             </button>
           </div>

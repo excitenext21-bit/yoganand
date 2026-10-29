@@ -22,6 +22,7 @@ function ScrollToTop() {
 
 export function App() {
   const [activeSection, setActiveSection] = useState<string>('home');
+  const [heroSlide, setHeroSlide] = useState<number>(0);
   const [isDonateOpen, setIsDonateOpen] = useState(false);
   const [portalType, setPortalType] = useState<'indian' | 'foreign'>('indian');
   const [preselectedProgram, setPreselectedProgram] = useState<string | undefined>(undefined);
@@ -116,6 +117,7 @@ export function App() {
         onOpenDonate={(type, prog) => handleOpenDonate(type, prog)}
         onNavigateSection={handleNavigateSection}
         activeSection={activeSection}
+        heroSlide={heroSlide}
       />
 
       {/* 2. Home-Only Landmark (Other routes disabled for client preview) */}
@@ -129,6 +131,7 @@ export function App() {
                 programs={programs}
                 onOpenDonate={handleOpenDonate}
                 onNavigateSection={handleNavigateSection}
+                onHeroSlideChange={setHeroSlide}
               />
             }
           />

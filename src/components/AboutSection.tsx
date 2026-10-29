@@ -79,15 +79,15 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenDonate }) => {
           {/* =================================================================
               LEFT CARD (5 cols):
               Rounded Card with Mata Images Sliding from Right to Left
-              (Pauses on Hover) - Sleek border and matching bg without heavy box
+              (Pauses on Hover) - Clean Drop Shadow matching calculator style
               ================================================================= */}
-          <div className="lg:col-span-5 relative rounded-[28px] sm:rounded-[34px] bg-[#f5f5f2] p-2 sm:p-2.5 overflow-hidden min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] flex items-stretch hover-pause-slide-rtl select-none border border-slate-200/60">
-            <div className="relative w-full h-full rounded-[24px] sm:rounded-[28px] overflow-hidden flex items-stretch">
+          <div className="lg:col-span-5 relative rounded-[28px] sm:rounded-[34px] bg-[#f5f5f2] p-2.5 sm:p-3 overflow-hidden min-h-[380px] sm:min-h-[440px] lg:min-h-[480px] flex items-stretch hover-pause-slide-rtl select-none border border-slate-200/70 shadow-xl shadow-slate-300/40">
+            <div className="relative w-full h-full rounded-[22px] sm:rounded-[26px] overflow-hidden flex items-stretch">
               <div className="animate-slide-rtl-about flex items-stretch gap-2.5 h-full w-max">
                 {loopImages.map((img, index) => (
                   <div
                     key={`${img.src}-${index}`}
-                    className="relative w-[280px] sm:w-[340px] lg:w-[380px] h-full min-h-[350px] sm:min-h-[410px] lg:min-h-[448px] rounded-[20px] sm:rounded-[24px] overflow-hidden shrink-0 shadow-xs border border-white/60 bg-slate-100"
+                    className="relative w-[280px] sm:w-[340px] lg:w-[380px] h-full min-h-[350px] sm:min-h-[410px] lg:min-h-[448px] rounded-[18px] sm:rounded-[22px] overflow-hidden shrink-0 shadow-sm border border-white/60 bg-slate-100"
                   >
                     <img
                       src={img.src}
