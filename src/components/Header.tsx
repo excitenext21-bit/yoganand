@@ -9,7 +9,7 @@ interface HeaderProps {
   heroSlide?: number;
 }
 
-export const Header: React.FC<HeaderProps> = () => {
+export const Header: React.FC<HeaderProps> = ({ onOpenDonate }) => {
   const { pathname } = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [aboutDropdownOpen, setAboutDropdownOpen] = useState(false);
@@ -103,7 +103,7 @@ export const Header: React.FC<HeaderProps> = () => {
       <div className="px-4 sm:px-6 lg:px-8 py-2.5 sm:py-3 transition-all">
         <div className="site-container flex items-center justify-between gap-4">
           
-          {/* Brand Logo: footer logo (/images/footer-logo.png) for all hero slides & original logo on scroll */}
+          {/* Brand Logo: footer logo (/images/footer-logo.png) for all hero slides & original logo on scroll (enlarged for readability) */}
           <Link 
             to="/"
             className="flex items-center shrink-0 cursor-pointer group select-none"
@@ -111,7 +111,7 @@ export const Header: React.FC<HeaderProps> = () => {
             <img
               src={isLightText ? "/images/footer-logo.png" : "/images/mainlogo-original.png"}
               alt="Paramhansa Yogananda Public Charitable Trust"
-              className="h-11 sm:h-12 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              className="h-14 sm:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </Link>
 
@@ -601,10 +601,25 @@ export const Header: React.FC<HeaderProps> = () => {
               <MapPin className={`w-3.5 h-3.5 ${isLightText ? 'text-amber-300' : 'text-[#003896]'}`} />
               <span>Contact</span>
             </Link>
+
+            <button
+              type="button"
+              onClick={() => onOpenDonate('indian')}
+              className="btn-donate text-xs sm:text-sm font-semibold cursor-pointer ml-1"
+            >
+              <span>Donate</span>
+            </button>
           </nav>
 
-          {/* Mobile Hamburger Menu Toggle */}
-          <div className="xl:hidden flex items-center">
+          {/* Mobile Hamburger Menu Toggle & Donate */}
+          <div className="xl:hidden flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => onOpenDonate('indian')}
+              className="btn-donate text-xs font-semibold cursor-pointer py-1.5 pl-3.5 pr-1.5"
+            >
+              <span>Donate</span>
+            </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className={`p-2 focus:outline-none cursor-pointer transition-colors ${

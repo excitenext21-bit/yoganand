@@ -22,8 +22,8 @@
   --accent-gold: #c89317;
   --accent-gold-light: #fef9ed;
 
-  /* Clean Surfaces & Typography */
-  --bg-page: #f8fafc;
+  /* Clean Surfaces & Typography - Pure White Uplifting Background */
+  --bg-page: #ffffff;
   --bg-surface: #ffffff;
   --border-light: #e2e8f0;
   --border-brand: #bfdbfe;
@@ -37,10 +37,11 @@
   --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
 }
 
-/* Base Styles */
+/* Base Styles - Larger 17px root font size for elderly-friendly readability */
 html {
+  font-size: 17px;
   scroll-behavior: smooth;
-  background-color: var(--bg-page);
+  background-color: #ffffff;
   color: var(--text-main);
   font-family: var(--font-sans);
 }
@@ -49,26 +50,25 @@ body {
   margin: 0;
   padding: 0;
   min-height: 100vh;
-  background-color: var(--bg-page);
+  background-color: #ffffff;
   color: var(--text-main);
   font-family: var(--font-sans);
-  line-height: 1.6;
+  line-height: 1.65;
   overflow-x: hidden;
 }
 
-/* Typography Defaults: Inter Tight font for all headings with 24px and readable styling
-   Scoped with :not(.hero-heading) to allow hero slides full artistic typographic control */
+/* Typography Defaults: Inter Tight font for all headings with larger elderly-friendly sizing */
 :where(h1, h2, h3, h4, h5, h6):not(.hero-heading):not(.text-white):not([class*="text-white"]),
 .heading-inter:not(.text-white) {
   font-family: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-  color: #464646;
+  color: #1e293b;
 }
 
 :where(h1, h2):not(.hero-heading),
 .main-heading {
-  font-size: 24px !important;
+  font-size: 28px !important;
   line-height: 1.35 !important;
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: -0.015em;
   text-transform: none !important;
 }

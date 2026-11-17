@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import { X, ShieldCheck, Heart, Download, CheckCircle, Globe } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { X, ShieldCheck, Heart, Download, CheckCircle, Globe, QrCode, ExternalLink } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import type { DonorRecord } from '../data/mockCmsData';
 import { initiateRazorpayCheckout } from '../utils/razorpay';
@@ -37,6 +37,17 @@ export const DonationModal: React.FC<DonationModalProps> = ({
   // Transaction States
   const [paymentStep, setPaymentStep] = useState<'form' | 'processing' | 'success'>('form');
   const [generatedReceipt, setGeneratedReceipt] = useState<DonorRecord | null>(null);
+
+  useEffect(() => {
+    setPortalType(initialPortalType);
+    setAmount(initialPortalType === 'indian' ? 3000 : 50);
+  }, [initialPortalType, isOpen]);
+
+  useEffect(() => {
+    if (preselectedProgram) {
+      setSelectedProgram(preselectedProgram);
+    }
+  }, [preselectedProgram]);
 
   if (!isOpen) return null;
 
@@ -427,6 +438,41 @@ export const DonationModal: React.FC<DonationModalProps> = ({
                   <span>256-Bit SSL Encrypted</span>
                   <span className="text-stone-300">•</span>
                   <span>Instant PDF Receipt</span>
+                </div>
+
+                {/* Direct Donation Links & QR Codes for Indian & Foreign Donors */}
+                <div className="mt-4 pt-4 border-t border-stone-200 bg-slate-50 rounded-xl p-4 flex flex-col sm:flex-row items-center gap-4">
+                  <div className="bg-white p-2 rounded-xl border border-slate-200 shadow-2xs shrink-0">
+                    <img
+                      src={
+                        portalType === 'indian'
+                          ? `https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent(`upi://pay?pa=yoganandatrust@sbi&pn=Paramhansa%20Yogananda%20Trust&am=${amount || 3000}&cu=INR`)}`
+                          : `https://api.qrserver.com/v1/create-qr-code/?size=120x120&data=${encodeURIComponent('https://yoganandatrust.org/donate?portal=foreign')}`
+                      }
+                      alt={portalType === 'indian' ? 'Indian UPI Donation QR Code' : 'Foreign FCRA Donation QR Code'}
+                      className="w-24 h-24 object-contain"
+                    />
+                  </div>
+                  <div className="space-y-1.5 text-center sm:text-left flex-1">
+                    <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#002878]">
+                      <QrCode className="w-4 h-4 text-[#e65100]" />
+                      <span>{portalType === 'indian' ? 'Direct UPI QR & 80G Link' : 'Direct FCRA QR & Wire Link'}</span>
+                    </div>
+                    <p className="text-xs text-slate-600 leading-relaxed m-0">
+                      {portalType === 'indian'
+                        ? 'Scan with any UPI app (GPay, PhonePe, Paytm) or use our direct Indian 80G portal link.'
+                        : 'Scan or use the direct FCRA portal link for international USD/GBP/EUR contributions.'}
+                    </p>
+                    <div className="pt-1 flex flex-wrap items-center justify-center sm:justify-start gap-3 text-xs font-bold">
+                      <a
+                        href={portalType === 'indian' ? '/donate?portal=indian' : '/donate?portal=foreign'}
+                        className="inline-flex items-center gap-1 text-[#003896] hover:underline"
+                      >
+                        <span>Direct {portalType === 'indian' ? 'Indian (80G)' : 'Foreign (FCRA)'} Link</span>
+                        <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </div>
 

@@ -6,6 +6,15 @@ export const ContactPage: React.FC = () => {
   const [activeOffice, setActiveOffice] = useState<'vrindavan' | 'delhi'>('vrindavan');
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [copiedAccount, setCopiedAccount] = useState<string | null>(null);
+  const [newsletterEmail, setNewsletterEmail] = useState('');
+  const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
+
+  const handleNewsletterSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!newsletterEmail.trim()) return;
+    setNewsletterSubscribed(true);
+    setNewsletterEmail('');
+  };
 
   // Form State matching official yoganandatrust.org contact form
   const [formData, setFormData] = useState({
@@ -31,7 +40,7 @@ export const ContactPage: React.FC = () => {
   const currentOffice = officeLocations[activeOffice];
 
   return (
-    <div className="bg-slate-50 min-h-screen">
+    <div className="bg-white min-h-screen">
       {/* Top Banner */}
       <section className="bg-gradient-to-r from-[#002878] via-[#003896] to-[#002878] text-white pt-28 sm:pt-32 pb-16 px-4">
         <div className="site-container text-center max-w-3xl mx-auto space-y-4">
@@ -517,6 +526,52 @@ export const ContactPage: React.FC = () => {
                 </button>
               </form>
             )}
+          </div>
+
+          {/* Subscribe to Newsletters CTA under Contact */}
+          <div className="bg-gradient-to-r from-[#002878] via-[#003896] to-[#002878] text-white rounded-3xl p-8 sm:p-10 max-w-4xl mx-auto shadow-lg flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <div className="space-y-2 max-w-xl">
+              <div className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-amber-300">
+                <BellRing className="w-4 h-4" />
+                <span>Monthly Seva Updates</span>
+              </div>
+              <h2
+                style={{ color: '#ffffff' }}
+                className="!text-[24px] sm:!text-[26px] font-medium !text-white tracking-tight m-0"
+              >
+                Subscribe to Our Seva Newsletters
+              </h2>
+              <p className="text-sm text-blue-100 leading-relaxed m-0">
+                Receive monthly stories of Vrindavan’s Matas, ashram milestones, and impact chronicles directly in your inbox.
+              </p>
+            </div>
+
+            <div className="w-full lg:w-auto lg:min-w-[360px]">
+              {newsletterSubscribed ? (
+                <div className="flex items-center gap-2.5 py-3 px-4 rounded-xl bg-white/15 border border-white/25 text-white text-sm font-medium">
+                  <CheckCircle2 className="w-5 h-5 text-amber-300 shrink-0" />
+                  <span>Thank you for subscribing to our Seva Newsletters!</span>
+                </div>
+              ) : (
+                <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2.5">
+                  <input
+                    type="email"
+                    required
+                    value={newsletterEmail}
+                    onChange={(e) => setNewsletterEmail(e.target.value)}
+                    placeholder="Enter your email address..."
+                    className="flex-1 py-3 px-4 rounded-xl bg-white/15 border border-white/30 text-white placeholder:text-blue-200/80 text-sm focus:outline-none focus:border-amber-300 transition-colors"
+                  />
+                  <button
+                    type="submit"
+                    className="py-3 px-5 rounded-xl bg-[#e65100] hover:bg-[#cf4500] text-white text-sm font-bold flex items-center justify-center gap-2 transition-colors cursor-pointer shadow-sm shrink-0"
+                  >
+                    <span>Subscribe</span>
+                    <Send className="w-4 h-4" />
+                  </button>
+                </form>
+              )}
+            </div>
           </div>
 
         </div>

@@ -1,5 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { UserMinus, HeartPulse, HandCoins, ChevronRight } from 'lucide-react';
+import { Link } from 'react-router-dom';
+import { UserMinus, HeartPulse, HandCoins, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 interface AboutSectionProps {
   onOpenDonate?: (portalType: 'indian' | 'foreign') => void;
@@ -159,20 +160,25 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenDonate }) => {
               </div>
             </div>
 
-            {/* Bottom Row matching reference image: Left White Pill Button + Right Yellow-Lime Starburst Circle */}
-            <div className="flex items-center justify-between pt-2">
-              <button
-                type="button"
-                onClick={() => onOpenDonate?.('indian')}
-                className="bg-white hover:bg-slate-50 text-[#18181b] rounded-full pl-5 pr-2 py-2 shadow-xs border border-slate-200/70 inline-flex items-center gap-4 transition-all cursor-pointer group"
-              >
-                <span className="text-xs sm:text-sm font-medium font-sans">
-                  Support Matri Seva
-                </span>
-                <span className="w-9 h-9 rounded-full bg-black text-white flex items-center justify-center group-hover:scale-105 transition-transform">
-                  <ChevronRight className="w-4 h-4" />
-                </span>
-              </button>
+              {/* Bottom Row matching reference image: Left White Pill Button + Link to Trustees & Team */}
+            <div className="flex flex-wrap items-center justify-between gap-3 pt-2">
+              <div className="flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => onOpenDonate?.('indian')}
+                  className="btn-donate text-sm font-semibold cursor-pointer"
+                >
+                  <span>Donate to Matri Seva</span>
+                </button>
+
+                <Link
+                  to="/about#team"
+                  className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#003896] hover:text-[#002878] bg-white/80 hover:bg-white px-4 py-2 rounded-full border border-slate-200/80 transition-all"
+                >
+                  <span>Meet Trustees &amp; Team</span>
+                  <ArrowRight className="w-4 h-4" />
+                </Link>
+              </div>
 
               {/* Yellow-Lime Circle with 6-Spoke Asterisk Emblem matching reference image */}
               <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#ebff57] flex items-center justify-center shrink-0 shadow-2xs">
@@ -196,10 +202,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenDonate }) => {
         </div>
       </div>
 
-      {/* Why Hundreds of Matas Arrive in Vrindavan - Warm Yellow Seamless Section with center-opening effect */}
+      {/* Why Hundreds of Mothers Arrive in Vrindavan and Their Need - Storyboard Section */}
       <div 
         ref={yellowSectionRef}
-        className="w-full relative overflow-hidden bg-white text-slate-900 pt-8 sm:pt-10 lg:pt-12 pb-8 sm:pb-10"
+        className="w-full relative overflow-hidden bg-white text-slate-900 pt-10 sm:pt-12 lg:pt-14 pb-10 sm:pb-12"
       >
         {/* Animated Yellow Background expanding from horizontal center */}
         <div 
@@ -222,120 +228,142 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenDonate }) => {
           <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 mb-6 sm:mb-8">
             <div className="flex items-center gap-3.5">
               <h3 
-                style={{ fontSize: '24px', fontWeight: 400, color: '#464646' }}
-                className="!text-[24px] font-normal tracking-[-0.015em] !text-[#464646] font-heading m-0 leading-tight"
+                style={{ fontSize: '26px', fontWeight: 500, color: '#27272a' }}
+                className="!text-[24px] sm:!text-[28px] font-medium tracking-[-0.015em] !text-[#27272a] font-heading m-0 leading-tight"
               >
-                Why hundreds of Matas arrive in Vrindavan
+                Why hundreds of mothers arrive in Vrindavan and their need
               </h3>
-              <div className="w-16 h-[1.5px] bg-[#464646]/60"></div>
+              <div className="hidden sm:block w-16 h-[1.5px] bg-[#27272a]/50"></div>
             </div>
           </div>
 
-          {/* 3 Columns: Paper Torn Effect Style matching reference */}
+          {/* 3 Storyboard Columns: Need + Larger Photo + How Trust Helps */}
           <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 relative">
           
-          {/* Column 1: Displacement & Social Stigma */}
+          {/* Storyboard Step 1 */}
           <div 
             onClick={() => onOpenDonate?.('indian')}
-            className="relative overflow-hidden rounded-2xl sm:rounded-3xl h-[470px] sm:h-[490px] lg:h-[510px] flex flex-col justify-between group bg-[#facc15] border border-amber-400/40 shadow-none hover:shadow-none transition-all p-5 sm:p-6 cursor-pointer select-none"
+            className="relative overflow-hidden rounded-2xl sm:rounded-3xl min-h-[560px] sm:min-h-[600px] lg:min-h-[630px] flex flex-col justify-between group bg-[#facc15] border border-amber-400/50 transition-all p-5 sm:p-6 cursor-pointer select-none"
           >
-            {/* Top Text Content on pure yellow */}
-            <div className="space-y-2 pointer-events-auto">
+            <div className="space-y-2.5 pointer-events-auto">
               <div className="flex items-center gap-2.5">
-                <UserMinus className="w-5 h-5 stroke-[1] text-[#464646] shrink-0" />
+                <UserMinus className="w-5 h-5 stroke-[1.5] text-slate-800 shrink-0" />
                 <h4 
-                  style={{ color: '#464646', fontWeight: 600 }}
-                  className="text-[17px] sm:text-[18px] font-semibold tracking-[-0.01em] !text-[#464646] font-heading m-0 leading-snug"
+                  style={{ color: '#18181b', fontWeight: 700 }}
+                  className="text-lg sm:text-xl font-bold tracking-[-0.01em] !text-slate-900 font-heading m-0 leading-snug"
                 >
-                  Displacement &amp; Social Stigma
+                  Displacement &amp; Seeking Shelter
                 </h4>
               </div>
 
-              <p className="text-[13px] sm:text-[13.5px] text-[#444444] font-sans font-medium leading-relaxed m-0">
-                In impoverished rural families, destitute Matas face acute social isolation, loss of shelter, and abandonment at pilgrimage railway stations.
+              <p className="text-sm sm:text-[15px] text-slate-800 font-sans font-medium leading-relaxed m-0">
+                Elderly mothers arrive in Vrindavan after losing family support, seeking a safe roof and spiritual solace.
               </p>
             </div>
 
-            {/* Paper Torn Effect Photo Cutout in pure yellow card */}
-            <div className="relative w-full flex-1 flex items-center justify-center my-1 sm:my-2">
+            {/* Enlarged Mother Picture */}
+            <div className="relative w-full flex-1 flex items-center justify-center my-2 sm:my-3">
               <img 
                 src="/images/torn-photo-1.png" 
-                alt="Destitute and displaced Mata in Vrindavan" 
-                className="w-auto h-[235px] sm:h-[255px] md:h-[270px] max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+                alt="Elderly Mata seeking shelter in Vrindavan" 
+                className="w-auto h-[285px] sm:h-[315px] md:h-[340px] max-w-full object-contain filter drop-shadow-sm group-hover:scale-105 transition-transform duration-500 pointer-events-none"
               />
             </div>
 
-            {/* Bottom yellow breathing space */}
-            <div className="h-2 sm:h-3" />
+            {/* How Yogananda Trust Helps */}
+            <div className="bg-white/90 backdrop-blur-xs rounded-2xl p-3.5 border border-white shadow-xs space-y-1">
+              <div className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-[#003896]">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>How Yogananda Trust Helps</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-800 font-medium leading-snug m-0">
+                Provides dignified residential Ashram homes &amp; monthly rent stipends so no mother is ever without shelter.
+              </p>
+            </div>
           </div>
 
-          {/* Column 2: Devastating Health Needs */}
+          {/* Storyboard Step 2 */}
           <div 
             onClick={() => onOpenDonate?.('indian')}
-            className="relative overflow-hidden rounded-2xl sm:rounded-3xl h-[470px] sm:h-[490px] lg:h-[510px] flex flex-col justify-between group bg-[#facc15] border border-amber-400/40 shadow-none hover:shadow-none transition-all p-5 sm:p-6 cursor-pointer select-none"
+            className="relative overflow-hidden rounded-2xl sm:rounded-3xl min-h-[560px] sm:min-h-[600px] lg:min-h-[630px] flex flex-col justify-between group bg-[#facc15] border border-amber-400/50 transition-all p-5 sm:p-6 cursor-pointer select-none"
           >
-            {/* Top Text Content on pure yellow */}
-            <div className="space-y-2 pointer-events-auto">
+            <div className="space-y-2.5 pointer-events-auto">
               <div className="flex items-center gap-2.5">
-                <HeartPulse className="w-5 h-5 stroke-[1] text-[#464646] shrink-0" />
+                <HeartPulse className="w-5 h-5 stroke-[1.5] text-slate-800 shrink-0" />
                 <h4 
-                  style={{ color: '#464646', fontWeight: 600 }}
-                  className="text-[17px] sm:text-[18px] font-semibold tracking-[-0.01em] !text-[#464646] font-heading m-0 leading-snug"
+                  style={{ color: '#18181b', fontWeight: 700 }}
+                  className="text-lg sm:text-xl font-bold tracking-[-0.01em] !text-slate-900 font-heading m-0 leading-snug"
                 >
-                  Devastating Health Needs
+                  Urgent Healthcare &amp; Vision Care
                 </h4>
               </div>
 
-              <p className="text-[13px] sm:text-[13.5px] text-[#444444] font-sans font-medium leading-relaxed m-0">
-                Over 70% suffer from untreated hypertension, severe arthritis, malnutrition, or cataract blindness without access to doctors or medications.
+              <p className="text-sm sm:text-[15px] text-slate-800 font-sans font-medium leading-relaxed m-0">
+                Over 70% arrive needing cataract surgery, diabetes &amp; blood pressure medicines, and gentle bedside nursing.
               </p>
             </div>
 
-            {/* Paper Torn Effect Photo Cutout in pure yellow card */}
-            <div className="relative w-full flex-1 flex items-center justify-center my-1 sm:my-2">
+            {/* Enlarged Mother Picture */}
+            <div className="relative w-full flex-1 flex items-center justify-center my-2 sm:my-3">
               <img 
                 src="/images/torn-photo-2.png?v=authentic" 
-                alt="Elderly Mata suffering from untreated health conditions without medical care" 
-                className="w-auto h-[235px] sm:h-[255px] md:h-[270px] max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+                alt="Elderly Mata receiving Aarogyavardhan medical care" 
+                className="w-auto h-[285px] sm:h-[315px] md:h-[340px] max-w-full object-contain filter drop-shadow-sm group-hover:scale-105 transition-transform duration-500 pointer-events-none"
               />
             </div>
 
-            {/* Bottom yellow breathing space */}
-            <div className="h-2 sm:h-3" />
+            {/* How Yogananda Trust Helps */}
+            <div className="bg-white/90 backdrop-blur-xs rounded-2xl p-3.5 border border-white shadow-xs space-y-1">
+              <div className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-[#003896]">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>How Yogananda Trust Helps</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-800 font-medium leading-snug m-0">
+                <strong>Aarogyavardhan</strong> delivers 100% free doctor clinics, chronic medicines &amp; 5,000+ cataract surgeries.
+              </p>
+            </div>
           </div>
 
-          {/* Column 3: The Threat of Begging */}
+          {/* Storyboard Step 3 */}
           <div 
             onClick={() => onOpenDonate?.('indian')}
-            className="relative overflow-hidden rounded-2xl sm:rounded-3xl h-[470px] sm:h-[490px] lg:h-[510px] flex flex-col justify-between group bg-[#facc15] border border-amber-400/40 shadow-none hover:shadow-none transition-all p-5 sm:p-6 cursor-pointer select-none"
+            className="relative overflow-hidden rounded-2xl sm:rounded-3xl min-h-[560px] sm:min-h-[600px] lg:min-h-[630px] flex flex-col justify-between group bg-[#facc15] border border-amber-400/50 transition-all p-5 sm:p-6 cursor-pointer select-none"
           >
-            {/* Top Text Content on pure yellow */}
-            <div className="space-y-2 pointer-events-auto">
+            <div className="space-y-2.5 pointer-events-auto">
               <div className="flex items-center gap-2.5">
-                <HandCoins className="w-5 h-5 stroke-[1] text-[#464646] shrink-0" />
+                <HandCoins className="w-5 h-5 stroke-[1.5] text-slate-800 shrink-0" />
                 <h4 
-                  style={{ color: '#464646', fontWeight: 600 }}
-                  className="text-[17px] sm:text-[18px] font-semibold tracking-[-0.01em] !text-[#464646] font-heading m-0 leading-snug"
+                  style={{ color: '#18181b', fontWeight: 700 }}
+                  className="text-lg sm:text-xl font-bold tracking-[-0.01em] !text-slate-900 font-heading m-0 leading-snug"
                 >
-                  The Threat of Begging
+                  Daily Nutrition &amp; Sacred Dignity
                 </h4>
               </div>
 
-              <p className="text-[13px] sm:text-[13.5px] text-[#444444] font-sans font-medium leading-relaxed m-0">
-                Without institutional aid, elderly Matas are forced to sing for 8 hours for ₹10 or beg on temple streets. Our trust ends this indignity completely.
+              <p className="text-sm sm:text-[15px] text-slate-800 font-sans font-medium leading-relaxed m-0">
+                Without support, frail mothers struggle daily for a single warm meal, fresh milk, and basic groceries.
               </p>
             </div>
 
-            {/* Paper Torn Effect Photo Cutout in pure yellow card */}
-            <div className="relative w-full flex-1 flex items-center justify-center my-1 sm:my-2">
+            {/* Enlarged Mother Picture */}
+            <div className="relative w-full flex-1 flex items-center justify-center my-2 sm:my-3">
               <img 
                 src="/images/torn-photo-3.png" 
-                alt="Destitute Mata facing threat of begging on Vrindavan streets" 
-                className="w-auto h-[235px] sm:h-[255px] md:h-[270px] max-w-full object-contain filter drop-shadow-xs group-hover:scale-105 transition-transform duration-500 pointer-events-none"
+                alt="Happy Mata supported with daily nutrition and dignity" 
+                className="w-auto h-[285px] sm:h-[315px] md:h-[340px] max-w-full object-contain filter drop-shadow-sm group-hover:scale-105 transition-transform duration-500 pointer-events-none"
               />
             </div>
 
-            {/* Bottom yellow breathing space */}
+            {/* How Yogananda Trust Helps */}
+            <div className="bg-white/90 backdrop-blur-xs rounded-2xl p-3.5 border border-white shadow-xs space-y-1">
+              <div className="flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-[#003896]">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>How Yogananda Trust Helps</span>
+              </div>
+              <p className="text-xs sm:text-sm text-slate-800 font-medium leading-snug m-0">
+                <strong>Meal Heals &amp; Community Seva</strong> deliver hot sattvic meals, daily A2 milk &amp; monthly ration kits.
+              </p>
+            </div>
           </div>
         </div>
       </div>

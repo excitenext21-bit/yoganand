@@ -73,7 +73,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDonate }) => {
               <img
                 src="/images/footer-logo.png"
                 alt="Paramhansa Yogananda Public Charitable Trust"
-                className="h-11 sm:h-12 w-auto object-contain"
+                className="h-14 sm:h-16 w-auto object-contain"
               />
             </div>
 
@@ -91,28 +91,28 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDonate }) => {
               Our Work (Sevas)
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-blue-100/85">
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-300 transition-colors whitespace-nowrap block cursor-default">Matri Seva Ashram</Link></li>
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-300 transition-colors whitespace-nowrap block cursor-default">Matri Seva Community</Link></li>
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-300 transition-colors whitespace-nowrap block cursor-default">Aarogyavardhan Healthcare</Link></li>
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-300 transition-colors whitespace-nowrap block cursor-default">Meal Heals (Nutrition)</Link></li>
-              <li><Link to="/#programs" className="hover:text-amber-300 transition-colors whitespace-nowrap block">Seva Dashboard</Link></li>
+              <li><Link to="/work/matri-seva-ashram" className="hover:text-amber-300 transition-colors whitespace-nowrap block">Matri Seva (Ashram)</Link></li>
+              <li><Link to="/work/matri-seva-community" className="hover:text-amber-300 transition-colors whitespace-nowrap block">Matri Seva (Community)</Link></li>
+              <li><Link to="/work/aarogyavardhan" className="hover:text-amber-300 transition-colors whitespace-nowrap block">Aarogyavardhan</Link></li>
+              <li><Link to="/pashu-seva" className="hover:text-amber-300 transition-colors whitespace-nowrap block">Pashu Seva (Animal Care)</Link></li>
+              <li><Link to="/work/meal-heals" className="hover:text-amber-300 transition-colors whitespace-nowrap block">Meal Heals</Link></li>
             </ul>
           </div>
 
-          {/* Column 3: Heart of Seva & Stories */}
+          {/* Column 3: Trust & Chronicles */}
           <div className="lg:col-span-3 space-y-3 lg:border-l lg:border-white/15 lg:pl-6">
             <h4 
               style={{ color: '#ffffff' }}
               className="text-xs font-bold !text-white uppercase tracking-wider"
             >
-              Heart Of Seva
+              Trust &amp; Seva
             </h4>
             <ul className="space-y-2 text-xs sm:text-sm text-blue-100/85">
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-300 transition-colors whitespace-nowrap block cursor-default">Circle of Love</Link></li>
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-300 transition-colors whitespace-nowrap block cursor-default">In-Person Seva &amp; Pilgrimage</Link></li>
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-300 transition-colors font-bold text-amber-300 whitespace-nowrap block cursor-default">Healing Prayer Circle</Link></li>
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-300 transition-colors whitespace-nowrap block cursor-default">News &amp; Blogs</Link></li>
-              <li><Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-amber-300 transition-colors whitespace-nowrap block cursor-default">Contact &amp; Centers</Link></li>
+              <li><Link to="/about" className="hover:text-amber-300 transition-colors whitespace-nowrap block">About Us &amp; Trustees</Link></li>
+              <li><Link to="/heart-of-seva" className="hover:text-amber-300 transition-colors whitespace-nowrap block">Heart of Seva</Link></li>
+              <li><Link to="/donate" className="hover:text-amber-300 transition-colors font-bold text-amber-300 whitespace-nowrap block">Direct Donate &amp; QR Portals</Link></li>
+              <li><Link to="/news" className="hover:text-amber-300 transition-colors whitespace-nowrap block">News &amp; Blogs</Link></li>
+              <li><Link to="/contact" className="hover:text-amber-300 transition-colors whitespace-nowrap block">Contact &amp; Centers</Link></li>
             </ul>
           </div>
 
@@ -164,11 +164,11 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDonate }) => {
           <p>© {new Date().getFullYear()} Paramhansa Yogananda Public Charitable Trust. All rights reserved.</p>
           
           <div className="flex flex-wrap items-center gap-4 text-xs">
-            <Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-white cursor-default">Privacy Policy</Link>
+            <Link to="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
             <span>•</span>
-            <Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-white cursor-default">Terms &amp; Conditions</Link>
+            <Link to="/terms-and-conditions" className="hover:text-white">Terms &amp; Conditions</Link>
             <span>•</span>
-            <Link to="/" onClick={(e) => e.preventDefault()} className="hover:text-white cursor-default">80G Refund Policy</Link>
+            <Link to="/refund-policy" className="hover:text-white">80G Refund Policy</Link>
             <span>•</span>
             <span className="text-amber-300">
               Crafted by{' '}

@@ -19,9 +19,18 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenDonate }) => {
       }, 100);
       return () => clearTimeout(timer);
     }
+    if (location.hash === '#team') {
+      const timer = setTimeout(() => {
+        const el = document.getElementById('team');
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 100);
+      return () => clearTimeout(timer);
+    }
   }, [location]);
   return (
-    <div className="bg-slate-50 min-h-screen">
+    <div className="bg-white min-h-screen">
       {/* Top Page Header Banner */}
       <section className="bg-gradient-to-r from-[#002878] via-[#003896] to-[#002878] text-white pt-28 sm:pt-32 pb-16 px-4">
         <div className="site-container text-center max-w-3xl mx-auto space-y-4">
@@ -225,7 +234,83 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenDonate }) => {
             </div>
           </div>
 
-          {/* Row 4: Governance & Legal Integrity */}
+          {/* Row 4: Current Trustees & Our Team */}
+          <div id="team" className="bg-[#f8fafc] rounded-3xl p-8 sm:p-12 border border-slate-200 space-y-10 scroll-mt-28">
+            <div className="max-w-2xl space-y-2">
+              <span className="inline-block text-xs font-bold uppercase tracking-widest text-[#003896] bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+                Leadership &amp; Seva Stewards
+              </span>
+              <h2 className="!text-[26px] sm:!text-[28px] font-medium tracking-[-0.015em] text-[#18181b] font-heading leading-snug m-0">
+                Current Trustees &amp; Our Team
+              </h2>
+              <p className="text-[#444444] text-sm sm:text-base leading-relaxed">
+                Dedicated trustees and ground leaders ensuring every contribution directly uplifts Vrindavan’s elderly Matas with transparency and devotion.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {/* Current Trustees */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-bold text-[#002878] font-heading border-b border-slate-200 pb-2">
+                  Current Trustees
+                </h3>
+                <div className="bg-white rounded-2xl p-6 border border-slate-200 shadow-xs flex items-start gap-4">
+                  <div className="w-14 h-14 rounded-2xl bg-[#002878] text-white font-bold text-lg flex items-center justify-center shrink-0">
+                    AJ
+                  </div>
+                  <div className="space-y-1">
+                    <h4 className="text-base sm:text-lg font-bold text-slate-900 m-0">Amit-ji</h4>
+                    <p className="text-xs font-bold uppercase tracking-wider text-[#e65100] m-0">
+                      Managing Trustee
+                    </p>
+                    <p className="text-sm text-slate-600 leading-relaxed m-0 pt-1">
+                      Oversees strategic governance, ashram expansion, statutory 80G/FCRA compliance, and long-term welfare planning for over 1,500 Matas across Vrindavan and Radhakund.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Our Team */}
+              <div className="space-y-4">
+                <h3 className="text-lg font-bold text-[#002878] font-heading border-b border-slate-200 pb-2">
+                  Our Team
+                </h3>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs space-y-2">
+                    <div className="flex items-center gap-3">
+                      <div className="w-11 h-11 rounded-xl bg-amber-100 text-[#e65100] font-bold text-sm flex items-center justify-center shrink-0">
+                        MJ
+                      </div>
+                      <div>
+                        <h4 className="text-base font-bold text-slate-900 m-0">Manjit</h4>
+                        <p className="text-xs font-semibold text-[#003896] m-0">Seva Operations Lead</p>
+                      </div>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed m-0">
+                      Coordinates daily ration deliveries, Meal Heals distribution, and direct community care across Vrindavan.
+                    </p>
+                  </div>
+
+                  <div className="bg-white rounded-2xl p-5 border border-slate-200 shadow-xs space-y-2">
+                    <div className="flex items-center gap-3">
+                      <div className="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-700 font-bold text-sm flex items-center justify-center shrink-0">
+                        SD
+                      </div>
+                      <div>
+                        <h4 className="text-base font-bold text-slate-900 m-0">Sandeep</h4>
+                        <p className="text-xs font-semibold text-[#003896] m-0">Ashram &amp; Medical Coordinator</p>
+                      </div>
+                    </div>
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed m-0">
+                      Manages Aarogyavardhan medical camps, hospital referrals, and compassionate on-ground support for resident mothers.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Row 5: Governance & Legal Integrity */}
           <div className="bg-gradient-to-r from-blue-900 via-[#002878] to-blue-950 text-white rounded-3xl p-8 sm:p-12 shadow-xl space-y-8">
             <div className="max-w-2xl space-y-2">
               <h2 className="!text-[24px] font-normal tracking-[-0.015em] text-white font-heading leading-snug m-0">

@@ -15,7 +15,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'tata-steel',
         name: 'TATA Steel',
         svg: (
-          <svg viewBox="0 0 160 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 160 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <path d="M12 28 C12 16, 20 10, 28 8 C22 14, 18 20, 18 28 Z" fill="currentColor" />
             <path d="M44 28 C44 16, 36 10, 28 8 C34 14, 38 20, 38 28 Z" fill="currentColor" />
             <circle cx="28" cy="8" r="2.5" fill="currentColor" />
@@ -29,7 +29,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'icertis',
         name: 'Icertis',
         svg: (
-          <svg viewBox="0 0 150 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 150 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <rect x="10" y="10" width="16" height="16" rx="2" fill="none" stroke="currentColor" strokeWidth="2" transform="rotate(15 18 18)" />
             <rect x="15" y="14" width="16" height="16" rx="2" fill="none" stroke="currentColor" strokeWidth="2" transform="rotate(-10 23 22)" />
             <text x="46" y="25" fontFamily="sans-serif" fontSize="17" fontWeight="700" letterSpacing="-0.02em" fill="currentColor">
@@ -42,7 +42,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'vulkan',
         name: 'Vulkan',
         svg: (
-          <svg viewBox="0 0 150 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 150 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <text x="15" y="27" fontFamily="sans-serif" fontSize="20" fontWeight="900" letterSpacing="0.1em" fill="currentColor">
               VULKAN
             </text>
@@ -53,7 +53,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'trac1',
         name: 'TRAC1 Logistics',
         svg: (
-          <svg viewBox="0 0 160 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 160 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <path d="M12 12 H26 M19 12 V30" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
             <path d="M30 18 L38 8 L46 18 M38 8 V30" stroke="currentColor" strokeWidth="3" strokeLinecap="round" />
             <text x="54" y="24" fontFamily="sans-serif" fontSize="14" fontWeight="800" letterSpacing="0.05em" fill="currentColor">
@@ -69,7 +69,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'plaza-partners',
         name: 'Plaza Partners',
         svg: (
-          <svg viewBox="0 0 160 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 160 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <rect x="8" y="10" width="20" height="20" rx="2" fill="none" stroke="currentColor" strokeWidth="2" />
             <path d="M8 20 H28 M18 10 V30" stroke="currentColor" strokeWidth="1.5" />
             <text x="36" y="22" fontFamily="sans-serif" fontSize="13" fontWeight="900" letterSpacing="0.08em" fill="currentColor">
@@ -89,7 +89,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'indianoil',
         name: 'IndianOil',
         svg: (
-          <svg viewBox="0 0 160 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 160 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <circle cx="20" cy="20" r="14" fill="none" stroke="currentColor" strokeWidth="2.5" />
             <rect x="6" y="18" width="28" height="4" fill="currentColor" />
             <text x="44" y="24" fontFamily="sans-serif" fontSize="15" fontWeight="800" fill="currentColor">
@@ -102,7 +102,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'adobe',
         name: 'Adobe',
         svg: (
-          <svg viewBox="0 0 150 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 150 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <path d="M10 8 H24 L14 32 Z" fill="currentColor" />
             <path d="M38 8 H24 L34 32 Z" fill="currentColor" />
             <path d="M22 21 L28 21 L32 32 H25 L23 27 H18 Z" fill="currentColor" />
@@ -116,7 +116,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'dabur',
         name: 'Dabur',
         svg: (
-          <svg viewBox="0 0 150 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 150 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <circle cx="20" cy="14" r="3" fill="currentColor" />
             <circle cx="14" cy="10" r="2.5" fill="currentColor" />
             <circle cx="26" cy="10" r="2.5" fill="currentColor" />
@@ -133,7 +133,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'sedin',
         name: 'Sedin',
         svg: (
-          <svg viewBox="0 0 150 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 150 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <circle cx="18" cy="20" r="7" fill="none" stroke="currentColor" strokeWidth="3" />
             <circle cx="18" cy="20" r="3" fill="currentColor" />
             <text x="36" y="26" fontFamily="sans-serif" fontSize="17" fontWeight="800" fill="currentColor">
@@ -165,7 +165,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'ongc',
         name: 'ONGC',
         svg: (
-          <svg viewBox="0 0 150 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 150 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <rect x="10" y="8" width="24" height="24" rx="3" fill="none" stroke="currentColor" strokeWidth="2" />
             <path d="M16 26 L22 14 L28 26 M18 22 H26" stroke="currentColor" strokeWidth="1.8" />
             <text x="42" y="26" fontFamily="sans-serif" fontSize="17" fontWeight="900" letterSpacing="0.08em" fill="currentColor">
@@ -194,7 +194,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'dlf-brands',
         name: 'DLF Brands',
         svg: (
-          <svg viewBox="0 0 160 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 160 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <path d="M18 10 L10 24 L26 24 Z" fill="none" stroke="currentColor" strokeWidth="2" />
             <path d="M18 10 L14 24 M18 10 L22 24" stroke="currentColor" strokeWidth="1.5" />
             <text x="34" y="23" fontFamily="sans-serif" fontSize="15" fontWeight="900" letterSpacing="0.06em" fill="currentColor">
@@ -210,7 +210,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'pure-home',
         name: 'Pure Home & Living',
         svg: (
-          <svg viewBox="0 0 160 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 160 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <text x="12" y="20" fontFamily="sans-serif" fontSize="14" fontWeight="800" letterSpacing="0.15em" fill="currentColor">
               PURE
             </text>
@@ -243,7 +243,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'concor',
         name: 'CONCOR',
         svg: (
-          <svg viewBox="0 0 160 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 160 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <path d="M8 12 H24 M8 16 H28 M8 20 H32 M8 24 H28 M8 28 H24" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
             <text x="38" y="24" fontFamily="sans-serif" fontSize="15" fontWeight="900" letterSpacing="0.05em" fill="currentColor">
               CONCOR
@@ -255,7 +255,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'ananda',
         name: 'Ananda',
         svg: (
-          <svg viewBox="0 0 150 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 150 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <circle cx="20" cy="20" r="13" fill="none" stroke="currentColor" strokeWidth="2" />
             <path d="M15 22 C15 15, 25 15, 25 22 C25 26, 17 26, 18 20 C19 17, 22 17, 22 20" fill="none" stroke="currentColor" strokeWidth="1.8" />
             <text x="42" y="25" fontFamily="sans-serif" fontSize="16" fontWeight="700" fill="currentColor">
@@ -284,7 +284,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'games2win',
         name: 'Games2Win',
         svg: (
-          <svg viewBox="0 0 160 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 160 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <circle cx="20" cy="10" r="2.5" fill="currentColor" />
             <circle cx="26" cy="10" r="2.5" fill="currentColor" />
             <circle cx="32" cy="10" r="2.5" fill="currentColor" />
@@ -318,7 +318,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'nbcc',
         name: 'NBCC',
         svg: (
-          <svg viewBox="0 0 150 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 150 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <path d="M12 28 V16 C12 11, 20 7, 28 7 C36 7, 44 11, 44 16 V28 Z" fill="none" stroke="currentColor" strokeWidth="2" />
             <text x="17" y="23" fontFamily="sans-serif" fontSize="9" fontWeight="900" letterSpacing="0.15em" fill="currentColor">
               NBCC
@@ -333,7 +333,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'ais',
         name: 'AIS Glass',
         svg: (
-          <svg viewBox="0 0 160 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 160 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <path d="M18 10 L10 20 L18 30 M38 10 L46 20 L38 30" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
             <text x="21" y="25" fontFamily="sans-serif" fontSize="13" fontWeight="900" letterSpacing="0.05em" fill="currentColor">
               AIS
@@ -348,7 +348,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'dixon',
         name: 'Dixon',
         svg: (
-          <svg viewBox="0 0 150 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 150 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <text x="12" y="24" fontFamily="sans-serif" fontSize="19" fontWeight="900" fontStyle="italic" fill="currentColor">
               Dixon
             </text>
@@ -362,7 +362,7 @@ export const PatronLogosSection: React.FC = () => {
         id: '24-7-intouch',
         name: '24-7 InTouch',
         svg: (
-          <svg viewBox="0 0 160 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 160 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <circle cx="16" cy="18" r="7" fill="none" stroke="currentColor" strokeWidth="2" strokeDasharray="3 3" />
             <text x="28" y="22" fontFamily="sans-serif" fontSize="12" fontWeight="800" fill="currentColor">
               24-7 INTOUCH
@@ -396,7 +396,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'everest',
         name: 'Everest',
         svg: (
-          <svg viewBox="0 0 150 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 150 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <rect x="10" y="9" width="100" height="22" rx="4" fill="none" stroke="currentColor" strokeWidth="2.5" />
             <text x="18" y="25" fontFamily="sans-serif" fontSize="14" fontWeight="900" letterSpacing="0.1em" fill="currentColor">
               EVEREST
@@ -408,7 +408,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'mcx',
         name: 'MCX India',
         svg: (
-          <svg viewBox="0 0 150 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 150 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <text x="15" y="27" fontFamily="sans-serif" fontSize="22" fontWeight="900" letterSpacing="0.08em" fill="currentColor">
               MCX
             </text>
@@ -434,7 +434,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'seci',
         name: 'SECI',
         svg: (
-          <svg viewBox="0 0 150 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 150 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <circle cx="16" cy="18" r="6" fill="currentColor" />
             <rect x="26" y="12" width="12" height="12" fill="none" stroke="currentColor" strokeWidth="1.5" />
             <line x1="32" y1="12" x2="32" y2="24" stroke="currentColor" strokeWidth="1" />
@@ -449,7 +449,7 @@ export const PatronLogosSection: React.FC = () => {
         id: 'aerol',
         name: 'Aerol',
         svg: (
-          <svg viewBox="0 0 150 40" className="h-9 sm:h-10 w-auto max-w-[155px] object-contain" fill="currentColor">
+          <svg viewBox="0 0 150 40" className="h-12 sm:h-14 w-auto max-w-[195px] object-contain" fill="currentColor">
             <rect x="10" y="8" width="34" height="24" rx="12" fill="none" stroke="currentColor" strokeWidth="2.5" />
             <text x="48" y="22" fontFamily="sans-serif" fontSize="15" fontWeight="900" letterSpacing="0.05em" fill="currentColor">
               AEROL

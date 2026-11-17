@@ -38,7 +38,7 @@ export const PashuSevaPage: React.FC<PashuSevaPageProps> = ({ onOpenDonate }) =>
   ];
 
   return (
-    <div className="bg-slate-50 min-h-screen">
+    <div className="bg-white min-h-screen">
       {/* Top Banner */}
       <section className="bg-gradient-to-r from-[#002878] via-[#003896] to-[#002878] text-white pt-28 sm:pt-32 pb-16 px-4">
         <div className="site-container text-center max-w-3xl mx-auto space-y-4">
@@ -231,6 +231,32 @@ export const PashuSevaPage: React.FC<PashuSevaPageProps> = ({ onOpenDonate }) =>
               >
                 <Phone className="w-4 h-4" /> +91 8433147393 (Helpline)
               </a>
+            </div>
+          </div>
+
+          {/* Integrated Photos from Pashu Seva */}
+          <div className="pt-4 border-t border-slate-200 space-y-6">
+            <h2 className="!text-[26px] font-medium tracking-[-0.015em] text-[#18181b] font-heading leading-snug m-0">
+              Photos from our Vrindavan Gaushala &amp; Animal Rescue
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              {[
+                { src: '/images/pashu-seva.jpg', caption: 'Daily Green Fodder & Gau Seva' },
+                { src: '/images/hero-seva.jpg', caption: 'Loving Care at Vrindavan Ashram' },
+                { src: '/images/matri-seva.jpg', caption: 'Nourishment & Compassionate Shelter' }
+              ].map((photo, idx) => (
+                <div key={idx} className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm">
+                  <img
+                    src={photo.src}
+                    alt={photo.caption}
+                    className="w-full h-56 object-cover hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                  <div className="p-3.5 bg-white">
+                    <p className="text-sm font-semibold text-slate-800 m-0">{photo.caption}</p>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
 

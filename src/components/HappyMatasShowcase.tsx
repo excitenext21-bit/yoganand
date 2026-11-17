@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { 
-  ChevronRight, 
   MousePointer2, 
   Play, 
   Pause, 
@@ -81,14 +80,13 @@ const photoPool: MataPhotoItem[] = [
 ];
 
 const MOTIVATIONAL_SEVA_QUOTES: string[] = [
-  'Your small act of kindness today becomes a mother’s warm meal and dignity tomorrow.',
-  'To serve an abandoned mother is to offer prayers with your hands.',
-  'Even one shared meal can light up a forgotten Mata’s entire day.',
-  'True wealth is measured by the tears we wipe and the smiles we restore.',
-  'No mother should ever walk the twilight of her life hungry or alone.',
-  'When you give in seva, you heal two hearts — hers and your own.',
-  'A little warmth from you brings shelter, medicine, and hope to Vrindavan’s Matas.',
-  'Compassion in action is the purest form of devotion.',
+  'The highest duty of man is to serve others and thus see God in every living being. — Paramhansa Yogananda',
+  'Kindness is the light that dissolves all walls between souls and families. — Paramhansa Yogananda',
+  'Forget yourself in serving others, and you will find true joy and divine peace. — Paramhansa Yogananda',
+  'Love is the greatest power in the universe; expressed through selfless seva, it heals every sorrow. — Paramhansa Yogananda',
+  'Give freely from the heart, for what we share in love with others returns multiplied in grace. — Paramhansa Yogananda',
+  'See the Divine Mother in every soul you meet, and serve Her with humility and joy. — Paramhansa Yogananda',
+  'True happiness comes not from what we keep, but from the comfort we bring to those in need. — Paramhansa Yogananda',
 ];
 
 export const HappyMatasShowcase: React.FC<HappyMatasShowcaseProps> = ({
@@ -417,14 +415,9 @@ export const HappyMatasShowcase: React.FC<HappyMatasShowcaseProps> = ({
           <div className="mt-6 sm:mt-7 flex justify-center">
             <button
               onClick={handleScrollToStories}
-              className="bg-white hover:bg-slate-50 text-[#18181b] rounded-full pl-5 pr-2 py-2 shadow-xs border border-slate-200/70 inline-flex items-center gap-4 transition-all cursor-pointer group select-none"
+              className="btn-donate text-sm font-semibold cursor-pointer"
             >
-              <span className="text-xs sm:text-sm font-medium font-sans">
-                Read Success Stories
-              </span>
-              <span className="w-8 h-8 rounded-full bg-black text-white flex items-center justify-center group-hover:scale-105 transition-transform">
-                <ChevronRight className="w-4 h-4" />
-              </span>
+              <span>Read Donor Testimonials</span>
             </button>
           </div>
 

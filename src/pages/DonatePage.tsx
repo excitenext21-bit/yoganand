@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { ShieldCheck, Heart, Globe, CheckCircle2, Download, Lock } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { ShieldCheck, Heart, Globe, CheckCircle2, Download, Lock, QrCode, ExternalLink } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import type { DonorRecord } from '../data/mockCmsData';
 import { initiateRazorpayCheckout } from '../utils/razorpay';
@@ -9,8 +10,24 @@ interface DonatePageProps {
 }
 
 export const DonatePage: React.FC<DonatePageProps> = ({ onAddDonorRecord }) => {
-  const [portalType, setPortalType] = useState<'indian' | 'foreign'>('indian');
-  const [amount, setAmount] = useState<number>(3000);
+  const [searchParams] = useSearchParams();
+  const [portalType, setPortalType] = useState<'indian' | 'foreign'>(
+    searchParams.get('portal') === 'foreign' ? 'foreign' : 'indian'
+  );
+  const [amount, setAmount] = useState<number>(
+    searchParams.get('portal') === 'foreign' ? 50 : 3000
+  );
+
+  useEffect(() => {
+    const p = searchParams.get('portal');
+    if (p === 'foreign') {
+      setPortalType('foreign');
+      setAmount(50);
+    } else if (p === 'indian') {
+      setPortalType('indian');
+      setAmount(3000);
+    }
+  }, [searchParams]);
   const [isCustom, setIsCustom] = useState(false);
   const [customAmount, setCustomAmount] = useState<string>('');
   const [selectedProgram, setSelectedProgram] = useState<string>('Matri Seva Community (Rations & Healthcare)');
@@ -478,6 +495,68 @@ export const DonatePage: React.FC<DonatePageProps> = ({ onAddDonorRecord }) => {
 
             </div>
 
+          </div>
+
+          {/* Direct Donation Links & Scannable QR Codes for Indian & Foreign Donors */}
+          <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Indian Donors QR & Direct Link */}
+            <div className="bg-[#f8fafc] rounded-2xl p-6 border border-slate-200 flex flex-col sm:flex-row items-center gap-5">
+              <div className="bg-white p-2.5 rounded-xl border border-slate-200 shadow-xs shrink-0">
+                <img
+                  src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent('upi://pay?pa=yoganandatrust@sbi&pn=Paramhansa%20Yogananda%20Trust&cu=INR')}`}
+                  alt="Indian Donors 80G UPI QR Code"
+                  className="w-28 h-28 object-contain"
+                />
+              </div>
+              <div className="space-y-2 text-center sm:text-left">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#e65100] bg-orange-50 px-2.5 py-1 rounded-full border border-orange-200">
+                  <QrCode className="w-3.5 h-3.5" /> Indian Donors (80G)
+                </span>
+                <h3 className="text-base font-bold text-slate-900 m-0">
+                  Scan UPI QR or Direct INR Link
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed m-0">
+                  UPI ID: <strong>yoganandatrust@sbi</strong> • Instant 50% tax exemption under Section 80G.
+                </p>
+                <a
+                  href="upi://pay?pa=yoganandatrust@sbi&pn=Paramhansa%20Yogananda%20Trust&cu=INR"
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#003896] hover:underline pt-1"
+                >
+                  <span>Open Direct UPI Payment Link</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              </div>
+            </div>
+
+            {/* Foreign Donors FCRA QR & Direct Link */}
+            <div className="bg-[#f8fafc] rounded-2xl p-6 border border-slate-200 flex flex-col sm:flex-row items-center gap-5">
+              <div className="bg-white p-2.5 rounded-xl border border-slate-200 shadow-xs shrink-0">
+                <img
+                  src={`https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent('https://yoganandatrust.org/donate?portal=foreign')}`}
+                  alt="Foreign Donors FCRA QR Code"
+                  className="w-28 h-28 object-contain"
+                />
+              </div>
+              <div className="space-y-2 text-center sm:text-left">
+                <span className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
+                  <Globe className="w-3.5 h-3.5" /> Foreign Donors (FCRA)
+                </span>
+                <h3 className="text-base font-bold text-slate-900 m-0">
+                  Scan FCRA QR or Direct International Link
+                </h3>
+                <p className="text-xs text-slate-600 leading-relaxed m-0">
+                  MHA FCRA Approved • Supports USD, GBP, EUR, CAD, AUD cards &amp; international wire.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => { setPortalType('foreign'); setAmount(50); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#003896] hover:underline pt-1 bg-transparent border-0 p-0 cursor-pointer"
+                >
+                  <span>Switch to Direct FCRA Portal</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </button>
+              </div>
+            </div>
           </div>
 
         </div>

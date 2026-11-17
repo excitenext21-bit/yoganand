@@ -1,11 +1,18 @@
 // Mock Headless CMS Data Engine
 // Represents the Content Schema from Sanity / Payload CMS
 
+export interface ProgramMediaItem {
+  type: 'image' | 'video';
+  src: string;
+  poster?: string;
+  caption: string;
+}
+
 export interface ProgramItem {
   id: string;
   slug: string;
   title: string;
-  category: 'Matri Seva' | 'Healthcare' | 'Heart Of Seva' | 'Animal Welfare' | 'Nutrition';
+  category: 'Matri Seva' | 'Healthcare' | 'Animal Welfare' | 'Nutrition';
   tagline: string;
   description: string;
   image: string;
@@ -14,6 +21,19 @@ export interface ProgramItem {
   monthlyGoal: number;
   raisedAmount: number;
   details: string[];
+  mediaGallery: ProgramMediaItem[];
+}
+
+export interface DonorTestimonial {
+  id: string;
+  donorName: string;
+  location: string;
+  role: string;
+  quote: string;
+  impactHighlight: string;
+  programSupported: string;
+  initials: string;
+  supportedSince: string;
 }
 
 export interface MatajiStory {
@@ -47,10 +67,10 @@ export const initialPrograms: ProgramItem[] = [
   {
     id: 'prog-1',
     slug: 'matri-seva-ashram',
-    title: 'Matri Seva Ashram',
+    title: 'Matri Seva (Ashram)',
     category: 'Matri Seva',
     tagline: 'A Sanctum of Lifelong Shelter, Care & Spiritual Peace',
-    description: 'Providing safe, dignified residential living, comfortable bedding, and round-the-clock loving care for elderly destitute Matas who have no family or home.',
+    description: 'Providing safe, dignified residential living, comfortable bedding, and round-the-clock loving care for elderly Matas who have no family or home.',
     image: '/images/hero-seva.jpg',
     impactMetric: '280+ Mothers',
     beneficiariesCount: '280 Residents',
@@ -61,12 +81,19 @@ export const initialPrograms: ProgramItem[] = [
       'Clean, comfortable individual living quarters',
       'Daily morning and evening prayer gatherings',
       'Warm seasonal bedding and clothing support'
+    ],
+    mediaGallery: [
+      { type: 'video', src: '/videos/gallery-video-1.mp4', poster: '/images/trust_matas/mata_b5.jpg', caption: 'Sacred Ashram Life & Joyful Sisterhood' },
+      { type: 'video', src: '/videos/gallery-video-2.mp4', poster: '/images/trust_matas/bhakti_manaa_maa.jpg', caption: 'Morning & Evening Devotional Kirtan' },
+      { type: 'image', src: '/images/hero-seva.jpg', caption: 'Warm Ashram Courtyard in Vrindavan' },
+      { type: 'image', src: '/images/trust_matas/bhakti_manaa_maa.jpg', caption: 'Bhakti Manaa Maa at Matri Seva Ashram' },
+      { type: 'image', src: '/images/trust_matas/mata_b1.jpg', caption: 'Peaceful Daily Living Quarters' }
     ]
   },
   {
     id: 'prog-2',
     slug: 'matri-seva-community',
-    title: 'Matri Seva Community (Ashram Without Walls)',
+    title: 'Matri Seva (Community)',
     category: 'Matri Seva',
     tagline: 'Supporting Matas Right in Their Rented Rooms Across Vrindavan',
     description: 'Over 1,200 elderly Matas choose to reside independently in humble quarters across Vrindavan and Radhakund. We deliver monthly rations, fresh milk, vegetables, and living stipends directly to their doorsteps.',
@@ -80,15 +107,21 @@ export const initialPrograms: ProgramItem[] = [
       'Daily pure milk and fresh vegetable distribution',
       'Direct monthly rental stipends',
       'Solar lanterns and seasonal heating aid'
+    ],
+    mediaGallery: [
+      { type: 'video', src: '/videos/gallery-video-3.mp4', poster: '/images/trust_matas/mata_ration_seva.jpg', caption: 'Doorstep Monthly Ration & Care Delivery' },
+      { type: 'image', src: '/images/trust_matas/mata_ration_seva.jpg', caption: 'Monthly Grocery & Grain Kits' },
+      { type: 'image', src: '/images/trust_matas/deepa_maa.jpg', caption: 'Deepa Maa Receiving Community Support' },
+      { type: 'image', src: '/images/circle-of-love.jpg', caption: 'Community Gathering & Garland Crafting' }
     ]
   },
   {
     id: 'prog-3',
     slug: 'aarogyavardhan',
-    title: 'Aarogyavardhan Medical Program',
+    title: 'Aarogyavardhan',
     category: 'Healthcare',
     tagline: 'Free Multispecialty Medical, Bedside & Surgical Care',
-    description: 'Committed to making comprehensive healthcare completely free for destitute women and sadhus. Covers regular OPD consultations, chronic medicines for diabetes and hypertension, major surgeries, and cancer treatments.',
+    description: 'Committed to making comprehensive healthcare completely free for elderly Matas and sadhus. Covers regular OPD consultations, chronic medicines for diabetes and hypertension, major surgeries, and cancer treatments.',
     image: '/images/aarogyavardhan.jpg',
     impactMetric: '5,600+ Surgeries & OPDs',
     beneficiariesCount: '5,600+ Patients',
@@ -99,12 +132,18 @@ export const initialPrograms: ProgramItem[] = [
       'Free monthly supplies of chronic medications',
       'Sponsored cataract and vision-restoring surgeries',
       'Emergency bedside hospice and palliative care'
+    ],
+    mediaGallery: [
+      { type: 'video', src: '/videos/gallery-video-4.mp4', poster: '/images/aarogyavardhan.jpg', caption: 'Restoring Vision & Health in Vrindavan' },
+      { type: 'image', src: '/images/aarogyavardhan.jpg', caption: 'Aarogyavardhan Clinic Doctor Consultation' },
+      { type: 'image', src: '/images/trust_matas/anupama_maa.jpg', caption: 'Post-Surgery Recovery & Care' },
+      { type: 'image', src: '/images/trust_matas/aalo_maa.jpg', caption: 'Aalo Maa After Successful Treatment' }
     ]
   },
   {
     id: 'prog-4',
     slug: 'pashu-seva',
-    title: 'Pashu Seva (Animal Welfare)',
+    title: 'Pashu Seva (Animal Care)',
     category: 'Animal Welfare',
     tagline: 'Sacred Cow Seva & Stray Animal Rescue in Holy Vrindavan',
     description: 'Extending compassion to Vrindavan’s sacred cows, abandoned calves, and street animals. We provide daily fresh green fodder, veterinary medical treatments, and shelter for injured animals.',
@@ -118,15 +157,20 @@ export const initialPrograms: ProgramItem[] = [
       'On-call veterinary medical emergency care',
       'Sterilization, vaccination, and rabies prevention',
       'Winter protective coats and bedding for street animals'
+    ],
+    mediaGallery: [
+      { type: 'image', src: '/images/pashu-seva.jpg', caption: 'Sacred Gau Seva at Trust Gaushala' },
+      { type: 'image', src: '/images/hero-seva.jpg', caption: 'Matas Caring for Ashram Calves' },
+      { type: 'image', src: '/images/matri-seva.jpg', caption: 'Daily Fresh Green Fodder & Care' }
     ]
   },
   {
     id: 'prog-5',
     slug: 'meal-heals',
-    title: 'Meal Heals (Annapurna Seva)',
+    title: 'Meal Heals',
     category: 'Nutrition',
     tagline: 'Pure, Sattvic Daily Nutrition Prepared with Devotion',
-    description: 'Hot, hygienic, nutritious vegetarian meals cooked fresh in our ashram kitchen every morning. Delivered to impoverished mothers, disabled sadhus, and pilgrimage seekers who cannot cook for themselves.',
+    description: 'Hot, hygienic, nutritious vegetarian meals cooked fresh in our ashram kitchen every morning. Delivered to elderly mothers, disabled sadhus, and pilgrimage seekers who cannot cook for themselves.',
     image: '/images/meal-heals.jpg',
     impactMetric: '3,200+ Meals Daily',
     beneficiariesCount: '3,200 Daily Plates',
@@ -137,26 +181,60 @@ export const initialPrograms: ProgramItem[] = [
       'Special soft, low-spice diets for elderly mothers',
       'Hygienic stainless-steel delivery containers',
       'Festival special feast distributions'
+    ],
+    mediaGallery: [
+      { type: 'video', src: '/videos/gallery-video-3.mp4', poster: '/images/meal-heals.jpg', caption: 'Serving Warm Sattvic Meals Daily' },
+      { type: 'image', src: '/images/meal-heals.jpg', caption: 'Fresh Hot Rotis, Dal & Vegetables' },
+      { type: 'image', src: '/images/trust_matas/mata_feeding_seva.jpg', caption: 'Annapurna Seva Courtyard Meal Distribution' },
+      { type: 'image', src: '/images/matri-seva.jpg', caption: 'Serving Meals with Love & Reverence' }
     ]
+  }
+];
+
+export const donorTestimonials: DonorTestimonial[] = [
+  {
+    id: 'donor-1',
+    donorName: 'Rajeshwari & Vivek Malhotra',
+    location: 'New Delhi, India',
+    role: 'Monthly Patron Donors',
+    quote: 'Visiting the Vrindavan Ashram changed our family forever. Seeing the Matas smile with dignity, receive hot meals, and live in spotless rooms showed us that every rupee reaches the mothers directly.',
+    impactHighlight: 'Sponsoring 4 Matas monthly since 2020',
+    programSupported: 'Matri Seva (Ashram)',
+    initials: 'RM',
+    supportedSince: '2020'
   },
   {
-    id: 'prog-6',
-    slug: 'circle-of-love',
-    title: 'Circle of Love & Emotional Well-Being',
-    category: 'Heart Of Seva',
-    tagline: 'Eradicating Loneliness Through Devotional Fellowship',
-    description: 'A dedicated initiative to combat the silent epidemic of loneliness. Volunteers connect regularly via phone calls, community kirtans, festive celebrations, and hand-crafting sessions.',
-    image: '/images/circle-of-love.jpg',
-    impactMetric: '750+ Connections',
-    beneficiariesCount: '750+ Mothers',
-    monthlyGoal: 150000,
-    raisedAmount: 142000,
-    details: [
-      'Weekly devotional chanting and Bhajan circles',
-      'International companion phone-buddy system',
-      'Festive celebration of Holi, Diwali & Raksha Bandhan',
-      'Garland making and therapeutic craft activities'
-    ]
+    id: 'donor-2',
+    donorName: 'Dr. Arvind Krishnan',
+    location: 'Bengaluru, India',
+    role: 'Aarogyavardhan Medical Patron',
+    quote: 'As a physician, I am deeply impressed by Aarogyavardhan. From cataract surgeries to doorstep chronic medicines, the Trust delivers hospital-grade care with genuine warmth and full 80G transparency.',
+    impactHighlight: 'Sponsored 25+ cataract surgeries',
+    programSupported: 'Aarogyavardhan',
+    initials: 'AK',
+    supportedSince: '2021'
+  },
+  {
+    id: 'donor-3',
+    donorName: 'Meera & Sanjay Kapoor',
+    location: 'San Jose, California (USA)',
+    role: 'International FCRA Supporters',
+    quote: 'Contributing from abroad through the FCRA portal was effortless, and receiving photos and updates of the mothers we support fills our home with Paramhansa Yogananda-ji’s spirit of selfless seva.',
+    impactHighlight: 'Annual Meal Heals & Community Sponsors',
+    programSupported: 'Matri Seva (Community)',
+    initials: 'MK',
+    supportedSince: '2019'
+  },
+  {
+    id: 'donor-4',
+    donorName: 'Priya Nair',
+    location: 'Mumbai, India',
+    role: 'Festival & Meal Heals Donor',
+    quote: 'We celebrate our parents’ anniversaries by sponsoring Meal Heals and Pashu Seva in Vrindavan. The Trust team shares timely receipts and genuine gratitude from the ashram.',
+    impactHighlight: '1,000+ Sattvic meals sponsored',
+    programSupported: 'Meal Heals & Pashu Seva',
+    initials: 'PN',
+    supportedSince: '2022'
   }
 ];
 

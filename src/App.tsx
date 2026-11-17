@@ -7,6 +7,14 @@ import { CreativeLoader } from './components/CreativeLoader';
 import { DonationModal } from './components/DonationModal';
 import { FloatingDonationWidget } from './components/FloatingDonationWidget';
 import { HomePage } from './pages/HomePage';
+import { AboutPage } from './pages/AboutPage';
+import { ProgramDetailPage } from './pages/ProgramDetailPage';
+import { PashuSevaPage } from './pages/PashuSevaPage';
+import { HeartOfSevaPage } from './pages/HeartOfSevaPage';
+import { NewsAndBlogsPage } from './pages/NewsAndBlogsPage';
+import { ContactPage } from './pages/ContactPage';
+import { DonatePage } from './pages/DonatePage';
+import { LegalPage } from './pages/LegalPage';
 import { initialPrograms, sampleDonors, type ProgramItem, type DonorRecord } from './data/mockCmsData';
 
 // Scroll to top upon route change
@@ -94,19 +102,7 @@ export function App() {
   }, [pathname]);
 
   return (
-    <div
-      onClickCapture={(e) => {
-        const anchor = (e.target as HTMLElement).closest('a');
-        if (anchor) {
-          const href = anchor.getAttribute('href');
-          if (href && href.startsWith('/') && href !== '/' && !href.startsWith('/#')) {
-            e.preventDefault();
-            e.stopPropagation();
-          }
-        }
-      }}
-      className="min-h-screen flex flex-col bg-slate-50 text-slate-900 selection:bg-[#003896] selection:text-white"
-    >
+    <div className="min-h-screen flex flex-col bg-white text-slate-900 selection:bg-[#003896] selection:text-white">
       {/* Creative Website Loader: Power of Giving on White Background */}
       <CreativeLoader />
 
@@ -120,10 +116,9 @@ export function App() {
         heroSlide={heroSlide}
       />
 
-      {/* 2. Home-Only Landmark (Other routes disabled for client preview) */}
+      {/* 2. All Enabled Routes */}
       <main className="flex-1">
         <Routes>
-          {/* Home Route Only */}
           <Route
             path="/"
             element={
@@ -135,8 +130,21 @@ export function App() {
               />
             }
           />
+          <Route path="/about" element={<AboutPage onOpenDonate={handleOpenDonate} />} />
+          <Route path="/need-and-urgency" element={<AboutPage onOpenDonate={handleOpenDonate} />} />
+          <Route path="/work/:slug" element={<ProgramDetailPage onOpenDonate={handleOpenDonate} />} />
+          <Route path="/programs/:slug" element={<ProgramDetailPage onOpenDonate={handleOpenDonate} />} />
+          <Route path="/pashu-seva" element={<PashuSevaPage onOpenDonate={handleOpenDonate} />} />
+          <Route path="/heart-of-seva" element={<HeartOfSevaPage onOpenDonate={handleOpenDonate} />} />
+          <Route path="/news" element={<NewsAndBlogsPage />} />
+          <Route path="/news-and-blogs" element={<NewsAndBlogsPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/donate" element={<DonatePage onAddDonorRecord={handleAddDonorRecord} />} />
+          <Route path="/privacy-policy" element={<LegalPage type="privacy" />} />
+          <Route path="/terms-and-conditions" element={<LegalPage type="terms" />} />
+          <Route path="/refund-policy" element={<LegalPage type="refund" />} />
 
-          {/* Fallback all other routes to Home */}
+          {/* Fallback to Home */}
           <Route
             path="*"
             element={
@@ -144,6 +152,7 @@ export function App() {
                 programs={programs}
                 onOpenDonate={handleOpenDonate}
                 onNavigateSection={handleNavigateSection}
+                onHeroSlideChange={setHeroSlide}
               />
             }
           />

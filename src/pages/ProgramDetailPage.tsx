@@ -12,7 +12,7 @@ export const ProgramDetailPage: React.FC<ProgramDetailPageProps> = ({ onOpenDona
   const program = initialPrograms.find((p) => p.slug === slug) || initialPrograms[0];
 
   return (
-    <div className="bg-slate-50 min-h-screen">
+    <div className="bg-white min-h-screen">
       {/* Top Banner */}
       <section className="bg-gradient-to-r from-[#002878] via-[#003896] to-[#002878] text-white pt-28 sm:pt-32 pb-16 px-4">
         <div className="site-container max-w-4xl mx-auto space-y-4">
@@ -115,6 +115,54 @@ export const ProgramDetailPage: React.FC<ProgramDetailPageProps> = ({ onOpenDona
               </p>
             </div>
           </div>
+
+          {/* Integrated Photos & Videos for this Our Work Division */}
+          {program.mediaGallery && program.mediaGallery.length > 0 && (
+            <div className="pt-8 border-t border-slate-200 space-y-6">
+              <div className="space-y-1.5">
+                <span className="text-xs font-bold uppercase tracking-widest text-[#003896] bg-blue-50 px-3 py-1 rounded-full border border-blue-200">
+                  Seva Moments &amp; Field Chronicles
+                </span>
+                <h2 className="!text-[26px] font-medium tracking-[-0.015em] text-[#18181b] font-heading leading-snug m-0 pt-2">
+                  Photos &amp; Videos from {program.title}
+                </h2>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {program.mediaGallery.map((media, idx) => (
+                  <div
+                    key={idx}
+                    className="rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm flex flex-col"
+                  >
+                    <div className="relative aspect-video bg-slate-100 overflow-hidden">
+                      {media.type === 'video' ? (
+                        <video
+                          src={media.src}
+                          poster={media.poster}
+                          controls
+                          playsInline
+                          preload="metadata"
+                          className="w-full h-full object-cover"
+                        />
+                      ) : (
+                        <img
+                          src={media.src}
+                          alt={media.caption}
+                          className="w-full h-full object-cover object-top hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      )}
+                    </div>
+                    <div className="p-4 bg-white border-t border-slate-100">
+                      <p className="text-sm font-semibold text-slate-800 m-0">
+                        {media.caption}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
 
         </div>
       </section>
