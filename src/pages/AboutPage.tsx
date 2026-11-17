@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { ShieldCheck, Heart, Users, Award, Building, Sparkles, CheckCircle } from 'lucide-react';
+import { ShieldCheck, Heart, Users, Award, Building, Sparkles, CheckCircle, ArrowRight } from 'lucide-react';
 
 interface AboutPageProps {
   onOpenDonate: (portalType: 'indian' | 'foreign', programName?: string) => void;
@@ -31,25 +31,165 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenDonate }) => {
   }, [location]);
   return (
     <div className="bg-white min-h-screen">
-      {/* Top Page Header Banner */}
-      <section className="bg-gradient-to-r from-[#002878] via-[#003896] to-[#002878] text-white pt-28 sm:pt-32 pb-16 px-4">
-        <div className="site-container text-center max-w-3xl mx-auto space-y-4">
-          <h1 className="text-[36px] font-normal text-white tracking-tight">
-            About Paramhansa Yogananda Trust
-          </h1>
-          <p className="text-blue-100 text-sm sm:text-base leading-relaxed">
-            Founded in 2015, we are a registered public charitable trust dedicated to restoring sacred dignity, medical health, nutritious food, and unconditional spiritual love to the elderly destitute Matas of Vrindavan and Radhakund.
-          </p>
-          <div className="flex flex-wrap items-center justify-center gap-3 pt-2 text-xs font-semibold text-amber-300">
-            <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full border border-white/15">
-              <ShieldCheck className="w-4 h-4" /> 80G & 12A Certified
-            </span>
-            <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full border border-white/15">
-              <Award className="w-4 h-4" /> FCRA Approved (Ministry of Home Affairs)
-            </span>
-            <span className="flex items-center gap-1.5 bg-white/10 px-3 py-1.5 rounded-full border border-white/15">
-              <CheckCircle className="w-4 h-4" /> NITI Aayog NGO Darpan Verified
-            </span>
+      {/* Hero Section: White/Warm Off-White Background with India Map Masking Joyful Elderly Mothers */}
+      <section className="relative bg-[#fbfaf7] text-slate-900 pt-28 sm:pt-32 pb-14 sm:pb-20 px-4 overflow-hidden border-b border-slate-200/70">
+        {/* Subtle Decorative Faint Map Backdrop */}
+        <svg
+          viewBox="0 0 600 660"
+          aria-hidden="true"
+          className="pointer-events-none absolute -left-20 top-6 w-[520px] h-[560px] text-[#f0ede4] opacity-80 hidden lg:block"
+          fill="currentColor"
+        >
+          <path d="M235,20 L265,18 L292,38 L310,60 L300,88 L322,115 L345,135 L335,165 L358,185 L395,195 L430,210 L455,205 L475,185 L505,190 L525,215 L505,245 L485,260 L495,290 L470,305 L452,275 L428,270 L405,295 L415,325 L385,355 L355,390 L320,425 L292,465 L275,515 L258,565 L235,620 L215,595 L195,545 L178,490 L165,435 L155,385 L125,365 L95,355 L75,335 L95,310 L70,290 L65,265 L95,250 L125,255 L145,230 L132,195 L152,165 L178,145 L192,115 L182,82 L205,52 Z" />
+        </svg>
+
+        <div className="site-container relative z-10 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+            
+            {/* Left Column: Editorial Headline, Subtext & Donate CTA */}
+            <div className="lg:col-span-5 space-y-5 text-left relative">
+              {/* Accent Dots matching reference */}
+              <span className="hidden sm:block absolute -top-6 right-10 w-4 h-4 rounded-full bg-[#f97316]" />
+              <span className="hidden sm:block absolute top-32 -left-6 w-2.5 h-2.5 rounded-full bg-[#38bdf8]" />
+
+              <h1
+                style={{ fontFamily: "'Fraunces', Georgia, serif" }}
+                className="!text-[38px] sm:!text-[48px] lg:!text-[54px] font-bold text-[#111827] leading-[1.08] tracking-tight m-0"
+              >
+                Dignity begins where neglect ends
+              </h1>
+
+              <p className="text-base sm:text-[17px] text-slate-600 leading-relaxed max-w-md m-0 font-sans">
+                Founded in 2015, we are building a Vrindavan where every elderly mother lives with nourishment, Aarogyavardhan healthcare, and sacred love.
+              </p>
+
+              <div className="pt-2 flex flex-wrap items-center gap-3">
+                <button
+                  type="button"
+                  onClick={() => onOpenDonate('indian')}
+                  className="btn-donate text-sm font-semibold cursor-pointer"
+                >
+                  <span>Donate Now (80G)</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => onOpenDonate('foreign')}
+                  className="py-2.5 px-5 rounded-full bg-white hover:bg-slate-50 text-[#003896] border border-slate-300 text-sm font-semibold transition-all cursor-pointer"
+                >
+                  <span>Foreign Donors (FCRA)</span>
+                </button>
+              </div>
+
+              <div className="flex flex-wrap items-center gap-2.5 pt-2 text-xs font-semibold text-slate-700">
+                <span className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-2xs">
+                  <ShieldCheck className="w-4 h-4 text-[#003896]" /> 80G &amp; 12A Certified
+                </span>
+                <span className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-2xs">
+                  <Award className="w-4 h-4 text-[#e65100]" /> FCRA Approved
+                </span>
+                <span className="flex items-center gap-1.5 bg-white px-3 py-1.5 rounded-full border border-slate-200 shadow-2xs">
+                  <CheckCircle className="w-4 h-4 text-emerald-600" /> NGO Darpan Verified
+                </span>
+              </div>
+            </div>
+
+            {/* Right Column: India Map Silhouette Masking Elderly Mothers Laughing */}
+            <div className="lg:col-span-7 relative flex items-center justify-center">
+              {/* Accent Dots around the India Map */}
+              <span className="absolute top-10 left-8 w-3 h-3 rounded-full bg-[#84cc16] z-20" />
+              <span className="absolute top-1/3 right-4 sm:right-8 w-3.5 h-3.5 rounded-full bg-[#ef4444] z-20" />
+              <span className="absolute bottom-10 left-1/4 w-4 h-4 rounded-full bg-[#0ea5e9] z-20" />
+
+              <svg
+                viewBox="0 0 600 660"
+                className="w-full max-w-[540px] h-auto drop-shadow-xl"
+                role="img"
+                aria-label="India map framing joyful elderly mothers in Vrindavan"
+              >
+                <defs>
+                  <clipPath id="india-map-hero-mask">
+                    <path d="M235,20 L265,18 L292,38 L310,60 L300,88 L322,115 L345,135 L335,165 L358,185 L395,195 L430,210 L455,205 L475,185 L505,190 L525,215 L505,245 L485,260 L495,290 L470,305 L452,275 L428,270 L405,295 L415,325 L385,355 L355,390 L320,425 L292,465 L275,515 L258,565 L235,620 L215,595 L195,545 L178,490 L165,435 L155,385 L125,365 L95,355 L75,335 L95,310 L70,290 L65,265 L95,250 L125,255 L145,230 L132,195 L152,165 L178,145 L192,115 L182,82 L205,52 Z" />
+                  </clipPath>
+                </defs>
+
+                {/* Soft border backing */}
+                <path
+                  d="M235,20 L265,18 L292,38 L310,60 L300,88 L322,115 L345,135 L335,165 L358,185 L395,195 L430,210 L455,205 L475,185 L505,190 L525,215 L505,245 L485,260 L495,290 L470,305 L452,275 L428,270 L405,295 L415,325 L385,355 L355,390 L320,425 L292,465 L275,515 L258,565 L235,620 L215,595 L195,545 L178,490 L165,435 L155,385 L125,365 L95,355 L75,335 L95,310 L70,290 L65,265 L95,250 L125,255 L145,230 L132,195 L152,165 L178,145 L192,115 L182,82 L205,52 Z"
+                  fill="#ede9df"
+                />
+
+                {/* Joyful elderly women laughing inside India Map mask */}
+                <image
+                  href="/images/circle-of-love.jpg"
+                  x="-110"
+                  y="30"
+                  width="820"
+                  height="580"
+                  preserveAspectRatio="xMidYMid slice"
+                  clipPath="url(#india-map-hero-mask)"
+                />
+              </svg>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      {/* Row 1: Editorial About Us Section */}
+      <section className="bg-[#F4F1EA] text-[#1c1b18] py-16 sm:py-20 lg:py-24 px-4">
+        <div className="site-container">
+          <h2 className="sr-only">Inspired by the great master Paramhansa Yogananda</h2>
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+            
+            {/* Left Column: Eyebrow Dot + Rounded Photo + Location Caption */}
+            <div className="lg:col-span-3 flex flex-col">
+              <div className="inline-flex items-center gap-2.5">
+                <span className="w-2 h-2 rounded-full bg-[#B85D3B] shrink-0" aria-hidden="true" />
+                <span className="text-[13px] font-medium text-[#2c2a27] tracking-normal font-sans">
+                  About us
+                </span>
+              </div>
+
+              <div className="mt-8 sm:mt-12 lg:mt-14 max-w-[280px] lg:max-w-none">
+                <div className="rounded-xl overflow-hidden aspect-[4/3] bg-[#e8e4dc]">
+                  <img
+                    src="/images/hero-seva.jpg"
+                    alt="Aged Mother receiving care at Yogananda Trust Vrindavan"
+                    className="w-full h-full object-cover object-[center_top]"
+                  />
+                </div>
+                <p className="mt-2.5 text-[12px] text-[#6b665e] font-sans m-0">
+                  Chaitanya Vihar, Phase-2, Vrindavan
+                </p>
+              </div>
+            </div>
+
+            {/* Right Column: Large Editorial Serif Statement + Sub-row */}
+            <div className="lg:col-span-8 lg:col-start-5 flex flex-col justify-between">
+              <p
+                style={{ fontFamily: "'Fraunces', Georgia, serif" }}
+                className="text-[28px] sm:text-[36px] lg:text-[42px] xl:text-[46px] font-light leading-[1.16] tracking-[-0.02em] text-[#1c1b18] m-0"
+              >
+                Founded in August 2015, Paramhansa Yogananda Public Charitable Trust is a humanitarian sanctuary in Vrindavan and Radhakund—supporting over 1,500 elderly, abandoned Matas daily through lifelong housing, doorstep care, emergency hospital surgeries, and devotion.
+              </p>
+
+              <div className="mt-10 sm:mt-14 lg:mt-16 flex flex-col sm:flex-row sm:items-end justify-between gap-8">
+                <p className="max-w-[460px] text-[14px] sm:text-[15px] leading-[1.6] text-[#5c5850] font-sans m-0">
+                  Inspired by Paramhansa Yogananda, author of <em>Autobiography of a Yogi</em>, we serve suffering souls with loving, self-forgetful care—honoring each destitute mother as the Divine Mother herself.
+                </p>
+
+                <a
+                  href="#need-and-urgency"
+                  className="group inline-flex items-center gap-3.5 text-[14px] font-medium text-[#1c1b18] hover:text-[#1c1b18] transition-colors shrink-0 no-underline"
+                >
+                  <span>Need &amp; urgency</span>
+                  <span className="w-10 h-10 rounded-full border border-[#1c1b18]/30 flex items-center justify-center group-hover:border-[#1c1b18] group-hover:bg-[#1c1b18] group-hover:text-white transition-all duration-300">
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-0.5" />
+                  </span>
+                </a>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
@@ -57,52 +197,6 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onOpenDonate }) => {
       {/* Main Narrative & History */}
       <section className="py-16 px-4">
         <div className="site-container space-y-16">
-          
-          {/* Row 1: Founding & Inspiration */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            <div className="lg:col-span-6 space-y-6">
-              <h2 className="!text-[24px] font-normal tracking-[-0.015em] text-[#464646] font-heading leading-snug m-0">
-                Inspired by the great master Paramhansa Yogananda
-              </h2>
-              <div className="space-y-4 text-slate-700 text-sm sm:text-base leading-relaxed">
-                <p>
-                  Paramhansa Yogananda, author of the spiritual classic <em>Autobiography of a Yogi</em>, taught that true religion consists of seeing the Divine in all human beings, and that the highest spiritual path is loving, self-forgetful service to suffering souls.
-                </p>
-                <p>
-                  In August 2015, disciples and dedicated philanthropists founded the <strong>Paramhansa Yogananda Public Charitable Trust</strong> as an independent non-profit institution to address one of India’s most poignant social tragedies: the plight of elderly, abandoned Matas residing in the pilgrimage towns of Vrindavan and Radhakund.
-                </p>
-                <p>
-                  What started with a humble effort to distribute dry rations to a few dozen mothers has blossomed into a comprehensive humanitarian sanctuary supporting over 1,500 destitute mothers daily through lifelong housing, doorstep care, emergency hospital surgeries, and devotion.
-                </p>
-              </div>
-
-              <div className="grid grid-cols-2 gap-4 pt-2">
-                <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
-                  <div className="text-2xl font-bold font-serif text-[#003896]">2015</div>
-                  <div className="text-xs text-[#444444] mt-1">Year Established under Indian Trusts Act</div>
-                </div>
-                <div className="bg-white p-4 rounded-xl border border-slate-200 shadow-xs">
-                  <div className="text-2xl font-bold font-serif text-[#e65100]">1,500+</div>
-                  <div className="text-xs text-[#444444] mt-1">Matajis Supported Daily Across Braj</div>
-                </div>
-              </div>
-            </div>
-
-            <div className="lg:col-span-6">
-              <div className="relative rounded-2xl overflow-hidden shadow-xl border-4 border-white bg-slate-200">
-                <img
-                  src="/images/hero-seva.jpg"
-                  alt="Aged Mother receiving care at Yogananda Trust Vrindavan"
-                  className="w-full h-[420px] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent flex items-end p-6">
-                  <p className="text-white text-xs sm:text-sm font-medium italic">
-                    "When you serve a destitute mother in Vrindavan, you serve the Divine Mother herself."
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
 
           {/* Row 2: Need & Urgency in Vrindavan */}
           <div id="need-and-urgency" className="bg-white rounded-3xl p-8 sm:p-12 border border-slate-200 shadow-sm space-y-8 scroll-mt-28">

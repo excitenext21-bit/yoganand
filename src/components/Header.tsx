@@ -76,8 +76,8 @@ export const Header: React.FC<HeaderProps> = ({ onOpenDonate }) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // When not scrolled, navigation text and logo are white for all hero slides
-  const isLightText = !scrolled;
+  // When not scrolled on Home hero, navigation text and logo are white; on light-hero pages like /about, use dark text & original logo
+  const isLightText = !scrolled && pathname === '/';
 
   const navLinkClass = `py-1 transition-colors font-semibold ${
     isLightText 

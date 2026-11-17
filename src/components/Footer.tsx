@@ -63,10 +63,10 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDonate }) => {
             )}
           </div>
         </div>
-        
+
         {/* Top 4-Column Responsive Grid (12 Columns) with subtle vertical dividers */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-8">
-          
+
           {/* Brand Info & Mission */}
           <div className="lg:col-span-3 space-y-4">
             <div className="flex items-center gap-3">
@@ -84,7 +84,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDonate }) => {
 
           {/* Column 2: Our Work (Sevas) */}
           <div className="lg:col-span-3 space-y-3 lg:border-l lg:border-white/15 lg:pl-6">
-            <h4 
+            <h4
               style={{ color: '#ffffff' }}
               className="text-xs font-bold !text-white uppercase tracking-wider"
             >
@@ -101,7 +101,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDonate }) => {
 
           {/* Column 3: Trust & Chronicles */}
           <div className="lg:col-span-3 space-y-3 lg:border-l lg:border-white/15 lg:pl-6">
-            <h4 
+            <h4
               style={{ color: '#ffffff' }}
               className="text-xs font-bold !text-white uppercase tracking-wider"
             >
@@ -118,7 +118,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDonate }) => {
 
           {/* Column 4: Dedicated Portals & Contact */}
           <div className="lg:col-span-3 space-y-3 lg:border-l lg:border-white/15 lg:pl-6">
-            <h4 
+            <h4
               style={{ color: '#ffffff' }}
               className="text-xs font-bold !text-white uppercase tracking-wider"
             >
@@ -162,7 +162,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDonate }) => {
         {/* Bottom Legal & Compliance Strip */}
         <div className="pt-6 border-t border-white/15 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-blue-200/80">
           <p>© {new Date().getFullYear()} Paramhansa Yogananda Public Charitable Trust. All rights reserved.</p>
-          
+
           <div className="flex flex-wrap items-center gap-4 text-xs">
             <Link to="/privacy-policy" className="hover:text-white">Privacy Policy</Link>
             <span>•</span>
